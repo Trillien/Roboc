@@ -8,14 +8,15 @@ Les tests unitaires de la classe Carte utilisent deux jeux de fichiers:
 - un jeu de fichiers invalides avec des éléments absents ou inconnus
 """
 
-from typing import List
+from typing import List, Final
 from carte import Carte
 import os
 import unittest
 
-dossier_cartes_valides = "test dossier/cartes valides"
-dossier_cartes_invalides = "test dossier/cartes invalides"
-fichier_introuvable = ""
+dossier_courant: Final[str] = os.path.dirname(__file__)
+dossier_cartes_valides: Final[str] = os.path.join(dossier_courant, "test dossier/cartes valides")
+dossier_cartes_invalides: Final[str] = os.path.join(dossier_courant, "test dossier/cartes invalides")
+fichier_introuvable: Final[str] = ""
 
 
 class CarteTest(unittest.TestCase):

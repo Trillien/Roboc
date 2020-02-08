@@ -5,6 +5,7 @@ Ce module contient la classe LabyrintheTest
 """
 
 from typing import Tuple, Set, List, Dict, cast, ClassVar, Any, Optional
+from os import path
 from element import Obstacle, Element, Elements, Decryptable, Decrypte, Gagnable, Defaut, Demarrable, Transformable,\
     Traversable
 from labyrinthe import Labyrinthe, Coordonnees, Grille
@@ -325,15 +326,15 @@ class AffichageTest(unittest.TestCase):
     Test case utilisé pour tester les fonctions d'affichage de la classe Labyrinthe.
     """
 
+    dossier_courant: ClassVar[str] = path.dirname(__file__)
     extension: ClassVar[str] = ".txt"
     carte: ClassVar[str] = "sans_bord"
-    chemin: ClassVar[str] = "./test labyrinthe/" + carte + extension
+    chemin: ClassVar[str] = path.join(dossier_courant, "test labyrinthe/" + carte + extension)
 
     def setUp(self) -> None:
         """
         Crée un labyrinthe depuis la 'carte'
         """
-
         self.chaine: str = str()
         with open(self.chemin, "r") as fichier:
             self.chaine = fichier.read()

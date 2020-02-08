@@ -11,10 +11,11 @@ from dossier import Dossier
 import os
 import unittest
 
-dossier_de_test: Final[str] = "test dossier"
-dossier_vide: Final[str] = "test dossier/dossier vide"
+dossier_courant: Final[str] = os.path.dirname(__file__)
+dossier_de_test: Final[str] = os.path.join(dossier_courant, "test dossier")
+dossier_vide: Final[str] = os.path.join(dossier_courant, "test dossier/dossier vide")
 fichier_introuvable: Final[str] = "-"
-fichier_vide: Final[str] = "test dossier/vide.txt"
+fichier_vide: Final[str] = os.path.join(dossier_courant, "test dossier/vide.txt")
 extension_introuvable: Final[str] = "."
 
 
