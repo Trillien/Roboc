@@ -45,7 +45,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as requete:
       C'est le seul à envoyer des messages au serveur, c'est le seul à afficher des informations
     - Interface Client écoute les saisies utilisateur et les transmet à Main Thread
     - Interface Serveur reçoit les messages du serveur et les transmet à Main Thread
-    
+
     Tranmission permet d'envoyer des messages au serveur
     """
 
@@ -59,7 +59,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as requete:
     """
     Boucle principale:
     Main Thread récupère un message de la liste Messagerie qui contient un tuple (categorie, message)
-    
+
     Categories reçues du Serveur (transmis par Interface Serveur):
     - 'affichage', affiche le message
     - 'validation_schema' ou 'validation_erreur', envoie les paramètres à la classe ValidateurTexte
@@ -67,7 +67,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as requete:
 
     Categorie reçue de Interface Client:
     - 'saisie', instancie ValidateurTexte pour tester la saisie, et l'envoie au serveur
-    
+
     Categorie reçue de Interface Client ou Interface Serveur:
     - 'erreur', affiche le message et quitte la boucle
     """
@@ -107,7 +107,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as requete:
     """
     L'utilisateur a saisie la touche 'Quitter.touche'
     ou une erreur s'est produite dans le Thread Interface Client ou le Thread Interface Serveur,
-    
+
     Le programme quitte la boucle principale et sort le Thread Interface Client de sa boucle infinie
     La connexion au serveur est fermée et le Thread Interface Serveur s'arrête.
     """

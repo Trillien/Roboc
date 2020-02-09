@@ -34,7 +34,7 @@ class CarteTest(unittest.TestCase):
         self.liste_cartes_invalides = self.parcourir_dossier(dossier_cartes_invalides)
         Carte.elements_connus = {" ", "O", ".", "U"}
         Carte.elements_obligatoires = {"U"}
-            
+
     def parcourir_dossier(self, dossier: str) -> List[str]:
         """
         Liste les fichiers et les sous-dossiers (fonction récursive) d'un dossier
@@ -52,7 +52,7 @@ class CarteTest(unittest.TestCase):
             elif os.path.isfile(chemin):
                 liste_fichiers.append(chemin)
         return liste_fichiers
-    
+
     def test_cartes_valides(self) -> None:
         """
         Carte doit renvoyer True pour chaque fichier du jeu valide
@@ -65,7 +65,7 @@ class CarteTest(unittest.TestCase):
             carte = Carte(chemin=chemin)
             self.assertTrue(carte)
             self.assertEqual(contenu, carte.contenu)
-            
+
     def test_cartes_invalides(self) -> None:
         """
         Carte doit renvoyer False pour chaque fichier du jeu invalide

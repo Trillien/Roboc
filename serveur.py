@@ -84,11 +84,11 @@ else:
         """
         Première boucle avant le début de partie qui autorise de nouveaux joueurs:
         Main Thread récupère un message de la liste Messagerie qui contient un tuple (émetteur, categorie, message)
-    
+
         Categories reçues des Threads 'RequestHandler':
         - 'nouveau_joueur', ajoute un joueur au labyrinthe et transmet le message d'accueil
-        - 'quitte', supprime le joueur du labyrinthe  
-        
+        - 'quitte', supprime le joueur du labyrinthe
+
         Categorie reçue des Clients (transmis par les Threads 'RequestHandler'):
         - 'commande', quitte la boucle si la saisie du client est 'touche_commencer'
         """
@@ -131,13 +131,13 @@ else:
         """
         Boucle principale:
         Main Thread récupère un message de la liste Messagerie qui contient un tuple (émetteur, categorie, message)
-    
+
         Categorie reçue des Threads 'RequestHandler':
         - 'quitte', supprime le joueur du labyrinthe, informe les autres joueurs et renvoie le plateau
-        
+
         Categorie reçue des Clients (transmis par les Threads 'RequestHandler'):
         - 'commande', ajoute les commandes au joueur, renvoie la liste des commandes au client réseau
-          puis joue les commandes des joueurs à tour de rôle jusqu'à leur épuisement        
+          puis joue les commandes des joueurs à tour de rôle jusqu'à leur épuisement
         """
 
         while labyrinthe.mode < Labyrinthe.fin_de_partie:
@@ -167,7 +167,7 @@ else:
 
         Transmet à chaque joueur le vainqueur de la partie
         et envoie 'fin' aux clients réseau pour se déconnecter du serveur
-        
+
         Le Thread Serveur n'accepte plus de connexion
         et attend que les Thread 'RequestHandler' se terminent pour s'arrêter
         """

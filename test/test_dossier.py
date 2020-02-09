@@ -68,7 +68,7 @@ class DossierTest(unittest.TestCase):
 
         self.liste_fichiers = self.__parcourir_dossier(dossier_de_test)
         self.extensions = self.__parcourir_extensions()
-            
+
     def __parcourir_dossier(self, dossier: str) -> List[str]:
         """
         Liste les fichiers et les sous-dossiers (fonction récursive) d'un dossier
@@ -119,7 +119,7 @@ class DossierTest(unittest.TestCase):
             fichiers_test.sort()
             self.assertEqual(fichiers, fichiers_test)
             self.assertEqual(len(fichiers), len(dossier))
-    
+
     def test_lister_les_fichiers_par_fichier(self) -> None:
         """
         En passant un chemin de fichier en paramètre,
@@ -138,7 +138,7 @@ class DossierTest(unittest.TestCase):
 
         with self.assertRaises(FileNotFoundError):
             Dossier(chemin=fichier_introuvable)
-    
+
     def test_extension_introuvable(self) -> None:
         """
         Dossier doit renvoyer l'exception FileNotFoundError
@@ -147,7 +147,7 @@ class DossierTest(unittest.TestCase):
 
         with self.assertRaises(FileNotFoundError):
             Dossier(chemin=dossier_de_test, extension=extension_introuvable)
-    
+
     def test_fichier_vide(self) -> None:
         """
         Dossier doit renvoyer l'exception EOFError
@@ -156,7 +156,7 @@ class DossierTest(unittest.TestCase):
 
         with self.assertRaises(EOFError):
             Dossier(chemin=fichier_vide)
-    
+
     def test_dossier_vide(self) -> None:
         """
         Dossier doit renvoyer l'exception FileNotFoundError
@@ -165,7 +165,7 @@ class DossierTest(unittest.TestCase):
 
         with self.assertRaises(FileNotFoundError):
             Dossier(chemin=dossier_vide)
-            
+
     def test_lire_les_fichiers(self) -> None:
         """
         En passant la classe EstTrue en paramètre,
