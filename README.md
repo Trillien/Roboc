@@ -15,7 +15,7 @@ Le joueur doit atteindre le premier la sortie du labyrinthe
 ## Symboles du labyrinthe
 ### 1. Eléments de la grille du labyrinthe
 Symbole|Elément|Caractéristiques
----|---|---
+:---:|---|---
 O|Mur|Le joueur ne peut pas le traverser. Il peut le percer.
 .|Porte|Le joueur peut la traverser. Il peut la murer.
 U|Sortie|Le joueur doit l'atteindre pour gagner la partie.
@@ -37,7 +37,7 @@ OOOOOOOOOO
 
 ### 2. Autres symboles
 Symbole|Elément|Caractéristiques
----|---|---
+:---:|---|---
 X|Joueur|C'est vous !
 x|Adversaire|Un autre joueur
 
@@ -58,7 +58,7 @@ OOOOOOOOOO
 
 ## Contrôles
 Touche|Définition|Exemple de saisie
----|---|---
+:---:|---|---
 N|Se déplacer vers le Nord|'N' effectue un déplacement vers le Nord
 S|Se déplacer vers le Sud|'S1' effectue un déplacement vers le Sud
 E|Se déplacer vers l'Est|'E13' effectue 13 déplacements vers l'Est
