@@ -58,7 +58,7 @@ class RequestHandler(socketserver.BaseRequestHandler, Transmission):
 
         self.nom_joueur = "Joueur " + str(next(compter))
         # Erreur mypy relative au bug décrit sur https://github.com/python/mypy/issues/5887
-        super().__init__(requete, adresse_client, serveur)
+        super().__init__(requete, adresse_client, serveur)  # type: ignore
 
     def setup(self) -> None:
         """
