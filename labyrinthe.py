@@ -4,7 +4,7 @@
 Ce module contient la classe ``Labyrinthe``.
 """
 
-from typing import Tuple, Dict, List, Set, Any, Iterator, Optional, cast, Type, ClassVar, Final
+from typing import Tuple, Dict, List, Set, Any, Iterator, Optional, cast, Type, Final
 from operator import itemgetter
 from random import randint, sample, shuffle
 import element

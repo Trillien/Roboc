@@ -42,7 +42,7 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as requete:
 
     """
     Instanciation et démarrage des Threads:
-    
+
     - *Main Thread* reçoit les informations des deux autres Threads.
       C'est le seul à envoyer des messages au serveur, c'est le seul à afficher des informations.
     - *Interface Client* écoute les saisies utilisateur et les transmet à *Main Thread*.
@@ -60,21 +60,21 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as requete:
 
     """
     Boucle principale:
-    
+
     *Main Thread* récupère un message de la liste de la classe ``Messagerie`` qui contient un tuple ``(categorie, message)``.
 
     Catégories reçues du Serveur (transmis par *Interface Serveur*):
-    
+
     - ``"affichage"``, affiche le message.
     - ``"validation_schema"`` ou ``"validation_erreur"``, envoie les paramètres à la classe ``ValidateurTexte``.
     - ``"fin"``, change le mode de ``ValidateurTexte``.
 
     Catégorie reçue de *Interface Client*:
-    
+
     - ``"saisie"``, instancie ``ValidateurTexte`` pour tester la saisie, et l'envoie au Serveur.
 
     Catégorie reçue de *Interface Client* ou *Interface Serveur*:
-    
+
     - ``"erreur"``, affiche le message et quitte la boucle.
     """
 

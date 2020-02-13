@@ -72,7 +72,7 @@ else:
 
     """
     Instanciation et démarrage des Threads:
-    
+
     - *Main Thread* reçoit les informations des Threads *RequestHandler*. C'est le seul à envoyer des messages aux clients,
       c'est le seul à afficher des informations.
     - *Serveur* écoute le réseau pour accepter de nouvelles connexions.
@@ -90,12 +90,12 @@ else:
         ``(émetteur, categorie, message)``.
 
         Catégories reçues des Threads *RequestHandler*:
-        
+
         - ``"nouveau_joueur"``, ajoute un joueur au labyrinthe et transmet le message d'accueil.
         - ``"quitte"``, supprime le joueur du labyrinthe.
 
         Catégorie reçue des Clients (transmis par les Threads *RequestHandler*):
-        
+
         - ``"commande"``, quitte la boucle si la saisie du client est ``touche_commencer``.
         """
 
@@ -136,7 +136,7 @@ else:
 
         """
         Boucle principale:
-        
+
         *Main Thread* récupère un message de la liste de la classe ``Messagerie`` qui contient un tuple
         ``(émetteur, categorie, message)``.
 
@@ -170,7 +170,7 @@ else:
 
         """
         Le programme quitte la boucle principale:
-        
+
         - un joueur a atteint une sortie.
         - ou, après le départ d'un joueur, le nombre de joueur en lice est passé à 1 ou moins.
 
