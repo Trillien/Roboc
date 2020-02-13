@@ -1,7 +1,7 @@
 # Roboc
 Code d'un jeu de labyrinthe pour le cours "Apprenez à programmer en Python" d'OpenClassrooms
 
-![Jeu du labyrinthe](./documentation/screenshots/01%20-%20Labyrinth%20game.png "Jeu du labyrinthe")
+![Jeu du labyrinthe](./docs/screenshots/01%20-%20Labyrinth%20game.png "Jeu du labyrinthe")
 
 Roboc est un jeu en réseau écrit en Python.
 Les joueurs utilisent une application cliente pour se connecter à un serveur.
