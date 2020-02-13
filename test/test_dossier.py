@@ -6,7 +6,7 @@ Ce module contient la classe ``DossierTest``.
 Les tests unitaires de la classe ``Dossier`` utilisent les fichiers du dossier *test dossier*.
 """
 
-from typing import Final, List, Set
+from typing import Final, List, Set, Any
 from lib.dossier import Dossier
 import os
 import unittest
@@ -25,7 +25,7 @@ class EstTrue:
     '*if EstTrue*' renvoie True.
     """
 
-    def __init__(self, *args, **kwargs) -> None:
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         pass
 
     def __bool__(self) -> bool:
@@ -42,7 +42,7 @@ class EstFalse:
     '*if EstFalse*' renvoie False.
     """
 
-    def __init__(self, *args, **kwargs) -> None:
+    def __init__(self, *args: Any, **kwargs: Any) -> None:
         pass
 
     def __bool__(self) -> bool:

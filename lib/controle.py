@@ -211,7 +211,7 @@ Transformation("P", Percable, "Percer un obstacle", "Usage: P<" + ''.join(Mouvem
 
 validation_controle: Final[Regex] = r"((" + Mouvement.regex() + ")|(" + Transformation.regex() + "))+"
 extraction_controle: Final[Regex] = r"(?:" + Mouvement.regex() + ")|(?:" + Transformation.regex() + ")"
-extraction_controle_compile: Final[Pattern] = re.compile(extraction_controle)
+extraction_controle_compile: Final[Pattern[str]] = re.compile(extraction_controle)
 
 
 def extraire(saisie: str) -> List[str]:

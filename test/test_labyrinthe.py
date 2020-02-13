@@ -4,7 +4,7 @@
 Ce module contient la classe ``LabyrintheTest``.
 """
 
-from typing import Tuple, Set, List, Dict, cast, ClassVar, Any, Optional
+from typing import Tuple, Set, List, Dict, cast, ClassVar, Any, Optional, Type
 from os import path
 from lib.element import Obstacle, Element, Elements, Decryptable, Decrypte, Gagnable, Defaut, Demarrable, Transformable,\
     Traversable
@@ -150,7 +150,7 @@ class LabyrintheTest(unittest.TestCase):
             self.assertEqual(sorties, labyrinthe.sorties)
             self.assertEqual(grille, labyrinthe.grille)
 
-    def test_ajouter_effacer_joueur(self):
+    def test_ajouter_effacer_joueur(self) -> None:
         """
         - Crée un labyrinthe contenant un nombre de positions de départ suffisant pour accueillir de nouveaux joueurs.
         - Ajoute les joueurs au labyrinthe.
@@ -161,7 +161,7 @@ class LabyrintheTest(unittest.TestCase):
         """
 
         nombre_joueurs: int = 10
-        liste_joueurs: Dict[int, Joueur] = {}
+        liste_joueurs: Dict[int, Optional[Joueur]] = {}
         labyrinthe = Labyrinthe("D" * nombre_joueurs + "F")
         for identifiant in range(nombre_joueurs):
             liste_joueurs[identifiant] = labyrinthe.ajouter_joueur(identifiant, "Joueur" + str(identifiant))
@@ -174,7 +174,7 @@ class LabyrintheTest(unittest.TestCase):
             self.assertNotIn(identifiant, labyrinthe.dict_client_joueur)
             self.assertNotIn(joueur, labyrinthe.liste_joueurs)
 
-    def test_ajouter_effacer_joueur_fin_de_partie(self):
+    def test_ajouter_effacer_joueur_fin_de_partie(self) -> None:
         """
         - Crée un labyrinthe contenant un nombre de positions de départ suffisant pour accueillir de nouveaux joueurs.
         - Ajoute les joueurs au labyrinthe.
@@ -187,7 +187,7 @@ class LabyrintheTest(unittest.TestCase):
         """
 
         nombre_joueurs: int = 10
-        liste_joueurs: Dict[int, Joueur] = {}
+        liste_joueurs: Dict[int, Optional[Joueur]] = {}
         labyrinthe = Labyrinthe("D" * nombre_joueurs * 2 + "F")
         for identifiant in range(nombre_joueurs):
             liste_joueurs[identifiant] = labyrinthe.ajouter_joueur(identifiant, "Joueur" + str(identifiant))
@@ -209,7 +209,7 @@ class LabyrintheTest(unittest.TestCase):
         self.assertEqual(Labyrinthe.fin_de_partie, labyrinthe.mode)
         self.assertIs(joueur, labyrinthe.vainqueur)
 
-    def test_dimensionner(self):
+    def test_dimensionner(self) -> None:
         """
         Pour chaque chaîne de caractères:
 
@@ -220,6 +220,8 @@ class LabyrintheTest(unittest.TestCase):
 
         - Détermine les points extrêmes du plateau de jeu en tenant compte des coordonnées du joueur.
         - Compare les coordonnées au retour de ``dimensionner()`` dans les deux modes ``debut_de_partie`` et ``jeu_en_cours``.
+
+        :raises AttributeError: si la labyrinthe n'a pas créé de joueur.
         """
 
         chaines: List[str] = ["D\nF",   # Grille 1x2 avec 1 départ et 1 fin
@@ -239,7 +241,10 @@ class LabyrintheTest(unittest.TestCase):
             joueur = labyrinthe.ajouter_joueur("Joueur", "Joueur")
 
             for joueur_coordonnee in joueur_coordonnees:
-                joueur.coordonnees = joueur_coordonnee
+                if joueur:
+                    joueur.coordonnees = joueur_coordonnee
+                else:
+                    raise AttributeError
                 mini_jeu_en_cours, maxi_jeu_en_cours = \
                     determiner_min_max(mini_debut_de_partie, maxi_debut_de_partie, joueur.coordonnees)
                 labyrinthe.mode = Labyrinthe.debut_de_partie
@@ -247,7 +252,7 @@ class LabyrintheTest(unittest.TestCase):
                 labyrinthe.mode = Labyrinthe.jeu_en_cours
                 self.assertEqual((mini_jeu_en_cours, maxi_jeu_en_cours), labyrinthe.dimensionner())
 
-    def test_determiner_departs(self):
+    def test_determiner_departs(self) -> None:
         """
         Pour chaque chaîne de caractères:
 
@@ -273,11 +278,11 @@ class LabyrintheTest(unittest.TestCase):
                 try:
                     element = grille[coordonnees]
                 except IndexError:
-                    element = Elements.obstacle_par_defaut
+                    element = cast(Type[Decrypte], Elements.obstacle_par_defaut)
                 self.assertTrue(issubclass(element, Demarrable))
                 self.assertIn(coordonnees, grille)
 
-    def test_afficher_plateau(self):
+    def test_afficher_plateau(self) -> None:
         """
         A partir de la chaîne de caractère:
 
@@ -287,6 +292,8 @@ class LabyrintheTest(unittest.TestCase):
         - Ajoute deux joueurs et leur assigne des coordonnées.
         - Change le mode du labyrinthe en ``jeu_en_cours``.
         - Compare la ``chaine_reference`` à la chaîne générée par ``afficher_plateau()``.
+
+        :raises AttributeError: si la labyrinthe n'a pas créé de joueur.
         """
 
         # Grille 3x2 | Fin    / Départ / Transformable
@@ -302,22 +309,29 @@ class LabyrintheTest(unittest.TestCase):
         chaine_reference = "FDT\nXOx"
         joueur = labyrinthe.ajouter_joueur("Joueur", "Joueur")
         adversaire = labyrinthe.ajouter_joueur("Adversaire", "Adversaire")
-        joueur.coordonnees = (0, 1)
-        adversaire.coordonnees = (2, 1)
+        if joueur and adversaire:
+            joueur.coordonnees = (0, 1)
+            adversaire.coordonnees = (2, 1)
+        else:
+            raise AttributeError
         labyrinthe.mode = Labyrinthe.jeu_en_cours
         self.assertEqual(chaine_reference + "\n", labyrinthe.afficher_plateau(joueur))
 
-    def test_ajouter_commande(self):
+    def test_ajouter_commande(self) -> None:
         """
         Crée un labyrinthe et ajoute un joueur. Pour chaque saisie dans la liste ``saisie``:
 
         - Ajoute les commandes au joueur.
         - Compare les commandes en ``reference`` à la liste ``commandes`` du joueur.
+
+        :raises AttributeError: si la labyrinthe n'a pas créé de joueur.
         """
 
         chaine: str = "FD"  # Grille 1x2 avec 1 fin et 1 départ
         labyrinthe = Labyrinthe(chaine)
         joueur = labyrinthe.ajouter_joueur("Joueur", "Joueur")
+        if not joueur:
+            raise AttributeError
         saisies: List[str] = ["N2", "ES"]
         reference: List[str] = ["N", "N", "E", "S"]
         for saisie in saisies:
@@ -344,7 +358,7 @@ class AffichageTest(unittest.TestCase):
             self.chaine = fichier.read()
         self.labyrinthe = Labyrinthe(self.chaine, self.carte)
 
-    def test_placement_aleatoire_des_joueurs(self):
+    def test_placement_aleatoire_des_joueurs(self) -> None:
         """
         - Ajoute un nombre de joueurs égal aux positions de départ disponibles.
         - Stocke les identifiants des joueurs dans ``liste_joueurs``.
@@ -365,7 +379,7 @@ class AffichageTest(unittest.TestCase):
             liste_coordonnees.append(self.labyrinthe.dict_client_joueur[identifiant].coordonnees)
         self.assertEqual(sorted(liste_coordonnees), sorted(self.labyrinthe.departs))
 
-    def test_deroulement_du_jeu(self):
+    def test_deroulement_du_jeu(self) -> None:
         """
         - Définit trois positions de départ et les suites de mouvements associés pour gagner la partie.
         - Ajoute trois joueurs et débute une partie.

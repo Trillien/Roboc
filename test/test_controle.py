@@ -38,7 +38,7 @@ class ControleTest(unittest.TestCase):
         nom: str = 'SimpleControle'
         base: Tuple[type, ...] = (Controle,)
 
-        def __init__(classe, touche: Touche, description: str = "", aide: str = "") -> None:
+        def __init__(classe: Controle, touche: Touche, description: str = "", aide: str = "") -> None:
             """
             Transmet l'objet à la classe mère ``Controle`` pour stocker ses informations.
 
@@ -192,7 +192,7 @@ class ObtenirControleTest(unittest.TestCase):
     Test case utilisé pour tester la fonction ``obtenir_controle()``.
     """
 
-    def test_obtenir_controle_mouvement(self):
+    def test_obtenir_controle_mouvement(self) -> None:
         """
         - Instancie un mouvement dont la ``touche`` est collectée par la classe ``Mouvement``.
         - Appelle la fonction ``obtenir_controle()`` avec la ``touche`` du mouvement en argument.
@@ -205,7 +205,7 @@ class ObtenirControleTest(unittest.TestCase):
         direction_obtenue, _ = obtenir_controle(mouvement_touche)
         self.assertEqual(direction_ajoutee, direction_obtenue)
 
-    def test_obtenir_controle_transformation(self):
+    def test_obtenir_controle_transformation(self) -> None:
         """
         - Instancie une transformation dont la ``touche`` est collectée par la classe ``Transformation``.
         - Instancie un mouvement dont la ``touche`` est collectée par la classe ``Mouvement``.

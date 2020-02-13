@@ -108,7 +108,7 @@ class Elements(ABCMeta):
     obstacle_par_defaut: Type['Element']
     symbole_affichage: SymboleAffichage
 
-    def __new__(mcs, nom: str, bases: Tuple[Any, ...], dictionnaire: Dict[str, Any]):
+    def __new__(mcs, nom: str, bases: Tuple[Any, ...], dictionnaire: Dict[str, Any]) -> 'Elements':
         """
         Crée la classe d'élément et ajoute ses informations aux variables de classe en fonction des classes héritées.
 
@@ -126,7 +126,7 @@ class Elements(ABCMeta):
                 mcs.gagnable[dictionnaire["symbole_carte"]] = classe
             if issubclass(base, Defaut):
                 mcs.obstacle_par_defaut = classe
-        return classe
+        return cast('Elements', classe)
 
     def __str__(self) -> SymboleAffichage:
         """

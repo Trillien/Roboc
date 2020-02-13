@@ -44,7 +44,7 @@ class ValidateurTexte:
     :raises ValidationErreur: si ``validation_schema`` n'est pas défini.
     """
 
-    validation_schema: ClassVar[Pattern]
+    validation_schema: ClassVar[Pattern[str]]
     schema_parametre: ClassVar[bool] = False
     validation_erreur: ClassVar[str] = str()
     jeu_en_cours: Final[int] = 1
