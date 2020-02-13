@@ -1,0 +1,22 @@
+lib.joueur
+==========
+
+.. automodule:: lib.joueur
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Joueur
+   
+   
+
+   
+   
+   

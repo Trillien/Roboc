@@ -1,0 +1,423 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>lib.interface_serveur &mdash; Documentation Roboc Feb-7 2020</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="lib.labyrinthe" href="lib.labyrinthe.html" />
+    <link rel="prev" title="lib.interface_client" href="lib.interface_client.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Roboc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lib.dossier.html">lib.dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.carte.html">lib.carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.messagerie.html">lib.messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_client.html">lib.interface_client</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">lib.interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.labyrinthe.html">lib.labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.joueur.html">lib.joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.controle.html">lib.controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.element.html">lib.element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.regle.html">lib.regle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_dossier.html">test.test_dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_carte.html">test.test_carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_messagerie.html">test.test_messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_client.html">test.test_interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_serveur.html">test.test_interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_labyrinthe.html">test.test_labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_joueur.html">test.test_joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_controle.html">test.test_controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_element.html">test.test_element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_regle.html">test.test_regle</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Roboc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>lib.interface_serveur</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/lib.interface_serveur.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-lib.interface_serveur">
+<span id="lib-interface-serveur"></span><h1>lib.interface_serveur<a class="headerlink" href="#module-lib.interface_serveur" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce module contient les classes <code class="docutils literal notranslate"><span class="pre">RequestHandler</span></code> et <code class="docutils literal notranslate"><span class="pre">ThreadedTCPServer</span></code> et la fonction <code class="docutils literal notranslate"><span class="pre">creer_un_compteur()</span></code>.</p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.interface_serveur.creer_un_compteur" title="lib.interface_serveur.creer_un_compteur"><code class="xref py py-obj docutils literal notranslate"><span class="pre">creer_un_compteur</span></code></a>(nombre_initial)</p></td>
+<td><p>Crée un générateur pour compter depuis <code class="docutils literal notranslate"><span class="pre">nombre_initial</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.interface_serveur.RequestHandler" title="lib.interface_serveur.RequestHandler"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RequestHandler</span></code></a>(requete, adresse_client, serveur)</p></td>
+<td><p>Après acceptation d’une connexion par le serveur (via la classe <code class="docutils literal notranslate"><span class="pre">ThreadedTCPServer</span></code>), un nouveau Thread instancie <code class="docutils literal notranslate"><span class="pre">RequestHandler</span></code> avec les informations liées au client <code class="docutils literal notranslate"><span class="pre">(requete,</span> <span class="pre">adresse_client)</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.interface_serveur.ThreadedTCPServer" title="lib.interface_serveur.ThreadedTCPServer"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ThreadedTCPServer</span></code></a>(adresse_serveur[, …])</p></td>
+<td><p>Ouvre une socket et crée un Thread <em>Serveur</em> qui attend de nouvelles connexions.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="lib.interface_serveur.creer_un_compteur">
+<code class="sig-prename descclassname">lib.interface_serveur.</code><code class="sig-name descname">creer_un_compteur</code><span class="sig-paren">(</span><em class="sig-param">nombre_initial</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.interface_serveur.creer_un_compteur" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Crée un générateur pour compter depuis <code class="docutils literal notranslate"><span class="pre">nombre_initial</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>nombre_initial</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a>) – c’est le nombre de départ.</p>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>compteur initialisé sur <code class="docutils literal notranslate"><span class="pre">nombre_initial</span></code>.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p>Generator[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)">int</a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a>, <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.interface_serveur.RequestHandler">
+<em class="property">class </em><code class="sig-prename descclassname">lib.interface_serveur.</code><code class="sig-name descname">RequestHandler</code><span class="sig-paren">(</span><em class="sig-param">requete</em>, <em class="sig-param">adresse_client</em>, <em class="sig-param">serveur</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.interface_serveur.RequestHandler" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/socketserver.html#socketserver.BaseRequestHandler" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">socketserver.BaseRequestHandler</span></code></a>, <a class="reference internal" href="lib.messagerie.html#lib.messagerie.Transmission" title="lib.messagerie.Transmission"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.messagerie.Transmission</span></code></a></p>
+<p>Après acceptation d’une connexion par le serveur (via la classe <code class="docutils literal notranslate"><span class="pre">ThreadedTCPServer</span></code>),
+un nouveau Thread instancie <code class="docutils literal notranslate"><span class="pre">RequestHandler</span></code> avec les informations liées au client <code class="docutils literal notranslate"><span class="pre">(requete,</span> <span class="pre">adresse_client)</span></code>.</p>
+<p>L’instance communique auprès de <em>Main Thread</em> par la classe <code class="docutils literal notranslate"><span class="pre">Messagerie</span></code>. Elle permet de :</p>
+<ul class="simple">
+<li><p>informer <em>Main Thread</em> d’un nouveau joueur.</p></li>
+<li><p>écouter et transmettre les messages du client.</p></li>
+<li><p>prévenir <em>Main Thread</em> de la déconnexion du client.</p></li>
+</ul>
+<p>Les messages transmis à <em>Main Thread</em> sont des tuples <code class="docutils literal notranslate"><span class="pre">(emetteur,</span> <span class="pre">categorie,</span> <span class="pre">message)</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>requete</strong> (<em>socket.socket</em>) – connexion du client.</p></li>
+<li><p><strong>adresse_client</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>]</em>) – adresse du client.</p></li>
+<li><p><strong>serveur</strong> (<a class="reference external" href="https://docs.python.org/3/library/socketserver.html#socketserver.TCPServer" title="(disponible dans Python v3.8)"><em>socketserver.TCPServer</em></a>) – instance du serveur qui a créé la <code class="docutils literal notranslate"><span class="pre">RequestHandler</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="lib.interface_serveur.RequestHandler.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">requete</em>, <em class="sig-param">adresse_client</em>, <em class="sig-param">serveur</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.interface_serveur.RequestHandler.__init__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Définit le nom du Joueur en incrémentant <code class="docutils literal notranslate"><span class="pre">compter</span></code>.
+Génère une erreur mypy relative au bug décrit sur : <a class="reference external" href="https://github.com/python/mypy/issues/5887">https://github.com/python/mypy/issues/5887</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>requete</strong> (<em>socket.socket</em>) – connexion du client.</p></li>
+<li><p><strong>adresse_client</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>]</em>) – adresse du client.</p></li>
+<li><p><strong>serveur</strong> (<a class="reference external" href="https://docs.python.org/3/library/socketserver.html#socketserver.TCPServer" title="(disponible dans Python v3.8)"><em>socketserver.TCPServer</em></a>) – instance du serveur qui a créé la <code class="docutils literal notranslate"><span class="pre">RequestHandler</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.interface_serveur.RequestHandler.setup">
+<code class="sig-name descname">setup</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.interface_serveur.RequestHandler.setup" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Informe <em>Main Thread</em> d’un nouveau joueur par la classe <code class="docutils literal notranslate"><span class="pre">Messagerie</span></code>.
+Exécute ensuite <code class="docutils literal notranslate"><span class="pre">handle()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.interface_serveur.RequestHandler.handle">
+<code class="sig-name descname">handle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.interface_serveur.RequestHandler.handle" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Recupère le message du client.
+Ajoute la référence à l’instance <code class="docutils literal notranslate"><span class="pre">RequestHandler</span></code> liée au client émetteur.
+Et transmet le message à la liste de la classe <code class="docutils literal notranslate"><span class="pre">Messagerie</span></code>.</p>
+<p>En cas d’erreur réseau, le Thread sort de la boucle infinie et exécute <code class="docutils literal notranslate"><span class="pre">finish()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.interface_serveur.RequestHandler.finish">
+<code class="sig-name descname">finish</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.interface_serveur.RequestHandler.finish" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Informe <em>Main Thread</em> que le client s’est déconnecté.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.interface_serveur.ThreadedTCPServer">
+<em class="property">class </em><code class="sig-prename descclassname">lib.interface_serveur.</code><code class="sig-name descname">ThreadedTCPServer</code><span class="sig-paren">(</span><em class="sig-param">adresse_serveur</em>, <em class="sig-param">classe_gestionnaire=&lt;class 'lib.interface_serveur.RequestHandler'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.interface_serveur.ThreadedTCPServer" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/socketserver.html#socketserver.ThreadingMixIn" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">socketserver.ThreadingMixIn</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/socketserver.html#socketserver.TCPServer" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">socketserver.TCPServer</span></code></a></p>
+<p>Ouvre une socket et crée un Thread <em>Serveur</em> qui attend de nouvelles connexions.
+Quand un client se connecte, lance un Thread qui instancie <code class="docutils literal notranslate"><span class="pre">classe_gestionnaire</span></code> pour échanger avec le client.</p>
+<p>Si <code class="docutils literal notranslate"><span class="pre">connexion_autorisee</span></code> est à False, le <em>Serveur</em> refuse toute nouvelle connexion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adresse_serveur</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>]</em>) – adresse du serveur.</p></li>
+<li><p><strong>classe_gestionnaire</strong> (<em>Type</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/socketserver.html#socketserver.BaseRequestHandler" title="(disponible dans Python v3.8)"><em>socketserver.BaseRequestHandler</em></a><em>]</em>) – classe qui permet d’instancier les <code class="docutils literal notranslate"><span class="pre">RequestHandler</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="lib.interface_serveur.ThreadedTCPServer.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">adresse_serveur</em>, <em class="sig-param">classe_gestionnaire=&lt;class 'lib.interface_serveur.RequestHandler'&gt;</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.interface_serveur.ThreadedTCPServer.__init__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Initie le Thread <em>Serveur</em> qui attendra de nouvelles connexions.
+Transmet l”<code class="docutils literal notranslate"><span class="pre">adresse_serveur</span></code> et la <code class="docutils literal notranslate"><span class="pre">classe_gestionnaire</span></code> à <code class="docutils literal notranslate"><span class="pre">ThreadingMixIn</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>adresse_serveur</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>]</em>) – adresse du serveur.</p></li>
+<li><p><strong>classe_gestionnaire</strong> (<em>Type</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/socketserver.html#socketserver.BaseRequestHandler" title="(disponible dans Python v3.8)"><em>socketserver.BaseRequestHandler</em></a><em>]</em>) – classe qui permet d’instancier les <code class="docutils literal notranslate"><span class="pre">RequestHandler</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.interface_serveur.ThreadedTCPServer.verify_request">
+<code class="sig-name descname">verify_request</code><span class="sig-paren">(</span><em class="sig-param">requete</em>, <em class="sig-param">client_address</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.interface_serveur.ThreadedTCPServer.verify_request" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Pour chaque demande de connexion, le <em>Serveur</em> accepte si <code class="docutils literal notranslate"><span class="pre">verify_request()</span></code> retourne True.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>requete</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#bytes" title="(disponible dans Python v3.8)"><em>bytes</em></a>) – connexion client.</p></li>
+<li><p><strong>client_address</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>]</em>) – adresse du client.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>retourne True si la requête est acceptée. False si elle est rejetée.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(disponible dans Python v3.8)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.interface_serveur.ThreadedTCPServer.__enter__">
+<code class="sig-name descname">__enter__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.interface_serveur.ThreadedTCPServer.__enter__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Utilisé avec le gestionnaire de contexte <code class="docutils literal notranslate"><span class="pre">with</span></code>.
+Surcharge la méthode de <code class="docutils literal notranslate"><span class="pre">BaseServer</span></code> pour éviter une erreur mypy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie</dt>
+<dd class="field-odd"><p>retourne l’instance en cours.</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference internal" href="#lib.interface_serveur.ThreadedTCPServer" title="lib.interface_serveur.ThreadedTCPServer">lib.interface_serveur.ThreadedTCPServer</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lib.labyrinthe.html" class="btn btn-neutral float-right" title="lib.labyrinthe" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lib.interface_client.html" class="btn btn-neutral float-left" title="lib.interface_client" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Vincent Nagy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

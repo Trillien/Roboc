@@ -1,0 +1,28 @@
+test.test\_regle
+================
+
+.. automodule:: test.test_regle
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      construire_grille
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      RegleTest
+   
+   
+
+   
+   
+   

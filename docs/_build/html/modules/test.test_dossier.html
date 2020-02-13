@@ -1,0 +1,472 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>test.test_dossier &mdash; Documentation Roboc Feb-7 2020</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="test.test_carte" href="test.test_carte.html" />
+    <link rel="prev" title="lib.regle" href="lib.regle.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Roboc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lib.dossier.html">lib.dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.carte.html">lib.carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.messagerie.html">lib.messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_client.html">lib.interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_serveur.html">lib.interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.labyrinthe.html">lib.labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.joueur.html">lib.joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.controle.html">lib.controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.element.html">lib.element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.regle.html">lib.regle</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">test.test_dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_carte.html">test.test_carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_messagerie.html">test.test_messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_client.html">test.test_interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_serveur.html">test.test_interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_labyrinthe.html">test.test_labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_joueur.html">test.test_joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_controle.html">test.test_controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_element.html">test.test_element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_regle.html">test.test_regle</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Roboc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>test.test_dossier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/test.test_dossier.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-test.test_dossier">
+<span id="test-test-dossier"></span><h1>test.test_dossier<a class="headerlink" href="#module-test.test_dossier" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce module contient la classe <code class="docutils literal notranslate"><span class="pre">DossierTest</span></code>.</p>
+<p>Les tests unitaires de la classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code> utilisent les fichiers du dossier <em>test dossier</em>.</p>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#test.test_dossier.DossierTest" title="test.test_dossier.DossierTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">DossierTest</span></code></a>([methodName])</p></td>
+<td><p>Test case utilisé pour tester les fonctions du module <strong>dossier</strong>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#test.test_dossier.EstFalse" title="test.test_dossier.EstFalse"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EstFalse</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Classe transmise à la classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code> pour créer une instance <code class="docutils literal notranslate"><span class="pre">dossier</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#test.test_dossier.EstTrue" title="test.test_dossier.EstTrue"><code class="xref py py-obj docutils literal notranslate"><span class="pre">EstTrue</span></code></a>(*args, **kwargs)</p></td>
+<td><p>Classe transmise à la classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code> pour créer une instance <code class="docutils literal notranslate"><span class="pre">dossier</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="test.test_dossier.EstTrue">
+<em class="property">class </em><code class="sig-prename descclassname">test.test_dossier.</code><code class="sig-name descname">EstTrue</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.EstTrue" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Classe transmise à la classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code> pour créer une instance <code class="docutils literal notranslate"><span class="pre">dossier</span></code>.
+“<em>if EstTrue</em>” renvoie True.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="test.test_dossier.EstTrue.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.EstTrue.__init__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_dossier.EstTrue.__bool__">
+<code class="sig-name descname">__bool__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.EstTrue.__bool__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Renvoie</dt>
+<dd class="field-odd"><p>True</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(disponible dans Python v3.8)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="test.test_dossier.EstFalse">
+<em class="property">class </em><code class="sig-prename descclassname">test.test_dossier.</code><code class="sig-name descname">EstFalse</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.EstFalse" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Classe transmise à la classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code> pour créer une instance <code class="docutils literal notranslate"><span class="pre">dossier</span></code>.
+“<em>if EstFalse</em>” renvoie False.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="test.test_dossier.EstFalse.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.EstFalse.__init__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Initialize self.  See help(type(self)) for accurate signature.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>args</strong> (<em>Any</em>) – </p></li>
+<li><p><strong>kwargs</strong> (<em>Any</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_dossier.EstFalse.__bool__">
+<code class="sig-name descname">__bool__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.EstFalse.__bool__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Renvoie</dt>
+<dd class="field-odd"><p>False</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(disponible dans Python v3.8)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="test.test_dossier.DossierTest">
+<em class="property">class </em><code class="sig-prename descclassname">test.test_dossier.</code><code class="sig-name descname">DossierTest</code><span class="sig-paren">(</span><em class="sig-param">methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.DossierTest" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>Test case utilisé pour tester les fonctions du module <strong>dossier</strong>.</p>
+<dl class="method">
+<dt id="test.test_dossier.DossierTest.setUp">
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.DossierTest.setUp" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Avant chaque test, charge le jeu de fichiers du dossier <em>test dossier</em>.
+Charge les extensions des fichiers du dossier <em>test dossier</em>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_dossier.DossierTest.test_lister_les_fichiers_par_dossier">
+<code class="sig-name descname">test_lister_les_fichiers_par_dossier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.DossierTest.test_lister_les_fichiers_par_dossier" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>En passant un chemin de dossier en paramètre, teste si l’instance de la classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code> liste tous les fichiers
+d’un dossier, et si elle renvoie le nombre juste de fichiers.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_dossier.DossierTest.test_lister_les_fichiers_par_fichier">
+<code class="sig-name descname">test_lister_les_fichiers_par_fichier</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.DossierTest.test_lister_les_fichiers_par_fichier" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>En passant un chemin de fichier en paramètre, teste si l’instance de la classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code> liste le fichier indiqué.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_dossier.DossierTest.test_fichier_introuvable">
+<code class="sig-name descname">test_fichier_introuvable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.DossierTest.test_fichier_introuvable" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>A l’instanciation de la classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code>, une exception <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> est levée si un fichier est inexistant.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_dossier.DossierTest.test_extension_introuvable">
+<code class="sig-name descname">test_extension_introuvable</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.DossierTest.test_extension_introuvable" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>A l’instanciation de la classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code>, une exception <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> est levée si aucun fichier ne comporte
+l’extension passée en paramètre.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_dossier.DossierTest.test_fichier_vide">
+<code class="sig-name descname">test_fichier_vide</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.DossierTest.test_fichier_vide" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>A l’instanciation de la classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code>, une exception <code class="docutils literal notranslate"><span class="pre">EOFError</span></code> est levée si le fichier indiqué est vide.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_dossier.DossierTest.test_dossier_vide">
+<code class="sig-name descname">test_dossier_vide</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.DossierTest.test_dossier_vide" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>A l’instanciation de la classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code>, une exception <code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> est levée si le dossier indiqué est
+vide.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_dossier.DossierTest.test_lire_les_fichiers">
+<code class="sig-name descname">test_lire_les_fichiers</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.DossierTest.test_lire_les_fichiers" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>La classe <code class="docutils literal notranslate"><span class="pre">EstTrue</span></code> passée en paramètre est instanciée pour chaque fichier du <code class="docutils literal notranslate"><span class="pre">dossier_de_test</span></code>.
+La classe <code class="docutils literal notranslate"><span class="pre">EstFalse</span></code> passée en paramètre est instanciée pour chaque fichier du <code class="docutils literal notranslate"><span class="pre">dossier_de_test</span></code>. Une exception
+<code class="docutils literal notranslate"><span class="pre">FileNotFoundError</span></code> est levée car aucun fichier ne passe le test “<em>if EstFalse</em>”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_dossier.DossierTest._DossierTest__parcourir_dossier">
+<code class="sig-name descname">_DossierTest__parcourir_dossier</code><span class="sig-paren">(</span><em class="sig-param">dossier</em><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.DossierTest._DossierTest__parcourir_dossier" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Liste les fichiers et sous-dossiers d’un dossier de manière récursive.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>dossier</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a>) – dossier de recherche des cartes.</p>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>liste des fichiers.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p>List[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_dossier.DossierTest._DossierTest__parcourir_extensions">
+<code class="sig-name descname">_DossierTest__parcourir_extensions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_dossier.DossierTest._DossierTest__parcourir_extensions" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Extrait les extensions de <code class="docutils literal notranslate"><span class="pre">liste_fichiers</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie</dt>
+<dd class="field-odd"><p>liste des extensions des fichiers.</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p>Set[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)">str</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="test.test_carte.html" class="btn btn-neutral float-right" title="test.test_carte" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lib.regle.html" class="btn btn-neutral float-left" title="lib.regle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Vincent Nagy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

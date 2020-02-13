@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>lib.dossier &mdash; Documentation Roboc Feb-7 2020</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="lib.carte" href="lib.carte.html" />
+    <link rel="prev" title="Bienvenue dans la documentation de Roboc" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Roboc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">lib.dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.carte.html">lib.carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.messagerie.html">lib.messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_client.html">lib.interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_serveur.html">lib.interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.labyrinthe.html">lib.labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.joueur.html">lib.joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.controle.html">lib.controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.element.html">lib.element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.regle.html">lib.regle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_dossier.html">test.test_dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_carte.html">test.test_carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_messagerie.html">test.test_messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_client.html">test.test_interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_serveur.html">test.test_interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_labyrinthe.html">test.test_labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_joueur.html">test.test_joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_controle.html">test.test_controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_element.html">test.test_element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_regle.html">test.test_regle</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Roboc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>lib.dossier</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/lib.dossier.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-lib.dossier">
+<span id="lib-dossier"></span><h1>lib.dossier<a class="headerlink" href="#module-lib.dossier" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce module contient la classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code>.</p>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.dossier.Dossier" title="lib.dossier.Dossier"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Dossier</span></code></a>([chemin, extension, classe])</p></td>
+<td><p>Utilisé pour lister les cartes de labyrinthe dans un dossier.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="lib.dossier.Dossier">
+<em class="property">class </em><code class="sig-prename descclassname">lib.dossier.</code><code class="sig-name descname">Dossier</code><span class="sig-paren">(</span><em class="sig-param">chemin='.'</em>, <em class="sig-param">extension='.txt'</em>, <em class="sig-param">classe=None</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.dossier.Dossier" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Utilisé pour lister les cartes de labyrinthe dans un dossier.</p>
+<p>La classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code>:</p>
+<ul class="simple">
+<li><p>liste les fichiers contenus dans un dossier.</p></li>
+<li><p>filtre les fichiers sur l’extension.</p></li>
+<li><p>instancie la classe selon <code class="docutils literal notranslate"><span class="pre">classe(chemin=chemin_de_fichier,</span> <span class="pre">nom=nom_de_fichier)</span></code> et filtre les fichiers selon le test
+“<em>if objet</em>”, <code class="docutils literal notranslate"><span class="pre">objet</span></code> étant une instance de la classe.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chemin</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a>) – chemin d’un fichier ou d’un dossier.</p></li>
+<li><p><strong>extension</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a>) – filtre sur l’extension des fichiers.</p></li>
+<li><p><strong>classe</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(disponible dans Python v3.8)"><em>type</em></a><em>]</em>) – classe pour la validation du contenu d’un fichier.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="lib.dossier.Dossier.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">chemin='.'</em>, <em class="sig-param">extension='.txt'</em>, <em class="sig-param">classe=None</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.dossier.Dossier.__init__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>La classe <code class="docutils literal notranslate"><span class="pre">Dossier</span></code> stocke les <code class="docutils literal notranslate"><span class="pre">chemins</span></code>, les <code class="docutils literal notranslate"><span class="pre">noms</span></code>, les <code class="docutils literal notranslate"><span class="pre">extensions</span></code>, les <code class="docutils literal notranslate"><span class="pre">tailles</span></code> et les <code class="docutils literal notranslate"><span class="pre">contenus</span></code>
+des fichiers parcourus.</p>
+<p><code class="docutils literal notranslate"><span class="pre">contenus</span></code> liste les instances de <code class="docutils literal notranslate"><span class="pre">classe</span></code> suite à l’appel
+<code class="docutils literal notranslate"><span class="pre">classe(chemin=chemin_de_fichier,</span> <span class="pre">nom=nom_de_fichier)</span></code>.</p>
+<p>Si le chemin d’un dossier indiqué, le dossier est parcouru à l’instanciation de la classe. Si l’extension est indiqué,
+les fichiers sont filtrés sur l’extension. Si une classe est indiquée, les fichiers sont filtrés sur le test
+“<em>if classe</em>”.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chemin</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a>) – chemin d’un fichier ou d’un dossier.</p></li>
+<li><p><strong>extension</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a>) – filtre sur l’extension des fichiers.</p></li>
+<li><p><strong>classe</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(disponible dans Python v3.8)"><em>type</em></a><em>]</em>) – classe pour la validation du contenu d’un fichier.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.dossier.Dossier.ajouter">
+<code class="sig-name descname">ajouter</code><span class="sig-paren">(</span><em class="sig-param">chemin</em>, <em class="sig-param">classe=None</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.dossier.Dossier.ajouter" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Teste si le chemin indiqué existe.
+Détermine si le chemin indiqué est celui d’un dossier ou d’un fichier.
+Parcourt les fichiers du dossier indiqué, et transmet le chemin de chaque fichier à <code class="docutils literal notranslate"><span class="pre">_ajouter()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chemin</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a>) – chemin d’un fichier ou d’un dossier.</p></li>
+<li><p><strong>classe</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(disponible dans Python v3.8)"><em>type</em></a><em>]</em>) – classe pour la validation du contenu d’un fichier.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Lève</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(disponible dans Python v3.8)"><strong>FileNotFoundError</strong></a> – si le chemin n’existe pas.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#OSError" title="(disponible dans Python v3.8)"><strong>OSError</strong></a> – si le chemin n’est ni un dossier ni un fichier.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.dossier.Dossier.filtrer_extension">
+<code class="sig-name descname">filtrer_extension</code><span class="sig-paren">(</span><em class="sig-param">extension</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.dossier.Dossier.filtrer_extension" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Pour chaque fichier, teste si l’extension correspond à celle passée en paramètre.
+Si ce n’est pas le cas, l’indice du fichier est transmis à <code class="docutils literal notranslate"><span class="pre">_enlever()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>extension</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a>) – filtre sur l’extension des fichiers.</p>
+</dd>
+<dt class="field-even">Lève</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(disponible dans Python v3.8)"><strong>FileNotFoundError</strong></a> – si aucun fichier n’est valide.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.dossier.Dossier.filtrer_fichiers_non_vide">
+<code class="sig-name descname">filtrer_fichiers_non_vide</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.dossier.Dossier.filtrer_fichiers_non_vide" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Pour chaque fichier, teste si la taille est nulle.
+Si c’est le cas, l’indice du fichier est transmis à <code class="docutils literal notranslate"><span class="pre">_enlever()</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Lève</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#EOFError" title="(disponible dans Python v3.8)"><strong>EOFError</strong></a> – si aucun fichier non-vide n’a été trouvé.</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.dossier.Dossier.filtrer_contenus">
+<code class="sig-name descname">filtrer_contenus</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.dossier.Dossier.filtrer_contenus" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Pour chaque fichier, teste si le contenu (c’est à dire l’objet de <code class="docutils literal notranslate"><span class="pre">classe</span></code> instanciée) retourne True.
+Si ce n’est pas le cas, l’indice du fichier est transmis à <code class="docutils literal notranslate"><span class="pre">_enlever()`</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Lève</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#FileNotFoundError" title="(disponible dans Python v3.8)"><strong>FileNotFoundError</strong></a> – si aucun fichier n’est valide.</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.dossier.Dossier.__len__">
+<code class="sig-name descname">__len__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.dossier.Dossier.__len__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p><code class="docutils literal notranslate"><span class="pre">len(dossier)</span></code> retourne le nombre de fichiers filtrés.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie</dt>
+<dd class="field-odd"><p>nombre de fichiers valides contenus dans chemin.</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)">int</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.dossier.Dossier._Dossier__ajouter">
+<code class="sig-name descname">_Dossier__ajouter</code><span class="sig-paren">(</span><em class="sig-param">chemin</em>, <em class="sig-param">classe=None</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.dossier.Dossier._Dossier__ajouter" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Extrait les informations du fichier désigné par <code class="docutils literal notranslate"><span class="pre">chemin</span></code> et les stocke dans les listes.
+Si une classe est passée en paramètre, l’instancie et stocke l’objet dans <code class="docutils literal notranslate"><span class="pre">contenus</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>chemin</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a>) – chemin d’un fichier ou d’un dossier.</p></li>
+<li><p><strong>classe</strong> (<em>Optional</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(disponible dans Python v3.8)"><em>type</em></a><em>]</em>) – classe pour la validation du contenu d’un fichier.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.dossier.Dossier._Dossier__enlever">
+<code class="sig-name descname">_Dossier__enlever</code><span class="sig-paren">(</span><em class="sig-param">liste_indices</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.dossier.Dossier._Dossier__enlever" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Pour chaque indice de la liste reçue,
+supprime les éléments des listes <code class="docutils literal notranslate"><span class="pre">chemins</span></code>, <code class="docutils literal notranslate"><span class="pre">noms</span></code>, <code class="docutils literal notranslate"><span class="pre">extensions</span></code>, <code class="docutils literal notranslate"><span class="pre">tailles</span></code>, <code class="docutils literal notranslate"><span class="pre">contenus</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>liste_indices</strong> (<em>List</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>]</em>) – indices des éléments à supprimer des listes.</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lib.carte.html" class="btn btn-neutral float-right" title="lib.carte" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../index.html" class="btn btn-neutral float-left" title="Bienvenue dans la documentation de Roboc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Vincent Nagy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

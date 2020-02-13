@@ -1,0 +1,24 @@
+test.test\_controle
+===================
+
+.. automodule:: test.test_controle
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      ControleTest
+      ExtraireTest
+      ObtenirControleTest
+   
+   
+
+   
+   
+   

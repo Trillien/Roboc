@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>test.test_regle &mdash; Documentation Roboc Feb-7 2020</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="prev" title="test.test_element" href="test.test_element.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Roboc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lib.dossier.html">lib.dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.carte.html">lib.carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.messagerie.html">lib.messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_client.html">lib.interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_serveur.html">lib.interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.labyrinthe.html">lib.labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.joueur.html">lib.joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.controle.html">lib.controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.element.html">lib.element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.regle.html">lib.regle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_dossier.html">test.test_dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_carte.html">test.test_carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_messagerie.html">test.test_messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_client.html">test.test_interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_serveur.html">test.test_interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_labyrinthe.html">test.test_labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_joueur.html">test.test_joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_controle.html">test.test_controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_element.html">test.test_element</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">test.test_regle</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Roboc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>test.test_regle</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/test.test_regle.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-test.test_regle">
+<span id="test-test-regle"></span><h1>test.test_regle<a class="headerlink" href="#module-test.test_regle" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce module contient la classe <code class="docutils literal notranslate"><span class="pre">RegleTest</span></code>.</p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#test.test_regle.construire_grille" title="test.test_regle.construire_grille"><code class="xref py py-obj docutils literal notranslate"><span class="pre">construire_grille</span></code></a>(chaine)</p></td>
+<td><p>Crée une grille de labyrinthe à partir d’une chaîne de caractères.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#test.test_regle.RegleTest" title="test.test_regle.RegleTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">RegleTest</span></code></a>([methodName])</p></td>
+<td><p>Test case utilisé pour tester les règles <code class="docutils literal notranslate"><span class="pre">traverser_un_obstacle()</span></code>, <code class="docutils literal notranslate"><span class="pre">rencontrer_un_adversaire()</span></code>, <code class="docutils literal notranslate"><span class="pre">transformer_un_obstacle()</span></code> et <code class="docutils literal notranslate"><span class="pre">gagner_une_partie()</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="function">
+<dt id="test.test_regle.construire_grille">
+<code class="sig-prename descclassname">test.test_regle.</code><code class="sig-name descname">construire_grille</code><span class="sig-paren">(</span><em class="sig-param">chaine</em><span class="sig-paren">)</span><a class="headerlink" href="#test.test_regle.construire_grille" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Crée une grille de labyrinthe à partir d’une chaîne de caractères.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>chaine</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a>) – chaîne de caractères.</p>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>grille de labyrinthe.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p>Dict[Tuple[<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)">int</a>, <a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)">int</a>], Type[<a class="reference internal" href="lib.element.html#lib.element.Decrypte" title="lib.element.Decrypte">lib.element.Decrypte</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="class">
+<dt id="test.test_regle.RegleTest">
+<em class="property">class </em><code class="sig-prename descclassname">test.test_regle.</code><code class="sig-name descname">RegleTest</code><span class="sig-paren">(</span><em class="sig-param">methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test.test_regle.RegleTest" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>Test case utilisé pour tester les règles <code class="docutils literal notranslate"><span class="pre">traverser_un_obstacle()</span></code>, <code class="docutils literal notranslate"><span class="pre">rencontrer_un_adversaire()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">transformer_un_obstacle()</span></code> et <code class="docutils literal notranslate"><span class="pre">gagner_une_partie()</span></code>.</p>
+<dl class="method">
+<dt id="test.test_regle.RegleTest.setUp">
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_regle.RegleTest.setUp" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Avant chaque test:</p>
+<ul class="simple">
+<li><p>Sauvegarde les éléments initialisés par le module <strong>element</strong>.</p></li>
+<li><p>Efface les listes d’éléments <code class="docutils literal notranslate"><span class="pre">Decryptable</span></code> et <code class="docutils literal notranslate"><span class="pre">Gagnable</span></code> de la métaclasse <code class="docutils literal notranslate"><span class="pre">Elements</span></code>.</p></li>
+<li><p>Définit les nom, classe d’héritage et attributs des éléments nécessaires aux tests.</p></li>
+<li><p>Crée et stocke les classes dans <code class="docutils literal notranslate"><span class="pre">elements</span></code>.</p></li>
+<li><p>Crée l’élément <code class="docutils literal notranslate"><span class="pre">ElementTransformable</span></code>.</p></li>
+<li><p>Instancie la classe <code class="docutils literal notranslate"><span class="pre">Joueur</span></code> pour créer un joueur aux coordonées (0, 0).</p></li>
+<li><p>Instancie la classe <code class="docutils literal notranslate"><span class="pre">Joueur</span></code> pour créer un adversaire aux coordonnées (1, 0).</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_regle.RegleTest.tearDown">
+<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_regle.RegleTest.tearDown" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Après chaque test, restaure les listes initiales dans la métaclasse <code class="docutils literal notranslate"><span class="pre">Elements</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_regle.RegleTest.test_traverser_un_obstacle">
+<code class="sig-name descname">test_traverser_un_obstacle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_regle.RegleTest.test_traverser_un_obstacle" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Crée une grille avec un obstacle aux coordonnées (0, 1).</p></li>
+<li><p>Crée un état de labyrinthe avec un déplacement du Joueur en (1, 0).</p></li>
+<li><p>Teste si la règle retourne une exception.</p></li>
+<li><p>Crée un état de labyrinthe avec un déplacement du Joueur en (0, 1).</p></li>
+<li><p>Teste si la règle retourne une exception.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_regle.RegleTest.test_rencontrer_un_adversaire">
+<code class="sig-name descname">test_rencontrer_un_adversaire</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_regle.RegleTest.test_rencontrer_un_adversaire" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Crée une grille sans obstacle.</p></li>
+<li><p>Crée un état de labyrinthe avec un déplacement du Joueur en (1, 0).</p></li>
+<li><p>Teste si la règle retourne une exception.</p></li>
+<li><p>Crée un état de labyrinthe avec un déplacement du Joueur en (0, 1).</p></li>
+<li><p>Teste si la règle retourne une exception.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_regle.RegleTest.test_transformer_un_adversaire">
+<code class="sig-name descname">test_transformer_un_adversaire</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_regle.RegleTest.test_transformer_un_adversaire" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Crée une grille sans obstacle.</p></li>
+<li><p>Crée un état de labyrinthe avec une transformation de l’élément en (1, 0).</p></li>
+<li><p>Teste si la règle retourne une exception.</p></li>
+<li><p>Crée un état de labyrinthe avec une transformation de l’élément en (0, 1).</p></li>
+<li><p>Teste si la règle retourne une exception.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_regle.RegleTest.test_transformer_un_obstacle">
+<code class="sig-name descname">test_transformer_un_obstacle</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_regle.RegleTest.test_transformer_un_obstacle" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Crée une grille avec un obstacle transformable en (1, 0) et un obstacle en (0, 1).</p></li>
+<li><p>Crée un état de labyrinthe avec une transformation de l’élément en (1, 0).</p></li>
+<li><p>Teste si la règle retourne une exception.</p></li>
+<li><p>Crée un état de labyrinthe avec une transformation de l’élément en (0, 1).</p></li>
+<li><p>Teste si la règle retourne une exception.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_regle.RegleTest.test_gagner_une_partie">
+<code class="sig-name descname">test_gagner_une_partie</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_regle.RegleTest.test_gagner_une_partie" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Crée une grille avec une sortie en (0, 1).</p></li>
+<li><p>Crée un état de labyrinthe avec un déplacement du Joueur en (1, 0).</p></li>
+<li><p>Teste si la règle retourne une exception.</p></li>
+<li><p>Crée un état de labyrinthe avec un déplacement du Joueur en (0, 1).</p></li>
+<li><p>Teste si la règle retourne une exception.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="test.test_element.html" class="btn btn-neutral float-left" title="test.test_element" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Vincent Nagy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

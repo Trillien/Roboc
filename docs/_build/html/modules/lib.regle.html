@@ -1,0 +1,453 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>lib.regle &mdash; Documentation Roboc Feb-7 2020</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="test.test_dossier" href="test.test_dossier.html" />
+    <link rel="prev" title="lib.element" href="lib.element.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Roboc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lib.dossier.html">lib.dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.carte.html">lib.carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.messagerie.html">lib.messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_client.html">lib.interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_serveur.html">lib.interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.labyrinthe.html">lib.labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.joueur.html">lib.joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.controle.html">lib.controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.element.html">lib.element</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">lib.regle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_dossier.html">test.test_dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_carte.html">test.test_carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_messagerie.html">test.test_messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_client.html">test.test_interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_serveur.html">test.test_interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_labyrinthe.html">test.test_labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_joueur.html">test.test_joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_controle.html">test.test_controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_element.html">test.test_element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_regle.html">test.test_regle</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Roboc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>lib.regle</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/lib.regle.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-lib.regle">
+<span id="lib-regle"></span><h1>lib.regle<a class="headerlink" href="#module-lib.regle" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce module définit les règles du labryinthe.</p>
+<ul class="simple">
+<li><p>les classes d’exception <code class="docutils literal notranslate"><span class="pre">ExceptionLabyrinthe</span></code>, <code class="docutils literal notranslate"><span class="pre">HorsRegles</span></code>, <code class="docutils literal notranslate"><span class="pre">PartieGagnee</span></code></p></li>
+<li><p>la classe <code class="docutils literal notranslate"><span class="pre">Etat</span></code></p></li>
+<li><p>les fonctions <code class="docutils literal notranslate"><span class="pre">verifier_regles()</span></code>, <code class="docutils literal notranslate"><span class="pre">lister_regles()</span></code>, <code class="docutils literal notranslate"><span class="pre">traverser_un_obstacle()</span></code>, <code class="docutils literal notranslate"><span class="pre">rencontrer_un_adversaire()</span></code>,
+<code class="docutils literal notranslate"><span class="pre">gagner_une_partie()</span></code>, <code class="docutils literal notranslate"><span class="pre">transformer_un_obstacle()</span></code></p></li>
+</ul>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.regle.gagner_une_partie" title="lib.regle.gagner_une_partie"><code class="xref py py-obj docutils literal notranslate"><span class="pre">gagner_une_partie</span></code></a>(etat)</p></td>
+<td><p>Test si l’élément sur lequel le joueur se déplace est <code class="docutils literal notranslate"><span class="pre">Gagnable</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.regle.lister_regles" title="lib.regle.lister_regles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">lister_regles</span></code></a>(set_de_regles)</p></td>
+<td><p>Construit un décorateur qui stocke une règle dans <code class="docutils literal notranslate"><span class="pre">set_de_regles</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.regle.rencontrer_un_adversaire" title="lib.regle.rencontrer_un_adversaire"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rencontrer_un_adversaire</span></code></a>(etat)</p></td>
+<td><p>Test si un autre joueur occupe la position sur laquelle le joueur se déplace.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.regle.transformer_un_obstacle" title="lib.regle.transformer_un_obstacle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">transformer_un_obstacle</span></code></a>(etat)</p></td>
+<td><p>Test si l’élément à transformer dérive de la transformation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.regle.traverser_un_obstacle" title="lib.regle.traverser_un_obstacle"><code class="xref py py-obj docutils literal notranslate"><span class="pre">traverser_un_obstacle</span></code></a>(etat)</p></td>
+<td><p>Test si l’élément sur lequel le joueur se déplace est traversable.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.regle.verifier_regles" title="lib.regle.verifier_regles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">verifier_regles</span></code></a>(etat)</p></td>
+<td><p>Définit le set de règles à utiliser selon si le controle est un <code class="docutils literal notranslate"><span class="pre">Mouvement</span></code> ou une <code class="docutils literal notranslate"><span class="pre">Transformation</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.regle.Etat" title="lib.regle.Etat"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Etat</span></code></a>(direction, transformation, grille, …)</p></td>
+<td><p>Représente l’état du labyrinthe à un instant.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Exceptions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.regle.ExceptionLabyrinthe" title="lib.regle.ExceptionLabyrinthe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExceptionLabyrinthe</span></code></a></p></td>
+<td><p>Classe d’exceptions liées aux règles du labyrinthe.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.regle.HorsRegles" title="lib.regle.HorsRegles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">HorsRegles</span></code></a></p></td>
+<td><p>Exception levée si le joueur enfreint une règle du labyrinthe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.regle.PartieGagnee" title="lib.regle.PartieGagnee"><code class="xref py py-obj docutils literal notranslate"><span class="pre">PartieGagnee</span></code></a></p></td>
+<td><p>Exception levée si le joueur gagne la partie.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="exception">
+<dt id="lib.regle.ExceptionLabyrinthe">
+<em class="property">exception </em><code class="sig-prename descclassname">lib.regle.</code><code class="sig-name descname">ExceptionLabyrinthe</code><a class="headerlink" href="#lib.regle.ExceptionLabyrinthe" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a></p>
+<p>Classe d’exceptions liées aux règles du labyrinthe.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="lib.regle.HorsRegles">
+<em class="property">exception </em><code class="sig-prename descclassname">lib.regle.</code><code class="sig-name descname">HorsRegles</code><a class="headerlink" href="#lib.regle.HorsRegles" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#lib.regle.ExceptionLabyrinthe" title="lib.regle.ExceptionLabyrinthe"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.regle.ExceptionLabyrinthe</span></code></a></p>
+<p>Exception levée si le joueur enfreint une règle du labyrinthe.</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="lib.regle.PartieGagnee">
+<em class="property">exception </em><code class="sig-prename descclassname">lib.regle.</code><code class="sig-name descname">PartieGagnee</code><a class="headerlink" href="#lib.regle.PartieGagnee" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#lib.regle.ExceptionLabyrinthe" title="lib.regle.ExceptionLabyrinthe"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.regle.ExceptionLabyrinthe</span></code></a></p>
+<p>Exception levée si le joueur gagne la partie.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.regle.Etat">
+<em class="property">class </em><code class="sig-prename descclassname">lib.regle.</code><code class="sig-name descname">Etat</code><span class="sig-paren">(</span><em class="sig-param">direction</em>, <em class="sig-param">transformation</em>, <em class="sig-param">grille</em>, <em class="sig-param">joueur</em>, <em class="sig-param">adversaires</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.regle.Etat" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Représente l’état du labyrinthe à un instant.
+Basé sur la grille d’éléments, le joueur en cours et les adversaires, et incluant le prochain mouvement à vérifier
+(la direction et la transformation).</p>
+<p>L’objet instancié est transmis aux fonctions de règles pour valider le mouvement.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>direction</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>]</em>) – vecteur déplacement.</p></li>
+<li><p><strong>transformation</strong> (<em>Optional</em><em>[</em><em>Type</em><em>[</em><a class="reference internal" href="lib.element.html#lib.element.Transformable" title="lib.element.Transformable"><em>lib.element.Transformable</em></a><em>]</em><em>]</em>) – classe dérivée de <code class="docutils literal notranslate"><span class="pre">Transformation</span></code>.</p></li>
+<li><p><strong>grille</strong> (<em>Dict</em><em>[</em><em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>]</em><em>, </em><em>Type</em><em>[</em><a class="reference internal" href="lib.element.html#lib.element.Decrypte" title="lib.element.Decrypte"><em>Decrypte</em></a><em>]</em><em>]</em>) – grille d’éléments du labyrinthe.</p></li>
+<li><p><strong>joueur</strong> (<a class="reference internal" href="lib.joueur.html#lib.joueur.Joueur" title="lib.joueur.Joueur"><em>lib.joueur.Joueur</em></a>) – joueur en cours.</p></li>
+<li><p><strong>adversaires</strong> (<em>List</em><em>[</em><a class="reference internal" href="lib.joueur.html#lib.joueur.Joueur" title="lib.joueur.Joueur"><em>lib.joueur.Joueur</em></a><em>]</em>) – liste d’adversaires.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="lib.regle.Etat.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">direction</em>, <em class="sig-param">transformation</em>, <em class="sig-param">grille</em>, <em class="sig-param">joueur</em>, <em class="sig-param">adversaires</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.regle.Etat.__init__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Construit les variables nécessaires aux règles à partir de l’état du labyrinthe (<code class="docutils literal notranslate"><span class="pre">grille</span></code>, <code class="docutils literal notranslate"><span class="pre">joueur</span></code> et
+<code class="docutils literal notranslate"><span class="pre">adversaires</span></code>) et du mouvement du joueur (<code class="docutils literal notranslate"><span class="pre">direction</span></code>, <code class="docutils literal notranslate"><span class="pre">transformation</span></code>).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>direction</strong> (<em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>]</em>) – vecteur déplacement.</p></li>
+<li><p><strong>transformation</strong> (<em>Optional</em><em>[</em><em>Type</em><em>[</em><a class="reference internal" href="lib.element.html#lib.element.Transformable" title="lib.element.Transformable"><em>lib.element.Transformable</em></a><em>]</em><em>]</em>) – classe dérivée de <code class="docutils literal notranslate"><span class="pre">Transformation</span></code>.</p></li>
+<li><p><strong>grille</strong> (<em>Dict</em><em>[</em><em>Tuple</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(disponible dans Python v3.8)"><em>int</em></a><em>]</em><em>, </em><em>Type</em><em>[</em><a class="reference internal" href="lib.element.html#lib.element.Decrypte" title="lib.element.Decrypte"><em>Decrypte</em></a><em>]</em><em>]</em>) – grille d’éléments du labyrinthe.</p></li>
+<li><p><strong>joueur</strong> (<a class="reference internal" href="lib.joueur.html#lib.joueur.Joueur" title="lib.joueur.Joueur"><em>lib.joueur.Joueur</em></a>) – joueur en cours.</p></li>
+<li><p><strong>adversaires</strong> (<em>List</em><em>[</em><a class="reference internal" href="lib.joueur.html#lib.joueur.Joueur" title="lib.joueur.Joueur"><em>lib.joueur.Joueur</em></a><em>]</em>) – liste d’adversaires.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="lib.regle.verifier_regles">
+<code class="sig-prename descclassname">lib.regle.</code><code class="sig-name descname">verifier_regles</code><span class="sig-paren">(</span><em class="sig-param">etat</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.regle.verifier_regles" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Définit le set de règles à utiliser selon si le controle est un <code class="docutils literal notranslate"><span class="pre">Mouvement</span></code> ou une <code class="docutils literal notranslate"><span class="pre">Transformation</span></code>.
+Appelle les règles en leur passant l’état du labyrinthe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>etat</strong> (<a class="reference internal" href="#lib.regle.Etat" title="lib.regle.Etat"><em>lib.regle.Etat</em></a>) – état du labyrinthe.</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="lib.regle.lister_regles">
+<code class="sig-prename descclassname">lib.regle.</code><code class="sig-name descname">lister_regles</code><span class="sig-paren">(</span><em class="sig-param">set_de_regles</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.regle.lister_regles" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Construit un décorateur qui stocke une règle dans <code class="docutils literal notranslate"><span class="pre">set_de_regles</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>set_de_regles</strong> (<em>Set</em><em>[</em><em>Callable</em><em>[</em><em>[</em><a class="reference internal" href="#lib.regle.Etat" title="lib.regle.Etat"><em>Etat</em></a><em>]</em><em>, </em><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)"><em>None</em></a><em>]</em><em>]</em>) – le set de règle à utiliser.</p>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>décorateur.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p>Callable[[Callable[[<a class="reference internal" href="#lib.regle.Etat" title="lib.regle.Etat">lib.regle.Etat</a>], <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a>]], Callable[[<a class="reference internal" href="#lib.regle.Etat" title="lib.regle.Etat">lib.regle.Etat</a>], <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a>]]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="lib.regle.traverser_un_obstacle">
+<code class="sig-prename descclassname">lib.regle.</code><code class="sig-name descname">traverser_un_obstacle</code><span class="sig-paren">(</span><em class="sig-param">etat</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.regle.traverser_un_obstacle" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Test si l’élément sur lequel le joueur se déplace est traversable.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>etat</strong> (<a class="reference internal" href="#lib.regle.Etat" title="lib.regle.Etat"><em>lib.regle.Etat</em></a>) – état du labyrinthe.</p>
+</dd>
+<dt class="field-even">Lève</dt>
+<dd class="field-even"><p><a class="reference internal" href="#lib.regle.HorsRegles" title="lib.regle.HorsRegles"><strong>HorsRegles</strong></a> – si l’élément n’est pas <code class="docutils literal notranslate"><span class="pre">Traversable</span></code>.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="lib.regle.rencontrer_un_adversaire">
+<code class="sig-prename descclassname">lib.regle.</code><code class="sig-name descname">rencontrer_un_adversaire</code><span class="sig-paren">(</span><em class="sig-param">etat</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.regle.rencontrer_un_adversaire" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Test si un autre joueur occupe la position sur laquelle le joueur se déplace.
+Test si un autre joueur se trouve sur l’élément à transformer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>etat</strong> (<a class="reference internal" href="#lib.regle.Etat" title="lib.regle.Etat"><em>lib.regle.Etat</em></a>) – état du labyrinthe.</p>
+</dd>
+<dt class="field-even">Lève</dt>
+<dd class="field-even"><p><a class="reference internal" href="#lib.regle.HorsRegles" title="lib.regle.HorsRegles"><strong>HorsRegles</strong></a> – si un autre joueur occupe la position.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="lib.regle.gagner_une_partie">
+<code class="sig-prename descclassname">lib.regle.</code><code class="sig-name descname">gagner_une_partie</code><span class="sig-paren">(</span><em class="sig-param">etat</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.regle.gagner_une_partie" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Test si l’élément sur lequel le joueur se déplace est <code class="docutils literal notranslate"><span class="pre">Gagnable</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>etat</strong> (<a class="reference internal" href="#lib.regle.Etat" title="lib.regle.Etat"><em>lib.regle.Etat</em></a>) – état du labyrinthe.</p>
+</dd>
+<dt class="field-even">Lève</dt>
+<dd class="field-even"><p><a class="reference internal" href="#lib.regle.PartieGagnee" title="lib.regle.PartieGagnee"><strong>PartieGagnee</strong></a> – si l’élément est <code class="docutils literal notranslate"><span class="pre">Gagnable</span></code>.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="lib.regle.transformer_un_obstacle">
+<code class="sig-prename descclassname">lib.regle.</code><code class="sig-name descname">transformer_un_obstacle</code><span class="sig-paren">(</span><em class="sig-param">etat</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.regle.transformer_un_obstacle" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Test si l’élément à transformer dérive de la transformation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>etat</strong> (<a class="reference internal" href="#lib.regle.Etat" title="lib.regle.Etat"><em>lib.regle.Etat</em></a>) – état du labyrinthe.</p>
+</dd>
+<dt class="field-even">Lève</dt>
+<dd class="field-even"><p><a class="reference internal" href="#lib.regle.HorsRegles" title="lib.regle.HorsRegles"><strong>HorsRegles</strong></a> – si l’élément ne dérive pas de la transformation.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="test.test_dossier.html" class="btn btn-neutral float-right" title="test.test_dossier" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lib.element.html" class="btn btn-neutral float-left" title="lib.element" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Vincent Nagy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

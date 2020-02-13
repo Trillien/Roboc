@@ -1,0 +1,24 @@
+test.test\_dossier
+==================
+
+.. automodule:: test.test_dossier
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      DossierTest
+      EstFalse
+      EstTrue
+   
+   
+
+   
+   
+   

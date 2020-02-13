@@ -1,0 +1,392 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>lib.messagerie &mdash; Documentation Roboc Feb-7 2020</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="lib.interface_client" href="lib.interface_client.html" />
+    <link rel="prev" title="lib.carte" href="lib.carte.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Roboc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lib.dossier.html">lib.dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.carte.html">lib.carte</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">lib.messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_client.html">lib.interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_serveur.html">lib.interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.labyrinthe.html">lib.labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.joueur.html">lib.joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.controle.html">lib.controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.element.html">lib.element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.regle.html">lib.regle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_dossier.html">test.test_dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_carte.html">test.test_carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_messagerie.html">test.test_messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_client.html">test.test_interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_serveur.html">test.test_interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_labyrinthe.html">test.test_labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_joueur.html">test.test_joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_controle.html">test.test_controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_element.html">test.test_element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_regle.html">test.test_regle</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Roboc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>lib.messagerie</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/lib.messagerie.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-lib.messagerie">
+<span id="lib-messagerie"></span><h1>lib.messagerie<a class="headerlink" href="#module-lib.messagerie" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce module contient les classes <code class="docutils literal notranslate"><span class="pre">Transmission</span></code> et <code class="docutils literal notranslate"><span class="pre">Messagerie</span></code>.</p>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.messagerie.Messagerie" title="lib.messagerie.Messagerie"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Messagerie</span></code></a></p></td>
+<td><p>Permet aux différents Threads d’ajouter et de récuperer des messages.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.messagerie.Transmission" title="lib.messagerie.Transmission"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Transmission</span></code></a>(request)</p></td>
+<td><p>Utilisé pour envoyer et recevoir des messages entre le Client et le Serveur.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Exceptions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.messagerie.ConnectionFermee" title="lib.messagerie.ConnectionFermee"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ConnectionFermee</span></code></a></p></td>
+<td><p>Exception levée quand le client distant a fermé la connexion.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="exception">
+<dt id="lib.messagerie.ConnectionFermee">
+<em class="property">exception </em><code class="sig-prename descclassname">lib.messagerie.</code><code class="sig-name descname">ConnectionFermee</code><a class="headerlink" href="#lib.messagerie.ConnectionFermee" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/exceptions.html#BaseException" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseException</span></code></a></p>
+<p>Exception levée quand le client distant a fermé la connexion.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.messagerie.Transmission">
+<em class="property">class </em><code class="sig-prename descclassname">lib.messagerie.</code><code class="sig-name descname">Transmission</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.messagerie.Transmission" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Utilisé pour envoyer et recevoir des messages entre le Client et le Serveur.
+Le message comporte:</p>
+<ul class="simple">
+<li><p>une entête de longueur fixe <code class="docutils literal notranslate"><span class="pre">longueur_entete</span></code> qui indique la taille de l’objet transmis</p></li>
+<li><p>l’objet sérialisé avec <em>pickle</em></p></li>
+</ul>
+<p>Idée originale détaillée sur:
+<a class="reference external" href="https://pythonprogramming.net/pickle-objects-sockets-tutorial-python-3/">https://pythonprogramming.net/pickle-objects-sockets-tutorial-python-3/</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>socket.socket</em>) – connexion client.</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="lib.messagerie.Transmission.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><em class="sig-param">request</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.messagerie.Transmission.__init__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Stocke la socket nécessaire pour envoyer et recevoir des messages entre Client et Serveur.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>request</strong> (<em>socket.socket</em>) – connexion client.</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.messagerie.Transmission.envoyer">
+<code class="sig-name descname">envoyer</code><span class="sig-paren">(</span><em class="sig-param">objet</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.messagerie.Transmission.envoyer" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Sérialise l’objet avec <em>pickle</em>.
+Détermine la taille du message à transmettre et l’indique dans l’entête.
+Envoie le message en utilisant la socket.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>objet</strong> (<em>Any</em>) – objet à transmettre.</p>
+</dd>
+<dt class="field-even">Lève</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(disponible dans Python v3.8)"><strong>TypeError</strong></a> – si l’objet ne peut pas être sérialisé.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#OverflowError" title="(disponible dans Python v3.8)"><strong>OverflowError</strong></a> – si la taille du message ne peut être contenu dans <code class="docutils literal notranslate"><span class="pre">longueur_entete</span></code>.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.messagerie.Transmission.recevoir">
+<code class="sig-name descname">recevoir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.messagerie.Transmission.recevoir" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Reçoit l’entête de taille <code class="docutils literal notranslate"><span class="pre">longueur_entete</span></code>.
+Puis reçoit la quantité d’octets indiquée dans l’entête.
+Dé-sérialise le message avec <em>pickle</em> et retourne l’objet.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie</dt>
+<dd class="field-odd"><p>objet reçu.</p>
+</dd>
+<dt class="field-even">Lève</dt>
+<dd class="field-even"><ul class="simple">
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#TypeError" title="(disponible dans Python v3.8)"><strong>TypeError</strong></a> – si l’objet ne peut pas être sérialisé.</p></li>
+<li><p><a class="reference internal" href="#lib.messagerie.ConnectionFermee" title="lib.messagerie.ConnectionFermee"><strong>ConnectionFermee</strong></a> – si le client distant a fermé la connexion.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ConnectionResetError" title="(disponible dans Python v3.8)"><strong>ConnectionResetError</strong></a> – si le client distant a réinitialisé la connexion.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#ConnectionAbortedError" title="(disponible dans Python v3.8)"><strong>ConnectionAbortedError</strong></a> – si la socket depuis laquelle le message est reçue est close.</p></li>
+<li><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#OSError" title="(disponible dans Python v3.8)"><strong>OSError</strong></a> – si la socket utilisée par la fonction est close.</p></li>
+</ul>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.messagerie.Messagerie">
+<em class="property">class </em><code class="sig-prename descclassname">lib.messagerie.</code><code class="sig-name descname">Messagerie</code><a class="headerlink" href="#lib.messagerie.Messagerie" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Permet aux différents Threads d’ajouter et de récuperer des messages.
+Averti les Threads de l’arrivée d’un message grâce à l’Event <code class="docutils literal notranslate"><span class="pre">nouveau_message</span></code>.
+Les messages sont stockés sur une unique liste <code class="docutils literal notranslate"><span class="pre">messages</span></code>.</p>
+<dl class="method">
+<dt id="lib.messagerie.Messagerie.ajouter">
+<em class="property">classmethod </em><code class="sig-name descname">ajouter</code><span class="sig-paren">(</span><em class="sig-param">message</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.messagerie.Messagerie.ajouter" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Utilise le verrou <code class="docutils literal notranslate"><span class="pre">nouveau_message</span></code> pour accéder à la liste des messages.
+Ajoute le message à la liste.
+Indique l’arriver d’un message avec <code class="docutils literal notranslate"><span class="pre">nouveau_message</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>message</strong> (<em>Any</em>) – message à ajouter à la classe <code class="docutils literal notranslate"><span class="pre">Messagerie</span></code>.</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.messagerie.Messagerie.obtenir">
+<em class="property">classmethod </em><code class="sig-name descname">obtenir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.messagerie.Messagerie.obtenir" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Utilise le verrou <code class="docutils literal notranslate"><span class="pre">nouveau_message</span></code> pour accéder à la liste des messages.
+Attend l’arriver d’un nouveau message.
+Retire le message le plus ancien de la liste.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie</dt>
+<dd class="field-odd"><p>premier message de la classe <code class="docutils literal notranslate"><span class="pre">Messagerie</span></code>.</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p>Any</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.messagerie.Messagerie.effacer">
+<em class="property">classmethod </em><code class="sig-name descname">effacer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.messagerie.Messagerie.effacer" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Réinitialise les variables de la classe <code class="docutils literal notranslate"><span class="pre">Messagerie</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lib.interface_client.html" class="btn btn-neutral float-right" title="lib.interface_client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lib.carte.html" class="btn btn-neutral float-left" title="lib.carte" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Vincent Nagy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+lib.messagerie
+==============
+
+.. automodule:: lib.messagerie
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Messagerie
+      Transmission
+   
+   
+
+   
+   
+   .. rubric:: Exceptions
+
+   .. autosummary::
+   
+      ConnectionFermee
+   
+   

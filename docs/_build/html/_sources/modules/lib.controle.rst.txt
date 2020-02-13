@@ -1,0 +1,31 @@
+lib.controle
+============
+
+.. automodule:: lib.controle
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      extraire
+      obtenir_controle
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Controle
+      Mouvement
+      Transformation
+   
+   
+
+   
+   
+   

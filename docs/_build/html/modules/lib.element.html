@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>lib.element &mdash; Documentation Roboc Feb-7 2020</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="lib.regle" href="lib.regle.html" />
+    <link rel="prev" title="lib.controle" href="lib.controle.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Roboc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lib.dossier.html">lib.dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.carte.html">lib.carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.messagerie.html">lib.messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_client.html">lib.interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_serveur.html">lib.interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.labyrinthe.html">lib.labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.joueur.html">lib.joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.controle.html">lib.controle</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">lib.element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.regle.html">lib.regle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_dossier.html">test.test_dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_carte.html">test.test_carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_messagerie.html">test.test_messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_client.html">test.test_interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_serveur.html">test.test_interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_labyrinthe.html">test.test_labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_joueur.html">test.test_joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_controle.html">test.test_controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_element.html">test.test_element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_regle.html">test.test_regle</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Roboc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>lib.element</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/lib.element.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-lib.element">
+<span id="lib-element"></span><h1>lib.element<a class="headerlink" href="#module-lib.element" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce module définit les éléments de la grille du labyrinthe.</p>
+<ul class="simple">
+<li><p>les classes <em>Mix-In</em> <code class="docutils literal notranslate"><span class="pre">Decryptable</span></code>, <code class="docutils literal notranslate"><span class="pre">Decrypte</span></code>, <code class="docutils literal notranslate"><span class="pre">Defaut</span></code>, <code class="docutils literal notranslate"><span class="pre">Traversable</span></code>, <code class="docutils literal notranslate"><span class="pre">Gagnable</span></code>, <code class="docutils literal notranslate"><span class="pre">Demarrable</span></code>,
+<code class="docutils literal notranslate"><span class="pre">Transformable</span></code>, <code class="docutils literal notranslate"><span class="pre">Murable</span></code>, <code class="docutils literal notranslate"><span class="pre">Percable</span></code></p></li>
+<li><p>la metaclasse <code class="docutils literal notranslate"><span class="pre">Elements</span></code></p></li>
+<li><p>les classes <code class="docutils literal notranslate"><span class="pre">Element</span></code>, <code class="docutils literal notranslate"><span class="pre">Porte</span></code>, <code class="docutils literal notranslate"><span class="pre">Mur</span></code>, <code class="docutils literal notranslate"><span class="pre">Sortie</span></code>, <code class="docutils literal notranslate"><span class="pre">Sol</span></code>, <code class="docutils literal notranslate"><span class="pre">Robot</span></code>, <code class="docutils literal notranslate"><span class="pre">Adversaire</span></code></p></li>
+</ul>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.element.Adversaire" title="lib.element.Adversaire"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Adversaire</span></code></a></p></td>
+<td><p>Représente les autres joueurs.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.element.Decryptable" title="lib.element.Decryptable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Decryptable</span></code></a></p></td>
+<td><p>Désigne tous les éléments du labyrinthe reconnus à la lecture d’une carte.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.element.Decrypte" title="lib.element.Decrypte"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Decrypte</span></code></a></p></td>
+<td><p>Désigne tous les éléments qui sont détaillés dans la grille du labyrinthe.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.element.Defaut" title="lib.element.Defaut"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Defaut</span></code></a></p></td>
+<td><p>Désigne l’élément qui sera appelé si la grille du labyrinthe n’en définit aucun.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.element.Demarrable" title="lib.element.Demarrable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Demarrable</span></code></a></p></td>
+<td><p>Désigne un élément sur lequel le joueur peut démarrer la partie.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.element.Element" title="lib.element.Element"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Element</span></code></a></p></td>
+<td><p>Classe générique des éléments présents dans un labyrinthe.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.element.Elements" title="lib.element.Elements"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Elements</span></code></a></p></td>
+<td><p>Métaclasse qui stocke les informations des classes créées dans:</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.element.Gagnable" title="lib.element.Gagnable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Gagnable</span></code></a></p></td>
+<td><p>Désigne un élément qui fait gagner la partie au joueur.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.element.Mur" title="lib.element.Mur"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Mur</span></code></a></p></td>
+<td><p>Un <code class="docutils literal notranslate"><span class="pre">Mur</span></code> est un élément présent dans la grille du labyrinthe, transformable en <code class="docutils literal notranslate"><span class="pre">Porte</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.element.Murable" title="lib.element.Murable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Murable</span></code></a></p></td>
+<td><p>Désigne un élément qui peut être remplacé par un <code class="docutils literal notranslate"><span class="pre">Mur</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.element.Percable" title="lib.element.Percable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Percable</span></code></a></p></td>
+<td><p>Désigne un élément qui peut être remplacé par une <code class="docutils literal notranslate"><span class="pre">Porte</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.element.Porte" title="lib.element.Porte"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Porte</span></code></a></p></td>
+<td><p>Une <code class="docutils literal notranslate"><span class="pre">Porte</span></code> est un élément présent dans la grille du labyrinthe, traversable par le joueur, transformable en <code class="docutils literal notranslate"><span class="pre">Mur</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.element.Robot" title="lib.element.Robot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Robot</span></code></a></p></td>
+<td><p>Représente le joueur.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.element.Sol" title="lib.element.Sol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sol</span></code></a></p></td>
+<td><p>Le <code class="docutils literal notranslate"><span class="pre">Sol</span></code> est l’élément par défaut absent de la grille du labyrinthe, sur lequel le joueur peut débuter une partie.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.element.Sortie" title="lib.element.Sortie"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Sortie</span></code></a></p></td>
+<td><p>Une <code class="docutils literal notranslate"><span class="pre">Sortie</span></code> est un élément présent dans la grille du labyrinthe, qui permet de gagner une partie.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#lib.element.Transformable" title="lib.element.Transformable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Transformable</span></code></a></p></td>
+<td><p>Désigne un élément qui peut être changé en un autre.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#lib.element.Traversable" title="lib.element.Traversable"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Traversable</span></code></a></p></td>
+<td><p>Désigne un élément qui peut être traversé par le joueur.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="lib.element.Decryptable">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Decryptable</code><a class="headerlink" href="#lib.element.Decryptable" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Désigne tous les éléments du labyrinthe reconnus à la lecture d’une carte.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Decrypte">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Decrypte</code><a class="headerlink" href="#lib.element.Decrypte" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#lib.element.Decryptable" title="lib.element.Decryptable"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Decryptable</span></code></a></p>
+<p>Désigne tous les éléments qui sont détaillés dans la grille du labyrinthe.
+Un élément reconnu n’est pas nécessairement renseigné dans la grille.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Defaut">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Defaut</code><a class="headerlink" href="#lib.element.Defaut" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Désigne l’élément qui sera appelé si la grille du labyrinthe n’en définit aucun.
+Il ne doit y avoir qu’un seul élément défini par défaut.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Traversable">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Traversable</code><a class="headerlink" href="#lib.element.Traversable" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Désigne un élément qui peut être traversé par le joueur.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Gagnable">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Gagnable</code><a class="headerlink" href="#lib.element.Gagnable" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#lib.element.Traversable" title="lib.element.Traversable"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Traversable</span></code></a>, <a class="reference internal" href="#lib.element.Decryptable" title="lib.element.Decryptable"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Decryptable</span></code></a></p>
+<p>Désigne un élément qui fait gagner la partie au joueur.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Demarrable">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Demarrable</code><a class="headerlink" href="#lib.element.Demarrable" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#lib.element.Traversable" title="lib.element.Traversable"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Traversable</span></code></a></p>
+<p>Désigne un élément sur lequel le joueur peut démarrer la partie.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Transformable">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Transformable</code><a class="headerlink" href="#lib.element.Transformable" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Désigne un élément qui peut être changé en un autre.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Murable">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Murable</code><a class="headerlink" href="#lib.element.Murable" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#lib.element.Transformable" title="lib.element.Transformable"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Transformable</span></code></a></p>
+<p>Désigne un élément qui peut être remplacé par un <code class="docutils literal notranslate"><span class="pre">Mur</span></code>.</p>
+<dl class="attribute">
+<dt id="lib.element.Murable.transformee">
+<code class="sig-name descname">transformee</code><a class="headerlink" href="#lib.element.Murable.transformee" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#lib.element.Mur" title="lib.element.Mur"><code class="xref py py-class docutils literal notranslate"><span class="pre">Mur</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Percable">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Percable</code><a class="headerlink" href="#lib.element.Percable" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#lib.element.Transformable" title="lib.element.Transformable"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Transformable</span></code></a></p>
+<p>Désigne un élément qui peut être remplacé par une <code class="docutils literal notranslate"><span class="pre">Porte</span></code>.</p>
+<dl class="attribute">
+<dt id="lib.element.Percable.transformee">
+<code class="sig-name descname">transformee</code><a class="headerlink" href="#lib.element.Percable.transformee" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#lib.element.Porte" title="lib.element.Porte"><code class="xref py py-class docutils literal notranslate"><span class="pre">Porte</span></code></a></p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Elements">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Elements</code><a class="headerlink" href="#lib.element.Elements" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/abc.html#abc.ABCMeta" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABCMeta</span></code></a></p>
+<p>Métaclasse qui stocke les informations des classes créées dans:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">decryptable</span></code>, caractères reconnus à la lecture d’une carte et associés aux classes d’éléments.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">gagnable</span></code>, caractères et leurs éléments associés qui font gagner la partie.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">obstacle_par_defaut</span></code>, élément appelé si la grille du labyrinthe n’en définit aucun.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nom</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a>) – </p></li>
+<li><p><strong>..</strong><strong>] </strong><strong>bases</strong> (<em>Tuple</em><em>[</em><em>Any</em><em>,</em>) – </p></li>
+<li><p><strong>Any</strong><strong>] </strong><strong>dictionnaire</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a><em>,</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference internal" href="#lib.element.Elements" title="lib.element.Elements">Elements</a></p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="lib.element.Elements.obstacle_par_defaut">
+<code class="sig-name descname">obstacle_par_defaut</code><a class="headerlink" href="#lib.element.Elements.obstacle_par_defaut" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>alias de <a class="reference internal" href="#lib.element.Sol" title="lib.element.Sol"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sol</span></code></a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.element.Elements.__new__">
+<em class="property">static </em><code class="sig-name descname">__new__</code><span class="sig-paren">(</span><em class="sig-param">mcs</em>, <em class="sig-param">nom</em>, <em class="sig-param">bases</em>, <em class="sig-param">dictionnaire</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.element.Elements.__new__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Crée la classe d’élément et ajoute ses informations aux variables de classe en fonction des classes héritées.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>nom</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a>) – nom de la classe d’élément.</p></li>
+<li><p><strong>bases</strong> (<em>Tuple</em><em>[</em><em>Any</em><em>, </em><em>..</em><em>]</em>) – classes héritées.</p></li>
+<li><p><strong>dictionnaire</strong> (<em>Dict</em><em>[</em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a><em>, </em><em>Any</em><em>]</em>) – méthodes de la classe d’élément.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>classe d’élément créée.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference internal" href="#lib.element.Elements" title="lib.element.Elements">lib.element.Elements</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.element.Elements.__str__">
+<code class="sig-name descname">__str__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#lib.element.Elements.__str__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Renvoie une représentation (un caractère) de l’élément du labyrinthe.
+Surchage de <code class="docutils literal notranslate"><span class="pre">__str__()</span></code> qui est appelé pour afficher une classe élément.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie</dt>
+<dd class="field-odd"><p>symbole_affichage</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.element.Elements.get_decryptable">
+<em class="property">classmethod </em><code class="sig-name descname">get_decryptable</code><span class="sig-paren">(</span><em class="sig-param">symbole</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.element.Elements.get_decryptable" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Renvoie l’élément correspondant au caractère transmis.
+Si <code class="docutils literal notranslate"><span class="pre">decryptable</span></code> ne contient pas l’élément, renvoie <code class="docutils literal notranslate"><span class="pre">obstacle_par_defaut</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>symbole</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a>) – caractère.</p>
+</dd>
+<dt class="field-even">Renvoie</dt>
+<dd class="field-even"><p>Elément.</p>
+</dd>
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p>Type[<a class="reference internal" href="#lib.element.Element" title="lib.element.Element">lib.element.Element</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="lib.element.Elements.enlever">
+<em class="property">classmethod </em><code class="sig-name descname">enlever</code><span class="sig-paren">(</span><em class="sig-param">symbole</em><span class="sig-paren">)</span><a class="headerlink" href="#lib.element.Elements.enlever" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Efface l’élément représenté par “symbole” des dictionnaires de la classe “Elements”</p>
+<dl class="field-list simple">
+<dt class="field-odd">Paramètres</dt>
+<dd class="field-odd"><p><strong>symbole</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(disponible dans Python v3.8)"><em>str</em></a>) – </p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Element">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Element</code><a class="headerlink" href="#lib.element.Element" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Classe générique des éléments présents dans un labyrinthe.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Porte">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Porte</code><a class="headerlink" href="#lib.element.Porte" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#lib.element.Element" title="lib.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Element</span></code></a>, <a class="reference internal" href="#lib.element.Decrypte" title="lib.element.Decrypte"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Decrypte</span></code></a>, <a class="reference internal" href="#lib.element.Traversable" title="lib.element.Traversable"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Traversable</span></code></a>, <a class="reference internal" href="#lib.element.Murable" title="lib.element.Murable"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Murable</span></code></a></p>
+<p>Une <code class="docutils literal notranslate"><span class="pre">Porte</span></code> est un élément présent dans la grille du labyrinthe, traversable par le joueur, transformable en <code class="docutils literal notranslate"><span class="pre">Mur</span></code>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Mur">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Mur</code><a class="headerlink" href="#lib.element.Mur" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#lib.element.Element" title="lib.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Element</span></code></a>, <a class="reference internal" href="#lib.element.Decrypte" title="lib.element.Decrypte"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Decrypte</span></code></a>, <a class="reference internal" href="#lib.element.Percable" title="lib.element.Percable"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Percable</span></code></a></p>
+<p>Un <code class="docutils literal notranslate"><span class="pre">Mur</span></code> est un élément présent dans la grille du labyrinthe, transformable en <code class="docutils literal notranslate"><span class="pre">Porte</span></code>.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Sortie">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Sortie</code><a class="headerlink" href="#lib.element.Sortie" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#lib.element.Element" title="lib.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Element</span></code></a>, <a class="reference internal" href="#lib.element.Decrypte" title="lib.element.Decrypte"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Decrypte</span></code></a>, <a class="reference internal" href="#lib.element.Gagnable" title="lib.element.Gagnable"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Gagnable</span></code></a></p>
+<p>Une <code class="docutils literal notranslate"><span class="pre">Sortie</span></code> est un élément présent dans la grille du labyrinthe, qui permet de gagner une partie.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Sol">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Sol</code><a class="headerlink" href="#lib.element.Sol" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#lib.element.Element" title="lib.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Element</span></code></a>, <a class="reference internal" href="#lib.element.Decryptable" title="lib.element.Decryptable"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Decryptable</span></code></a>, <a class="reference internal" href="#lib.element.Defaut" title="lib.element.Defaut"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Defaut</span></code></a>, <a class="reference internal" href="#lib.element.Demarrable" title="lib.element.Demarrable"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Demarrable</span></code></a></p>
+<p>Le <code class="docutils literal notranslate"><span class="pre">Sol</span></code> est l’élément par défaut absent de la grille du labyrinthe, sur lequel le joueur peut débuter une partie.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Robot">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Robot</code><a class="headerlink" href="#lib.element.Robot" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#lib.element.Element" title="lib.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Element</span></code></a></p>
+<p>Représente le joueur.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="lib.element.Adversaire">
+<em class="property">class </em><code class="sig-prename descclassname">lib.element.</code><code class="sig-name descname">Adversaire</code><a class="headerlink" href="#lib.element.Adversaire" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#lib.element.Element" title="lib.element.Element"><code class="xref py py-class docutils literal notranslate"><span class="pre">lib.element.Element</span></code></a></p>
+<p>Représente les autres joueurs.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="lib.regle.html" class="btn btn-neutral float-right" title="lib.regle" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="lib.controle.html" class="btn btn-neutral float-left" title="lib.controle" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Vincent Nagy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

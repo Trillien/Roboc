@@ -1,0 +1,417 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>test.test_controle &mdash; Documentation Roboc Feb-7 2020</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="test.test_element" href="test.test_element.html" />
+    <link rel="prev" title="test.test_joueur" href="test.test_joueur.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Roboc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lib.dossier.html">lib.dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.carte.html">lib.carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.messagerie.html">lib.messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_client.html">lib.interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_serveur.html">lib.interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.labyrinthe.html">lib.labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.joueur.html">lib.joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.controle.html">lib.controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.element.html">lib.element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.regle.html">lib.regle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_dossier.html">test.test_dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_carte.html">test.test_carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_messagerie.html">test.test_messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_client.html">test.test_interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_serveur.html">test.test_interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_labyrinthe.html">test.test_labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_joueur.html">test.test_joueur</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">test.test_controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_element.html">test.test_element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_regle.html">test.test_regle</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Roboc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>test.test_controle</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/test.test_controle.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-test.test_controle">
+<span id="test-test-controle"></span><h1>test.test_controle<a class="headerlink" href="#module-test.test_controle" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce module contient les classes <code class="docutils literal notranslate"><span class="pre">ControleTest</span></code>, <code class="docutils literal notranslate"><span class="pre">ExtraireTest</span></code> et <code class="docutils literal notranslate"><span class="pre">ObtenirControleTest</span></code>.</p>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#test.test_controle.ControleTest" title="test.test_controle.ControleTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ControleTest</span></code></a>([methodName])</p></td>
+<td><p>Test case utilisé pour tester les fonctions des classes <code class="docutils literal notranslate"><span class="pre">Controle</span></code>, <code class="docutils literal notranslate"><span class="pre">Mouvement</span></code> et <code class="docutils literal notranslate"><span class="pre">Transformation</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#test.test_controle.ExtraireTest" title="test.test_controle.ExtraireTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ExtraireTest</span></code></a>([methodName])</p></td>
+<td><p>Test case utilisé pour tester la fonction <code class="docutils literal notranslate"><span class="pre">extraire()</span></code>.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#test.test_controle.ObtenirControleTest" title="test.test_controle.ObtenirControleTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ObtenirControleTest</span></code></a>([methodName])</p></td>
+<td><p>Test case utilisé pour tester la fonction <code class="docutils literal notranslate"><span class="pre">obtenir_controle()</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="test.test_controle.ControleTest">
+<em class="property">class </em><code class="sig-prename descclassname">test.test_controle.</code><code class="sig-name descname">ControleTest</code><span class="sig-paren">(</span><em class="sig-param">methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test.test_controle.ControleTest" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>Test case utilisé pour tester les fonctions des classes <code class="docutils literal notranslate"><span class="pre">Controle</span></code>, <code class="docutils literal notranslate"><span class="pre">Mouvement</span></code> et <code class="docutils literal notranslate"><span class="pre">Transformation</span></code>.</p>
+<dl class="method">
+<dt id="test.test_controle.ControleTest.setUp">
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_controle.ControleTest.setUp" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Avant chaque test:</p>
+<ul class="simple">
+<li><p>Sauvegarde les contrôles initialisés par le module <strong>controle</strong>.</p></li>
+<li><p>Efface les variables de classe pour supprimer les mouvements et transformations pré-existantes.</p></li>
+<li><p>Définit le nom, la classe d’héritage et les méthodes de <code class="docutils literal notranslate"><span class="pre">SimpleControle</span></code> nécessaire aux tests.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_controle.ControleTest.tearDown">
+<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_controle.ControleTest.tearDown" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Après chaque test, restaure les listes initiales dans les classes <code class="docutils literal notranslate"><span class="pre">Controle</span></code>, <code class="docutils literal notranslate"><span class="pre">Mouvement</span></code> et <code class="docutils literal notranslate"><span class="pre">Transformation</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_controle.ControleTest.test_lister_les_controles">
+<code class="sig-name descname">test_lister_les_controles</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_controle.ControleTest.test_lister_les_controles" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Instancie un nombre de contrôles et les stocke dans <code class="docutils literal notranslate"><span class="pre">liste_controles</span></code>.
+Pour chacun de ces contrôles:</p>
+<ul class="simple">
+<li><p>Teste si les attributs <code class="docutils literal notranslate"><span class="pre">touche</span></code> et <code class="docutils literal notranslate"><span class="pre">desciption</span></code> sont collectés par la classe <code class="docutils literal notranslate"><span class="pre">Controle</span></code>.</p></li>
+<li><p>Teste si le dictionnaire <code class="docutils literal notranslate"><span class="pre">touche_controle</span></code> associe la <code class="docutils literal notranslate"><span class="pre">touche</span></code> au contrôle.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_controle.ControleTest.test_lister_les_mouvements">
+<code class="sig-name descname">test_lister_les_mouvements</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_controle.ControleTest.test_lister_les_mouvements" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Instancie un nombre de mouvements et les stocke dans <code class="docutils literal notranslate"><span class="pre">liste_mouvements</span></code>.
+Pour chacun de ces mouvements:</p>
+<ul class="simple">
+<li><p>Teste si les attributs <code class="docutils literal notranslate"><span class="pre">touche</span></code> et <code class="docutils literal notranslate"><span class="pre">direction</span></code> sont collectés par la classe <code class="docutils literal notranslate"><span class="pre">Mouvement</span></code>.</p></li>
+<li><p>Teste si l’attribut <code class="docutils literal notranslate"><span class="pre">description</span></code> est collecté par la classe <code class="docutils literal notranslate"><span class="pre">Controle</span></code>.</p></li>
+<li><p>Teste si le dictionnaire <code class="docutils literal notranslate"><span class="pre">touche_controle</span></code> associe la <code class="docutils literal notranslate"><span class="pre">touche</span></code> au mouvement.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_controle.ControleTest.test_lister_les_transformations">
+<code class="sig-name descname">test_lister_les_transformations</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_controle.ControleTest.test_lister_les_transformations" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Instancie un nombre de transformations et les stocke dans <code class="docutils literal notranslate"><span class="pre">liste_transformations</span></code>.
+Pour chacune de ces transformations:</p>
+<ul class="simple">
+<li><p>Teste si l’attribut <code class="docutils literal notranslate"><span class="pre">touche</span></code> est collecté par la classe <code class="docutils literal notranslate"><span class="pre">Transformation</span></code>.</p></li>
+<li><p>Teste si l’attribut <code class="docutils literal notranslate"><span class="pre">description</span></code> est collecté par la classe <code class="docutils literal notranslate"><span class="pre">Controle</span></code>.</p></li>
+<li><p>Teste si le dictionnaire <code class="docutils literal notranslate"><span class="pre">touche_controle</span></code> associe la <code class="docutils literal notranslate"><span class="pre">touche</span></code> à la transformation.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="test.test_controle.ExtraireTest">
+<em class="property">class </em><code class="sig-prename descclassname">test.test_controle.</code><code class="sig-name descname">ExtraireTest</code><span class="sig-paren">(</span><em class="sig-param">methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test.test_controle.ExtraireTest" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>Test case utilisé pour tester la fonction <code class="docutils literal notranslate"><span class="pre">extraire()</span></code>.</p>
+<dl class="method">
+<dt id="test.test_controle.ExtraireTest.test_extraire_mouvement">
+<code class="sig-name descname">test_extraire_mouvement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_controle.ExtraireTest.test_extraire_mouvement" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Construit la chaîne de caractères <code class="docutils literal notranslate"><span class="pre">saisie</span></code> sur le modèle <em>NSEO</em>.</p></li>
+<li><p>Appelle la fonction <code class="docutils literal notranslate"><span class="pre">extraire()</span></code> avec <code class="docutils literal notranslate"><span class="pre">saisie</span></code> en argument.</p></li>
+<li><p>Compare la <code class="docutils literal notranslate"><span class="pre">liste_commandes_ajoutees</span></code> depuis saisie avec la <code class="docutils literal notranslate"><span class="pre">liste_commande_obtenue</span></code>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_controle.ExtraireTest.test_extraire_mouvement_repetition">
+<code class="sig-name descname">test_extraire_mouvement_repetition</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_controle.ExtraireTest.test_extraire_mouvement_repetition" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Construit la chaîne de caractères <code class="docutils literal notranslate"><span class="pre">saisie</span></code> sur le modèle <em>NOS1E2O3…</em></p></li>
+<li><p>Ajoute les commandes liées à <code class="docutils literal notranslate"><span class="pre">saisie</span></code> à la <code class="docutils literal notranslate"><span class="pre">liste_commandes_ajoutees</span></code>.</p></li>
+<li><p>Appelle la fonction <code class="docutils literal notranslate"><span class="pre">extraire()</span></code> avec <code class="docutils literal notranslate"><span class="pre">saisie</span></code> en argument.</p></li>
+<li><p>Compare la <code class="docutils literal notranslate"><span class="pre">liste_commandes_ajoutees</span></code> depuis saisie avec la <code class="docutils literal notranslate"><span class="pre">liste_commande_obtenue</span></code>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_controle.ExtraireTest.test_extraire_transformation">
+<code class="sig-name descname">test_extraire_transformation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_controle.ExtraireTest.test_extraire_transformation" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Construit la chaîne de caractères <code class="docutils literal notranslate"><span class="pre">saisie</span></code> sur le modèle <em>MNMSMEMO…</em></p></li>
+<li><p>Ajoute les commandes liées à <code class="docutils literal notranslate"><span class="pre">saisie</span></code> à la <code class="docutils literal notranslate"><span class="pre">liste_commandes_ajoutees</span></code>.</p></li>
+<li><p>Appelle la fonction <code class="docutils literal notranslate"><span class="pre">extraire()</span></code> avec <code class="docutils literal notranslate"><span class="pre">saisie</span></code> en argument.</p></li>
+<li><p>Compare la <code class="docutils literal notranslate"><span class="pre">liste_commandes_ajoutees</span></code> depuis saisie avec la <code class="docutils literal notranslate"><span class="pre">liste_commande_obtenue</span></code>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="test.test_controle.ObtenirControleTest">
+<em class="property">class </em><code class="sig-prename descclassname">test.test_controle.</code><code class="sig-name descname">ObtenirControleTest</code><span class="sig-paren">(</span><em class="sig-param">methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test.test_controle.ObtenirControleTest" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>Test case utilisé pour tester la fonction <code class="docutils literal notranslate"><span class="pre">obtenir_controle()</span></code>.</p>
+<dl class="method">
+<dt id="test.test_controle.ObtenirControleTest.test_obtenir_controle_mouvement">
+<code class="sig-name descname">test_obtenir_controle_mouvement</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_controle.ObtenirControleTest.test_obtenir_controle_mouvement" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Instancie un mouvement dont la <code class="docutils literal notranslate"><span class="pre">touche</span></code> est collectée par la classe <code class="docutils literal notranslate"><span class="pre">Mouvement</span></code>.</p></li>
+<li><p>Appelle la fonction <code class="docutils literal notranslate"><span class="pre">obtenir_controle()</span></code> avec la <code class="docutils literal notranslate"><span class="pre">touche</span></code> du mouvement en argument.</p></li>
+<li><p>Teste si la fonction renvoie la <code class="docutils literal notranslate"><span class="pre">direction</span></code>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_controle.ObtenirControleTest.test_obtenir_controle_transformation">
+<code class="sig-name descname">test_obtenir_controle_transformation</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_controle.ObtenirControleTest.test_obtenir_controle_transformation" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><ul class="simple">
+<li><p>Instancie une transformation dont la <code class="docutils literal notranslate"><span class="pre">touche</span></code> est collectée par la classe <code class="docutils literal notranslate"><span class="pre">Transformation</span></code>.</p></li>
+<li><p>Instancie un mouvement dont la <code class="docutils literal notranslate"><span class="pre">touche</span></code> est collectée par la classe <code class="docutils literal notranslate"><span class="pre">Mouvement</span></code>.</p></li>
+<li><p>Appelle la fonction <code class="docutils literal notranslate"><span class="pre">obtenir_controle()</span></code> avec les touches <code class="docutils literal notranslate"><span class="pre">transformation</span> <span class="pre">+</span> <span class="pre">mouvement</span></code> en argument.</p></li>
+<li><p>Teste si la fonction renvoie la <code class="docutils literal notranslate"><span class="pre">direction</span></code> et la <code class="docutils literal notranslate"><span class="pre">transformation</span></code>.</p></li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="test.test_element.html" class="btn btn-neutral float-right" title="test.test_element" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="test.test_joueur.html" class="btn btn-neutral float-left" title="test.test_joueur" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Vincent Nagy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

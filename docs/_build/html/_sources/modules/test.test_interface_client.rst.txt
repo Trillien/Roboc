@@ -1,0 +1,22 @@
+test.test\_interface\_client
+============================
+
+.. automodule:: test.test_interface_client
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      ValidationTexteTest
+   
+   
+
+   
+   
+   

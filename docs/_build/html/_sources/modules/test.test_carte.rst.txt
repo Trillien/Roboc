@@ -1,0 +1,22 @@
+test.test\_carte
+================
+
+.. automodule:: test.test_carte
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      CarteTest
+   
+   
+
+   
+   
+   

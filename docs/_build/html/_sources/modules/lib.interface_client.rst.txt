@@ -1,0 +1,31 @@
+lib.interface\_client
+=====================
+
+.. automodule:: lib.interface_client
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      InterfaceClient
+      InterfaceServeur
+      ValidateurTexte
+   
+   
+
+   
+   
+   .. rubric:: Exceptions
+
+   .. autosummary::
+   
+      Quitter
+      ValidationErreur
+   
+   

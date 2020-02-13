@@ -1,0 +1,486 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="fr" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="fr" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>test.test_messagerie &mdash; Documentation Roboc Feb-7 2020</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Recherche" href="../search.html" />
+    <link rel="next" title="test.test_interface_client" href="test.test_interface_client.html" />
+    <link rel="prev" title="test.test_carte" href="test.test_carte.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Roboc
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="lib.dossier.html">lib.dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.carte.html">lib.carte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.messagerie.html">lib.messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_client.html">lib.interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.interface_serveur.html">lib.interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.labyrinthe.html">lib.labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.joueur.html">lib.joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.controle.html">lib.controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.element.html">lib.element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lib.regle.html">lib.regle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_dossier.html">test.test_dossier</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_carte.html">test.test_carte</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">test.test_messagerie</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_client.html">test.test_interface_client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_interface_serveur.html">test.test_interface_serveur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_labyrinthe.html">test.test_labyrinthe</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_joueur.html">test.test_joueur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_controle.html">test.test_controle</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_element.html">test.test_element</a></li>
+<li class="toctree-l1"><a class="reference internal" href="test.test_regle.html">test.test_regle</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Roboc</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>test.test_messagerie</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/modules/test.test_messagerie.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-test.test_messagerie">
+<span id="test-test-messagerie"></span><h1>test.test_messagerie<a class="headerlink" href="#module-test.test_messagerie" title="Lien permanent vers ce titre">¶</a></h1>
+<p>Ce module contient les classes <code class="docutils literal notranslate"><span class="pre">TransmissionTest</span></code> et <code class="docutils literal notranslate"><span class="pre">MessagerieTest</span></code>.</p>
+<p class="rubric">Classes</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="#test.test_messagerie.Client" title="test.test_messagerie.Client"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Client</span></code></a>()</p></td>
+<td><p>Crée un client.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#test.test_messagerie.ClientServeur" title="test.test_messagerie.ClientServeur"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ClientServeur</span></code></a>()</p></td>
+<td><p>Contient les informations de connexion entre le client et le serveur.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#test.test_messagerie.MessagerieTest" title="test.test_messagerie.MessagerieTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">MessagerieTest</span></code></a>([methodName])</p></td>
+<td><p>Test case utilisé pour tester les fonctions de la classe <code class="docutils literal notranslate"><span class="pre">Messagerie</span></code>.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="#test.test_messagerie.Serveur" title="test.test_messagerie.Serveur"><code class="xref py py-obj docutils literal notranslate"><span class="pre">Serveur</span></code></a>()</p></td>
+<td><p>Crée un serveur.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="#test.test_messagerie.TransmissionTest" title="test.test_messagerie.TransmissionTest"><code class="xref py py-obj docutils literal notranslate"><span class="pre">TransmissionTest</span></code></a>([methodName])</p></td>
+<td><p>Test case utilisé pour tester les fonctions de la classe <code class="docutils literal notranslate"><span class="pre">Transmission</span></code>.</p></td>
+</tr>
+</tbody>
+</table>
+<dl class="class">
+<dt id="test.test_messagerie.ClientServeur">
+<em class="property">class </em><code class="sig-prename descclassname">test.test_messagerie.</code><code class="sig-name descname">ClientServeur</code><a class="headerlink" href="#test.test_messagerie.ClientServeur" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(disponible dans Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Contient les informations de connexion entre le client et le serveur.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="test.test_messagerie.ClientServeur.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.ClientServeur.__init__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Définit une socket (client ou serveur).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="test.test_messagerie.Serveur">
+<em class="property">class </em><code class="sig-prename descclassname">test.test_messagerie.</code><code class="sig-name descname">Serveur</code><a class="headerlink" href="#test.test_messagerie.Serveur" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#test.test_messagerie.ClientServeur" title="test.test_messagerie.ClientServeur"><code class="xref py py-class docutils literal notranslate"><span class="pre">test.test_messagerie.ClientServeur</span></code></a></p>
+<p>Crée un serveur.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="test.test_messagerie.Serveur.__init__">
+<code class="sig-name descname">__init__</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.Serveur.__init__" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Stocke la socket du client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_messagerie.Serveur.demarrer_serveur">
+<code class="sig-name descname">demarrer_serveur</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.Serveur.demarrer_serveur" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Démarre le serveur sur l’adresse de connexion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_messagerie.Serveur.accepter_connexion">
+<code class="sig-name descname">accepter_connexion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.Serveur.accepter_connexion" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Accepte une connexion et stocke les informations du client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Renvoie</dt>
+<dd class="field-odd"><p>socket du client.</p>
+</dd>
+<dt class="field-even">Type renvoyé</dt>
+<dd class="field-even"><p>socket.socket</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_messagerie.Serveur.arreter_serveur">
+<code class="sig-name descname">arreter_serveur</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.Serveur.arreter_serveur" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Si une connexion client existe, ferme cette connexion puis ferme la socket du serveur.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="test.test_messagerie.Client">
+<em class="property">class </em><code class="sig-prename descclassname">test.test_messagerie.</code><code class="sig-name descname">Client</code><a class="headerlink" href="#test.test_messagerie.Client" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <a class="reference internal" href="#test.test_messagerie.ClientServeur" title="test.test_messagerie.ClientServeur"><code class="xref py py-class docutils literal notranslate"><span class="pre">test.test_messagerie.ClientServeur</span></code></a></p>
+<p>Crée un client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+<dl class="method">
+<dt id="test.test_messagerie.Client.connecter">
+<code class="sig-name descname">connecter</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.Client.connecter" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Etablit une connexion sur l’adresse de connexion.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_messagerie.Client.fermer_connexion">
+<code class="sig-name descname">fermer_connexion</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.Client.fermer_connexion" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Ferme la socket du client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="test.test_messagerie.TransmissionTest">
+<em class="property">class </em><code class="sig-prename descclassname">test.test_messagerie.</code><code class="sig-name descname">TransmissionTest</code><span class="sig-paren">(</span><em class="sig-param">methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.TransmissionTest" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>Test case utilisé pour tester les fonctions de la classe <code class="docutils literal notranslate"><span class="pre">Transmission</span></code>.</p>
+<dl class="method">
+<dt id="test.test_messagerie.TransmissionTest.setUp">
+<code class="sig-name descname">setUp</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.TransmissionTest.setUp" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Avant chaque test, crée un serveur et un client.
+Charge une liste d’objets variés qui pourront être transmis du client au serveur.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_messagerie.TransmissionTest.tearDown">
+<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.TransmissionTest.tearDown" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Après chaque test, ferme les connexions client et serveur.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_messagerie.TransmissionTest.test_emission_trop_gros_objet">
+<code class="sig-name descname">test_emission_trop_gros_objet</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.TransmissionTest.test_emission_trop_gros_objet" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Crée un objet dont l’entête ne peut pas stocker la taille. Tente de transmettre l’objet mais échoue à créer
+l’entête. L’exception <code class="docutils literal notranslate"><span class="pre">OverflowError</span></code> est levée.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_messagerie.TransmissionTest.test_emission_reception">
+<code class="sig-name descname">test_emission_reception</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.TransmissionTest.test_emission_reception" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Démarre le serveur et le client. Le serveur accepte la connexion du client.
+Le client transmet chaque objet de la liste au serveur. Teste si l’objet à transmis par le client est identique
+à l’objet reçu par le serveur.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_messagerie.TransmissionTest.test_reception_serveur_clos">
+<code class="sig-name descname">test_reception_serveur_clos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.TransmissionTest.test_reception_serveur_clos" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Démarre le serveur et le client. Le serveur accepte la connexion du client.
+Ferme le serveur. Le serveur tente de recevoir un message et lève l’exception <code class="docutils literal notranslate"><span class="pre">OSError</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_messagerie.TransmissionTest.test_reception_client_clos">
+<code class="sig-name descname">test_reception_client_clos</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.TransmissionTest.test_reception_client_clos" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Démarre le serveur et le client. Le serveur accepte la connexion du client.
+Ferme le client. Le serveur tente de recevoir un message et lève l’exception <code class="docutils literal notranslate"><span class="pre">ConnectionFermee</span></code> (l’entête
+reçue est vide).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_messagerie.TransmissionTest.test_reception_mauvais_format">
+<code class="sig-name descname">test_reception_mauvais_format</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.TransmissionTest.test_reception_mauvais_format" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Démarre le serveur et le client. Le serveur accepte la connexion du client.
+Le serveur reçoit un message sans entête et lève l’exception <code class="docutils literal notranslate"><span class="pre">TypeError</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="test.test_messagerie.MessagerieTest">
+<em class="property">class </em><code class="sig-prename descclassname">test.test_messagerie.</code><code class="sig-name descname">MessagerieTest</code><span class="sig-paren">(</span><em class="sig-param">methodName='runTest'</em><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.MessagerieTest" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Bases : <code class="xref py py-class docutils literal notranslate"><span class="pre">unittest.case.TestCase</span></code></p>
+<p>Test case utilisé pour tester les fonctions de la classe <code class="docutils literal notranslate"><span class="pre">Messagerie</span></code>.</p>
+<dl class="method">
+<dt id="test.test_messagerie.MessagerieTest.tearDown">
+<code class="sig-name descname">tearDown</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.MessagerieTest.tearDown" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Après chaque test, réinitialise les variables de la classe <code class="docutils literal notranslate"><span class="pre">Messagerie</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="test.test_messagerie.MessagerieTest.test_ajouter_obtenir">
+<code class="sig-name descname">test_ajouter_obtenir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#test.test_messagerie.MessagerieTest.test_ajouter_obtenir" title="Lien permanent vers cette définition">¶</a></dt>
+<dd><p>Génère une liste d’objet à ajouter à la liste de la classe <code class="docutils literal notranslate"><span class="pre">Messagerie</span></code>.
+Lance un Thread pour <em>ajouter</em> les objets, et un Thread pour les <em>obtenir</em>.
+Compare la liste d’objets ajoutés à celle d’objets obtenus.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type renvoyé</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(disponible dans Python v3.8)">None</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="test.test_interface_client.html" class="btn btn-neutral float-right" title="test.test_interface_client" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="test.test_carte.html" class="btn btn-neutral float-left" title="test.test_carte" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Vincent Nagy
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,22 @@
+lib.dossier
+===========
+
+.. automodule:: lib.dossier
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Dossier
+   
+   
+
+   
+   
+   

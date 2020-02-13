@@ -1,0 +1,22 @@
+lib.labyrinthe
+==============
+
+.. automodule:: lib.labyrinthe
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Labyrinthe
+   
+   
+
+   
+   
+   

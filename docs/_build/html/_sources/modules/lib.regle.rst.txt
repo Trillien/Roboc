@@ -1,0 +1,41 @@
+lib.regle
+=========
+
+.. automodule:: lib.regle
+
+   
+   
+   .. rubric:: Functions
+
+   .. autosummary::
+   
+      gagner_une_partie
+      lister_regles
+      rencontrer_un_adversaire
+      transformer_un_obstacle
+      traverser_un_obstacle
+      verifier_regles
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Etat
+   
+   
+
+   
+   
+   .. rubric:: Exceptions
+
+   .. autosummary::
+   
+      ExceptionLabyrinthe
+      HorsRegles
+      PartieGagnee
+   
+   

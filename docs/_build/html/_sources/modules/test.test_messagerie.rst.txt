@@ -1,0 +1,26 @@
+test.test\_messagerie
+=====================
+
+.. automodule:: test.test_messagerie
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Client
+      ClientServeur
+      MessagerieTest
+      Serveur
+      TransmissionTest
+   
+   
+
+   
+   
+   

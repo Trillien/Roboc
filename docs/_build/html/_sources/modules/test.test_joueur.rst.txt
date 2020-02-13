@@ -1,0 +1,22 @@
+test.test\_joueur
+=================
+
+.. automodule:: test.test_joueur
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      JoueurTest
+   
+   
+
+   
+   
+   

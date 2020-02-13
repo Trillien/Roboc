@@ -1,0 +1,38 @@
+lib.element
+===========
+
+.. automodule:: lib.element
+
+   
+   
+   
+
+   
+   
+   .. rubric:: Classes
+
+   .. autosummary::
+   
+      Adversaire
+      Decryptable
+      Decrypte
+      Defaut
+      Demarrable
+      Element
+      Elements
+      Gagnable
+      Mur
+      Murable
+      Percable
+      Porte
+      Robot
+      Sol
+      Sortie
+      Transformable
+      Traversable
+   
+   
+
+   
+   
+   
