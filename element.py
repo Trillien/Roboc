@@ -1,10 +1,12 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce module contient:
-    - les classes MixIn Decryptable, Decrypte, Defaut, Traversable, Gagnable, Transformable, Murable, Percable
-    - la Metaclasse Elements
-    - les classes Element, Porte, Mur, Sortie, Sol, Joueur, Adversaire
+Ce module définit les éléments de la grille du labyrinthe.
+
+- les classes *Mix-In* ``Decryptable``, ``Decrypte``, ``Defaut``, ``Traversable``, ``Gagnable``, ``Demarrable``,
+  ``Transformable``, ``Murable``, ``Percable``
+- la metaclasse ``Elements``
+- les classes ``Element``, ``Porte``, ``Mur``, ``Sortie``, ``Sol``, ``Robot``, ``Adversaire``
 """
 
 from typing import Dict, Type, Tuple, Any, final, cast
@@ -19,7 +21,7 @@ Obstacle = Type['Decrypte']
 
 class Decryptable(metaclass=ABCMeta):
     """
-    Désigne tous les éléments du labyrinthe reconnus à la lecture d'une carte
+    Désigne tous les éléments du labyrinthe reconnus à la lecture d'une carte.
     """
 
     symbole_carte: SymboleCarte
@@ -27,8 +29,8 @@ class Decryptable(metaclass=ABCMeta):
 
 class Decrypte(Decryptable, metaclass=ABCMeta):
     """
-    Désigne tous les éléments qui sont détaillés dans la grille du labyrinthe
-    (un élément reconnu n'est pas nécessairement renseigné dans la grille)
+    Désigne tous les éléments qui sont détaillés dans la grille du labyrinthe.
+    Un élément reconnu n'est pas nécessairement renseigné dans la grille.
     """
 
     pass
@@ -36,8 +38,8 @@ class Decrypte(Decryptable, metaclass=ABCMeta):
 
 class Defaut(metaclass=ABCMeta):
     """
-    Désigne l'élément qui sera appelé si la grille du labyrinthe n'en définit aucun
-    Il ne doit y avoir qu'un seul élément par défaut défini
+    Désigne l'élément qui sera appelé si la grille du labyrinthe n'en définit aucun.
+    Il ne doit y avoir qu'un seul élément défini par défaut.
     """
 
     pass
@@ -78,7 +80,7 @@ class Transformable(metaclass=ABCMeta):
 
 class Murable(Transformable, metaclass=ABCMeta):
     """
-    Désigne un élément qui peut être remplacé par un Mur
+    Désigne un élément qui peut être remplacé par un ``Mur``.
     """
 
     description = "murer"
@@ -86,7 +88,7 @@ class Murable(Transformable, metaclass=ABCMeta):
 
 class Percable(Transformable, metaclass=ABCMeta):
     """
-    Désigne un élément qui peut être remplacé par une Porte
+    Désigne un élément qui peut être remplacé par une ``Porte``.
     """
 
     description = "percer"
@@ -95,9 +97,10 @@ class Percable(Transformable, metaclass=ABCMeta):
 class Elements(ABCMeta):
     """
     Métaclasse qui stocke les informations des classes créées dans:
-     - 'decryptable', caractères reconnus à la lecture d'une carte et associés aux classes d'éléments
-     - 'gagnable', caractères et leurs éléments associés qui font gagner la partie
-     - 'obstacle_par_defaut', élément appelé si la grille du labyrinthe n'en définit aucun
+
+    - ``decryptable``, caractères reconnus à la lecture d'une carte et associés aux classes d'éléments.
+    - ``gagnable``, caractères et leurs éléments associés qui font gagner la partie.
+    - ``obstacle_par_defaut``, élément appelé si la grille du labyrinthe n'en définit aucun.
     """
 
     decryptable: Dict[SymboleCarte, Type['Element']] = {}
@@ -107,15 +110,12 @@ class Elements(ABCMeta):
 
     def __new__(mcs, nom: str, bases: Tuple[Any, ...], dictionnaire: Dict[str, Any]):
         """
-        Crée la classe d'élément et ajoute ses informations aux variables de classe en fonction des classes héritées
+        Crée la classe d'élément et ajoute ses informations aux variables de classe en fonction des classes héritées.
 
-        :param str nom: nom de la classe d'élément
-        :param bases: classes héritées
-        :type bases: Tuple[type, Any]
-        :param dictionnaire: méthodes de la classe d'élément
-        :type dictionnaire: Dict[str, Any]
-        :return: classe d'élément créée
-        :rtype: type
+        :param nom: nom de la classe d'élément.
+        :param bases: classes héritées.
+        :param dictionnaire: méthodes de la classe d'élément.
+        :return: classe d'élément créée.
         """
 
         classe = cast(Type['Element'], super().__new__(mcs, nom, bases, dictionnaire))
@@ -130,11 +130,10 @@ class Elements(ABCMeta):
 
     def __str__(self) -> SymboleAffichage:
         """
-        Renvoie une représentation (un caractère) de l'élément du labyrinthe
-        Surchage de __str__ qui est appelé pour afficher une classe élément
+        Renvoie une représentation (un caractère) de l'élément du labyrinthe.
+        Surchage de ``__str__()`` qui est appelé pour afficher une classe élément.
 
         :return: symbole_affichage
-        :rtype: SymboleAffichage
         """
 
         return self.symbole_affichage
@@ -142,12 +141,11 @@ class Elements(ABCMeta):
     @classmethod
     def get_decryptable(mcs, symbole: SymboleCarte) -> Type['Element']:
         """
-        Renvoie l'élément correspondant au caractère transmis
-        Si 'decryptable' ne contient pas l'élément, renvoie obstacle_par_defaut
+        Renvoie l'élément correspondant au caractère transmis.
+        Si ``decryptable`` ne contient pas l'élément, renvoie ``obstacle_par_defaut``.
 
-        :param SymboleCarte symbole: caractère
-        :return: Element
-        :rtype: Type[Element]
+        :param symbole: caractère.
+        :return: Elément.
         """
 
         try:
@@ -174,20 +172,17 @@ class Elements(ABCMeta):
 
 class Element(metaclass=Elements):
     """
-    Classe générique des éléments présents dans un labyrinthe
+    Classe générique des éléments présents dans un labyrinthe.
     """
 
-    symbole_affichage: SymboleAffichage
+    symbole_affichage: SymboleAffichage = str()
     description: str
 
 
 @final
 class Porte(Element, Decrypte, Traversable, Murable):
     """
-    Une porte est un élément
-        présent dans la grille du labyrinthe,
-        traversable par le joueur
-        transformable en Mur
+    Une ``Porte`` est un élément présent dans la grille du labyrinthe, traversable par le joueur, transformable en ``Mur``.
     """
 
     symbole_affichage = "."
@@ -198,9 +193,7 @@ class Porte(Element, Decrypte, Traversable, Murable):
 @final
 class Mur(Element, Decrypte, Percable):
     """
-    Un mur est un élément
-        présent dans la grille du labyrinthe,
-        transformable en Porte
+    Un ``Mur`` est un élément présent dans la grille du labyrinthe, transformable en ``Porte``.
     """
 
     symbole_affichage = "O"
@@ -211,9 +204,7 @@ class Mur(Element, Decrypte, Percable):
 @final
 class Sortie(Element, Decrypte, Gagnable):
     """
-    Une sortie est un élément
-        présent dans la grille du labyrinthe,
-        qui permet de gagner une partie
+    Une ``Sortie`` est un élément présent dans la grille du labyrinthe, qui permet de gagner une partie.
     """
 
     symbole_affichage = "U"
@@ -224,9 +215,7 @@ class Sortie(Element, Decrypte, Gagnable):
 @final
 class Sol(Element, Decryptable, Defaut, Demarrable):
     """
-    Le sol est l'élément par défaut
-        absent de la grille du labyrinthe,
-        sur lequel le joueur peut débuter une partie
+    Le ``Sol`` est l'élément par défaut absent de la grille du labyrinthe, sur lequel le joueur peut débuter une partie.
     """
 
     symbole_affichage = " "
@@ -235,7 +224,7 @@ class Sol(Element, Decryptable, Defaut, Demarrable):
 
 
 @final
-class Joueur(Element):
+class Robot(Element):
     """
     Représente le joueur.
     """
@@ -252,7 +241,7 @@ class Adversaire(Element):
     symbole_affichage = "x"
 
 
-# Pour éviter les références circulaires, le membre 'transformee'
-# de Transformation est défini après les classes d'éléments
+# Pour éviter les références circulaires, le membre ``transformee`` de ``Transformation`` est défini après les classes
+# d'éléments.
 Murable.transformee = Mur
 Percable.transformee = Porte

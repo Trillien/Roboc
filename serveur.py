@@ -1,7 +1,7 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce fichier contient le serveur du jeu.
+Ce fichier contient le Serveur du jeu.
 Exécutez-le avec Python pour lancer le jeu.
 """
 
@@ -24,13 +24,15 @@ extension_des_cartes: Final[str] = ".txt"
 touche_commencer: Final[str] = 'C'
 
 """
-Initialise la classe 'Carte' avec
-- la liste des éléments connus pour la lecture d'une carte
-- la Liste des éléments qui font gagner la partie
-Extrait dans 'fichiers' la liste des cartes du 'dossier_des_cartes'
-Affiche la liste des cartes
-Demande le numéro de la carte qui sera jouée
-Crée le labyrinthe depuis la carte sélectionnée et libère la mémoire de la liste cartes
+Initialise la classe ``Carte`` avec:
+
+- la liste des éléments connus pour la lecture d'une carte.
+- la Liste des éléments qui font gagner la partie.
+
+Extrait dans ``fichiers`` la liste des cartes du ``dossier_des_cartes``.
+Affiche la liste des cartes.
+Demande le numéro de la carte qui sera jouée.
+Crée le labyrinthe depuis la carte sélectionnée et libère la mémoire de la liste cartes.
 """
 
 Carte.elements_connus = Labyrinthe.get_symboles_connus()
@@ -70,10 +72,11 @@ else:
 
     """
     Instanciation et démarrage des Threads:
-    - Main Thread reçoit les informations des Threads 'RequestHandler'.
-      C'est le seul à envoyer des messages aux clients, c'est le seul à afficher des informations
-    - Serveur écoute le réseau pour accepter de nouvelles connexions
-    - Les Threads 'RequestHandler' reçoivent les messages des clients et les transmettent à Main Thread
+    
+    - *Main Thread* reçoit les informations des Threads *RequestHandler*. C'est le seul à envoyer des messages aux clients,
+      c'est le seul à afficher des informations.
+    - *Serveur* écoute le réseau pour accepter de nouvelles connexions.
+    - Les Threads *RequestHandler* reçoivent les messages des clients et les transmettent à *Main Thread*.
     """
 
     with ThreadedTCPServer(adresse) as serveur:
@@ -82,15 +85,18 @@ else:
         print("On attend les clients.")
 
         """
-        Première boucle avant le début de partie qui autorise de nouveaux joueurs:
-        Main Thread récupère un message de la liste Messagerie qui contient un tuple (émetteur, categorie, message)
+        Première boucle avant le début de partie qui autorise de nouveaux joueurs.
+        *Main Thread* récupère un message de la liste de la classe ``Messagerie`` qui contient un tuple
+        ``(émetteur, categorie, message)``.
 
-        Categories reçues des Threads 'RequestHandler':
-        - 'nouveau_joueur', ajoute un joueur au labyrinthe et transmet le message d'accueil
-        - 'quitte', supprime le joueur du labyrinthe
+        Catégories reçues des Threads *RequestHandler*:
+        
+        - ``"nouveau_joueur"``, ajoute un joueur au labyrinthe et transmet le message d'accueil.
+        - ``"quitte"``, supprime le joueur du labyrinthe.
 
-        Categorie reçue des Clients (transmis par les Threads 'RequestHandler'):
-        - 'commande', quitte la boucle si la saisie du client est 'touche_commencer'
+        Catégorie reçue des Clients (transmis par les Threads *RequestHandler*):
+        
+        - ``"commande"``, quitte la boucle si la saisie du client est ``touche_commencer``.
         """
 
         while True:
@@ -116,8 +122,8 @@ else:
 
         """
         Le Labyrinthe n'admet plus de nouveau joueur.
-        Transmet le schéma de validation des commandes et le message d'erreur en cas de mauvaise saisie
-        Transmet le plateau du labyrinthe avec la position des joueurs
+        Transmet le schéma de validation des commandes et le message d'erreur en cas de mauvaise saisie.
+        Transmet le plateau du labyrinthe avec la position des joueurs.
         """
 
         serveur.connexion_autorisee = False
@@ -130,14 +136,16 @@ else:
 
         """
         Boucle principale:
-        Main Thread récupère un message de la liste Messagerie qui contient un tuple (émetteur, categorie, message)
+        
+        *Main Thread* récupère un message de la liste de la classe ``Messagerie`` qui contient un tuple
+        ``(émetteur, categorie, message)``.
 
-        Categorie reçue des Threads 'RequestHandler':
-        - 'quitte', supprime le joueur du labyrinthe, informe les autres joueurs et renvoie le plateau
+        Catégorie reçue des Threads *RequestHandler*:
+        - ``"quitte"``, supprime le joueur du labyrinthe, informe les autres joueurs et renvoie le plateau.
 
-        Categorie reçue des Clients (transmis par les Threads 'RequestHandler'):
-        - 'commande', ajoute les commandes au joueur, renvoie la liste des commandes au client réseau
-          puis joue les commandes des joueurs à tour de rôle jusqu'à leur épuisement
+        Catégorie reçue des Clients (transmis par les Threads *RequestHandler*):
+        - ``"commande"``, ajoute les commandes au joueur, renvoie la liste des commandes au client réseau puis joue les
+          commandes des joueurs à tour de rôle jusqu'à leur épuisement.
         """
 
         while labyrinthe.mode < Labyrinthe.fin_de_partie:
@@ -162,14 +170,14 @@ else:
 
         """
         Le programme quitte la boucle principale:
-        - un joueur a atteint une sortie
-        - ou, après le départ d'un joueur, le nombre de joueur en lice est passé à 1 ou moins
+        
+        - un joueur a atteint une sortie.
+        - ou, après le départ d'un joueur, le nombre de joueur en lice est passé à 1 ou moins.
 
-        Transmet à chaque joueur le vainqueur de la partie
-        et envoie 'fin' aux clients réseau pour se déconnecter du serveur
+        Transmet à chaque joueur le vainqueur de la partie et envoie ``"fin"`` aux clients réseau pour se déconnecter du
+        serveur.
 
-        Le Thread Serveur n'accepte plus de connexion
-        et attend que les Thread 'RequestHandler' se terminent pour s'arrêter
+        Le Thread *Serveur* n'accepte plus de connexion et attend que les Thread *RequestHandler* se terminent pour s'arrêter.
         """
 
         print("Fin de la partie.")

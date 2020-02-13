@@ -1,8 +1,10 @@
 # -*-coding:Utf-8 -*
 
-"""Ce module contient la classe Labyrinthe."""
+"""
+Ce module contient la classe ``Labyrinthe``.
+"""
 
-from typing import Tuple, Dict, List, Set, Any, Iterator, Optional, cast, Type, ClassVar
+from typing import Tuple, Dict, List, Set, Any, Iterator, Optional, cast, Type, ClassVar, Final
 from operator import itemgetter
 from random import randint, sample, shuffle
 import element
@@ -20,37 +22,41 @@ Datagramme = Tuple[Any, Categorie, Message]
 
 class Labyrinthe:
     """
-    Initialise un labyrinthe à partir d'une chaine de caractères,
+    Initialise un labyrinthe à partir d'une chaîne de caractères.
     Valide les mouvements des joueurs et actualise la grille de jeu.
 
     Pour ajouter ou retirer un joueur:
-        ajouter_joueur(identifiant, nom)
-        effacer_joueur(identifiant)
+
+    - ``ajouter_joueur(identifiant, nom)``
+    - ``effacer_joueur(identifiant)``
 
     Déroulement d'une partie:
-        - accueillir(identifiant, nom), avant le début d'une partie, ajoute un joueur et retourne le message d'accueil
-        - demarrer(), définit les positions des joueurs, transmet le plateau de jeu et débute la partie
-        - ajouter_commande(identifiant, saisie), traduit la chaine de caractères en commandes
-        - jouer(), extrait les commandes et les valide, puis actualise les nouvelles positions des joueurs
-        - afficher_jeu(), transmet une chaine de caractères représentant le plateau du labyrinthe
-        - terminer(), en fin de partie, affiche le vainqueur
+
+    - ``accueillir(identifiant, nom)``, avant le début d'une partie, ajoute un joueur et retourne le message d'accueil.
+    - ``demarrer()``, définit les positions des joueurs, transmet le plateau de jeu et débute la partie.
+    - ``ajouter_commande(identifiant, saisie)``, traduit la chaîne de caractères en commandes.
+    - ``jouer()``, extrait les commandes et les valide, puis actualise les nouvelles positions des joueurs.
+    - ``afficher_jeu()``, transmet une chaîne de caractères représentant le plateau du labyrinthe.
+    - ``terminer()``, en fin de partie, affiche le vainqueur.
+
+    :param chaine: chaîne de caractères représentant les éléments d'un labyrinthe.
+    :param nom: nom du labyrinthe.
     """
 
-    debut_de_partie: ClassVar[int] = 0
-    jeu_en_cours: ClassVar[int] = 1
-    fin_de_partie: ClassVar[int] = 2
+    debut_de_partie: Final[int] = 0
+    jeu_en_cours: Final[int] = 1
+    fin_de_partie: Final[int] = 2
 
     def __init__(self, chaine: str, nom: str = str()) -> None:
         """
-        Initialise les variables du labyrinthe et appelle 'creer_labyrinthe'
-        pour construire la grille des éléments.
+        Initialise les variables du labyrinthe et appelle ``creer_labyrinthe()`` pour construire la grille des éléments.
 
-        :param str chaine: chaine de caractères représentant les éléments d'un labyrinthe
-        :param str nom: nom du labyrinthe
+        ``sorties`` stocke les positions gagnantes.
+        ``departs`` stocke les positions possibles pour démarrer la partie.
+        ``caracteres_inconnus`` liste les caractères qui n'ont pas pu être décodés à la lecture d'une carte.
 
-        'sorties' stockent les positions gagnantes
-        'departs' stockent les positions possibles pour démarrer la partie
-        'caracteres_inconnus' liste les caractères qui n'ont pas pu être décodé à la lecture d'une carte
+        :param chaine: chaîne de caractères représentant les éléments d'un labyrinthe.
+        :param nom: nom du labyrinthe.
         """
 
         self.nom_labyrinthe = nom
@@ -70,10 +76,9 @@ class Labyrinthe:
     @classmethod
     def get_symboles_connus(cls) -> Set[element.SymboleCarte]:
         """
-        Retourne la liste des éléments connus pour la lecture d'une carte
+        Retourne la liste des éléments connus pour la lecture d'une carte.
 
-        :return: set d'éléments connus
-        :rtype: Set[SymboleCarte]
+        :return: set d'éléments connus.
         """
 
         return set(element.Elements.decryptable)
@@ -81,10 +86,9 @@ class Labyrinthe:
     @classmethod
     def get_symboles_obligatoire(cls) -> Set[element.SymboleCarte]:
         """
-        Retourne la liste des éléments qui font gagner la partie
+        Retourne la liste des éléments qui font gagner la partie.
 
-        :return: set d'éléments 'gagnables'
-        :rtype: Set[SymboleCarte]
+        :return: set d'éléments *gagnables*.
         """
 
         return set(element.Elements.gagnable)
@@ -92,24 +96,23 @@ class Labyrinthe:
     @classmethod
     def get_validation_controle(cls) -> controle.Regex:
         """
-        Retourne l'expression régulière de validation d'une saisie utilisateur
+        Retourne l'expression régulière de validation d'une saisie utilisateur.
 
-        :return: expression régulière de validation
-        :rtype: Regex
+        :return: expression régulière de validation.
         """
 
         return controle.validation_controle
 
     def creer_labyrinthe(self, chaine: str) -> None:
         """
-        Crée une grille de labyrinthe à partir d'une chaine de caractère
+        Crée une grille de labyrinthe à partir d'une chaîne de caractère.
 
-        :param str chaine: chaine de caractères représentant les éléments d'un labyrinthe
+        Décode les caractères d'une carte depuis les éléments connus.
+        Identifie les caractères qui ne représentent pas d'élément connu.
+        Identifie les 'sorties' et les stocke.
+        Si l'élément est ``Decrypté``, ses coordonnées sont stockées en grille.
 
-            Décode les caractères d'une carte depuis les éléments connus
-            Identifie les caractères qui ne représentent pas d'élément connu
-            Identifie les 'sorties' et les stocke
-            Si l'élément est 'Decrypté', ses coordonnées sont stockées en grille
+        :param chaine: chaîne de caractères représentant les éléments d'un labyrinthe.
         """
 
         for ordonnee, ligne in enumerate(chaine.splitlines()):
@@ -126,18 +129,20 @@ class Labyrinthe:
 
     def determiner_departs(self) -> None:
         """
-        Identifie toutes les positions de départ dans la grille par ordre d'éloignement depuis les sorties
+        Identifie toutes les positions de départ dans la grille par ordre d'éloignement depuis les sorties.
 
-            Depuis les sorties,
-            liste les positions accessibles par recursion selon les déplacements définis dans 'Mouvement'
-            Teste si la position atteinte ne l'a pas déjà été précédemment (présence dans 'liste_positions')
-            Identifie l'élément du labyrinthe dans la grille (ou utilise 'obstacle_par_defaut' si absent de la grille)
-            - si l'élément est 'Demarrable', stocke ce départ possible
-              et ajoute les coordonnées à une distance +1 de la position actuelle
-            - sinon, si l'élément est traversable, ajoute les coordonnées à une distance +1 de la position actuelle
-            - sinon, si l'élément est transformable et sa transformée est traversable,
-              ajoute les coordonnées à une distance +2 de la position actuelle
-            Mélange aléatoirement les départs possibles iso-distants des sorties et les ajoute dans 'departs'
+        Depuis les sorties,
+        liste les positions accessibles par recursion selon les déplacements définis dans la classe ``Mouvement``.
+        Teste si la position atteinte ne l'a pas déjà été précédemment (présence dans ``liste_positions``).
+        Identifie l'élément du labyrinthe dans la grille (ou utilise ``obstacle_par_defaut`` si absent de la grille).
+
+        - si l'élément est ``Demarrable``, stocke ce départ possible et ajoute les coordonnées à une distance +1 de la position
+          actuelle.
+        - sinon, si l'élément est ``Traversable``, ajoute les coordonnées à une distance +1 de la position actuelle.
+        - sinon, si l'élément est ``Transformable`` et sa transformée est ``Traversable``, ajoute les coordonnées à une
+          distance +2 de la position actuelle.
+
+        Mélange aléatoirement les départs possibles iso-distants des sorties et les ajoute dans ``departs``.
         """
         coordonnees_min, coordonnees_max = self.dimensionner()
         liste_positions = {sortie: 0 for sortie in self.sorties}
@@ -173,13 +178,11 @@ class Labyrinthe:
         Détermine la taille du plateau du labyrinthe en considérant la grille d'éléments et les coordonnées des joueurs.
         La taille du plateau est variable car le joueur peut se déplacer au-delà de la grille d'éléments.
 
-        :return: coordonnées des deux extrêmes du plateau du labyrinthe
-        :rtype: Tuple[Coordonnees, Coordonnees]
+        Extrait les coordonnées des éléments de la grille.
+        Si la partie a débuté, extrait les coordonnées des joueurs et extrait les plus petite et plus grande abscisses
+        (respectivement les ordonnées).
 
-            Extrait les coordonnées des éléments de la grille.
-            Si la partie a débuté, extrait les coordonnées des joueurs
-            Trie les coordonnées selon les abscisses (respectivement les ordonnées),
-            et extrait les plus petite et plus grande abscisses (respectivement les ordonnées)
+        :return: coordonnées des deux extrêmes du plateau du labyrinthe.
         """
 
         liste_coordonnees = [*self.grille]
@@ -199,17 +202,15 @@ class Labyrinthe:
 
     def afficher_plateau(self, joueur: Optional[Joueur] = None) -> str:
         """
-        Représente le plateau du labyrinthe et la position des joueurs avec une chaîne de caractères
+        Représente le plateau du labyrinthe et la position des joueurs avec une chaîne de caractères.
 
-        :param joueur: joueur qui recevra la représentation du plateau
-        :type joueur: Joueur ou None
-        :return: chaîne de caractères représentant le plateau
-        :rtype: str
+        Pour chaque position (abscisse et ordonnée) du plateau, si la partie a débuté teste si les coordonnées sont celles du
+        joueur ou d'un adversaire.
+        Teste si les coordonnées sont celle d'un élément de la grille.
+        Ajoute la représentation ``__str__()`` de la classe ``Joueur``, ``Adversaire`` ou ``Element`` au ``plateau``.
 
-            Pour chaque position (abscisse et ordonnée) du plateau,
-            Si la partie a débuté teste si les coordonnées sont celles du joueur ou d'un adversaire
-            Teste si les coordonnées sont celle d'un élément de la grille
-            Ajoute la représentation '__str__()' de la classe Joueur, Adversaire ou Elément au 'plateau'
+        :param joueur: joueur qui recevra la représentation du plateau.
+        :return: chaîne de caractères représentant le plateau.
         """
 
         coordonnees_min, coordonnees_max = self.dimensionner()
@@ -225,7 +226,7 @@ class Labyrinthe:
         for ordonnee in range(coordonnees_min[1], coordonnees_max[1] + 1):
             for abscisse in range(coordonnees_min[0], coordonnees_max[0] + 1):
                 if (abscisse, ordonnee) == coordonnees_joueur:
-                    plateau += str(element.Joueur)
+                    plateau += str(element.Robot)
                 elif (abscisse, ordonnee) in coordonnees_adversaires:
                     plateau += str(element.Adversaire)
                 else:
@@ -240,13 +241,12 @@ class Labyrinthe:
 
     def ajouter_joueur(self, identifiant_client: Any, nom: str) -> Optional[Joueur]:
         """
-        Si la partie n'a pas débuté, et s'il y a suffisamment de positions de départ,
-        Instancie un joueur et l'ajoute à la liste des joueurs du labyrinthe
+        Si la partie n'a pas débuté, et s'il y a suffisamment de positions de départ, instancie un joueur et l'ajoute à la
+        liste des joueurs du labyrinthe.
 
-        :param Any identifiant_client: variable qui associe le joueur au client réseau
-        :param str nom: nom du joueur
-        :return: le joueur ajouté à la liste
-        :rtype: Joueur ou None
+        :param  identifiant_client: variable qui associe le joueur au client réseau.
+        :param  nom: nom du joueur.
+        :return: le joueur ajouté à la liste.
         """
         if self.mode == self.debut_de_partie and self.est_ouvert():
             joueur = Joueur(identifiant_client, nom)
@@ -258,12 +258,12 @@ class Labyrinthe:
 
     def effacer_joueur(self, identifiant_client: Any) -> None:
         """
-        Supprime le joueur identifié par 'identifiant_client' de la liste des joueurs du labyrinthe
-        Si la partie a débuté, teste s'il reste plus d'un joueur en lice. Dans le cas contraire,
-        termine la partie et désigne vainqueur le joueur restant.
+        Supprime le joueur identifié par ``identifiant_client`` de la liste des joueurs du labyrinthe.
+        Si la partie a débuté, teste s'il reste plus d'un joueur en lice. Dans le cas contraire, termine la partie et désigne
+        vainqueur le joueur restant.
 
-        :param Any identifiant_client: variable qui associe le joueur au client réseau
-        :raises KeyError: si identifiant_client ne correspond à aucun client
+        :param identifiant_client: variable qui associe le joueur au client réseau.
+        :raises KeyError: si ``identifiant_client`` ne correspond à aucun joueur.
         """
 
         joueur = self.dict_client_joueur[identifiant_client]
@@ -279,10 +279,9 @@ class Labyrinthe:
 
     def est_ouvert(self) -> bool:
         """
-        Teste si le labyrinthe peut accueillir de nouveaux joueurs en fonction du nombre restant de positions de départ
+        Teste si le labyrinthe peut accueillir de nouveaux joueurs en fonction du nombre restant de positions de départs.
 
-        :return: True si le labyrinthe peut accueillir un nouveau joueur, False sinon
-        :rtype: bool
+        :return: True si le labyrinthe peut accueillir un nouveau joueur. False sinon.
         """
 
         return len(self.liste_joueurs) < len(self.departs)
@@ -290,12 +289,11 @@ class Labyrinthe:
     def accueillir(self, identifiant_client: Any, nom: str) -> Iterator[Datagramme]:
         """
         Ajoute un nouveau joueur à la partie.
-        Si le joueur est ajouté, retourne les messages d'accueil et le plateau pour le nouveau joueur
+        Si le joueur est ajouté, retourne les messages d'accueil et le plateau pour le nouveau joueur.
 
-        :param Any identifiant_client: variable qui associe le joueur au client réseau
-        :param nom: nom du joueur
-        :return: messages pour le nouveau client réseau selon le format tuple(client, categorie, message)
-        :rtype: Iterator[Datagramme]
+        :param identifiant_client: variable qui associe le joueur au client réseau.
+        :param nom: nom du joueur.
+        :return: messages pour le nouveau client réseau selon le format ``(client, categorie, message)``.
         """
 
         if self.ajouter_joueur(identifiant_client, nom):
@@ -306,16 +304,15 @@ class Labyrinthe:
 
     def demarrer(self) -> Iterator[Datagramme]:
         """
-        Définit les positions de départ des joueurs
-        Retourne pour chaque joueur les descriptions des contrôles autorisés et le plateau du labyrinthe
+        Définit les positions de départs des joueurs.
+        Retourne pour chaque joueur les descriptions des contrôles autorisés et le plateau du labyrinthe.
 
-        :return: messages pour les clients réseau
-        :rtype: Iterator[Datagramme]
+        Choisit aléatoirement un entier compris entre 0 et *nombre de départs possibles* - *nombre de joueurs*.
+        Mélange les joueurs, puis attribue les positions de départ à partir de l'indice.
+        Les positions sont classées par distance croissante à une sortie du labyrinthe (voir ``creer_labyrinthe()``).
+        L'attribution de positions consécutives répartit équitablement les joueurs sur le plateau.
 
-            Choisit aléatoirement un entier compris entre 0 et 'nombre de départs possibles - nombre de joueurs'
-            Mélange les joueurs, puis attribue les positions de départ à partir de l'indice
-            Les positions sont classées par distance croissante à une sortie du labyrinthe (voir creer_labyrinthe())
-            L'attribution de positions consécutives répartie équitablement les joueurs sur le plateau
+        :return: messages pour les clients réseau.
         """
 
         self.mode = self.jeu_en_cours
@@ -337,10 +334,9 @@ class Labyrinthe:
 
     def afficher_jeu(self) -> Iterator[Datagramme]:
         """
-        Retourne pour chaque joueur le plateau du labyrinthe
+        Retourne pour chaque joueur le plateau du labyrinthe.
 
-        :return: messages pour les clients réseau
-        :rtype: Iterator[Datagramme]
+        :return: messages pour les clients réseau.
         """
 
         for identifiant_client, joueur in self.dict_client_joueur.items():
@@ -349,13 +345,12 @@ class Labyrinthe:
 
     def ajouter_commande(self, identifiant_client: Any, saisie: str) -> List[str]:
         """
-        Extrait les commandes depuis la chaine de caractères saisie par le joueur,
-        Et les ajoute à la liste de commandes pré-existantes
+        Extrait les commandes depuis la chaîne de caractères saisie par le joueur, et les ajoute à la liste de commandes
+        pré-existantes.
 
-        :param Any identifiant_client: variable qui associe le joueur au client réseau
-        :param str saisie: saisie du client réseau
-        :return: commandes
-        :rtype: List[str]
+        :param identifiant_client: variable qui associe le joueur au client réseau.
+        :param saisie: saisie du client réseau.
+        :return: commandes.
         """
 
         commandes = controle.extraire(saisie)
@@ -365,21 +360,22 @@ class Labyrinthe:
 
     def jouer(self) -> Iterator[Datagramme]:
         """
-        Tant que les joueurs ont des commandes en attente et tant que la partie n'est pas terminé,
-        Pour chaque joueur à tour de rôle,
-            Extrait les composantes 'direction' et 'transformation' de la prochaine commande jouée
-            Vérifie que la commande suit les règles du labyrinthe
-            Déplace le joueur ou Transforme l'élément de grille du labyrinthe
-            Affiche le plateau du labyrinthe pour tous les joueurs
+        Tant que les joueurs ont des commandes en attente et tant que la partie n'est pas terminée, pour chaque joueur à tour
+        de rôle:
 
-        :return: messages pour les clients réseau
-        :rtype: Iterator[Datagramme]
+        - Extrait les composantes ``direction`` et ``transformation`` de la prochaine commande jouée.
+        - Vérifie que la commande suit les règles du labyrinthe.
+        - Déplace le joueur ou transforme l'élément de grille du labyrinthe.
+        - Affiche le plateau du labyrinthe pour tous les joueurs.
 
-            'liste_joueurs' définit l'ordre des joueurs. Le prochain à jouer est en début de liste.
-            Pour vérifier que la commande suit les règles du labyrinthe, un 'instantané' est créé
-            et représente l'état du labyrinthe (la commande, la grille d'éléments, le joueur et la liste des joueurs)
-            Si une règle est violée, on retourne la raison au joueur. La prochaine commande du même joueur est testée
-            Si une partie est gagnée, le joueur est déclaré vainqueur
+        ``liste_joueurs`` définit l'ordre des joueurs. Le prochain à jouer est en début de liste.
+        Pour vérifier que la commande suit les règles du labyrinthe, un ``instantane`` est créé et représente l'état du
+        labyrinthe *(la commande, la grille d'éléments, le joueur et la liste des joueurs)*.
+
+        Si une règle est violée, la raison est retournée au joueur et la prochaine commande du même joueur est testée.
+        Si une partie est gagnée, le joueur est déclaré vainqueur.
+
+        :return: messages pour les clients réseau.
         """
 
         while self.mode < self.fin_de_partie:
@@ -426,10 +422,9 @@ class Labyrinthe:
 
     def terminer(self) -> Iterator[Datagramme]:
         """
-        Retourne à chaque joueur le vainqueur de la partie
+        Retourne à chaque joueur le vainqueur de la partie.
 
-        :return: messages pour les clients réseau
-        :rtype: Iterator[Datagramme]
+        :return: messages pour les clients réseau.
         """
         for identifiant_client, joueur in self.dict_client_joueur.items():
             if self.vainqueur == joueur:

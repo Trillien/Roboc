@@ -1,7 +1,7 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce module contient la classe LabyrintheTest
+Ce module contient la classe ``LabyrintheTest``.
 """
 
 from typing import Tuple, Set, List, Dict, cast, ClassVar, Any, Optional
@@ -15,14 +15,13 @@ import unittest
 
 def construire_grille(chaine: str) -> Tuple[Grille, List[Coordonnees], Set[str]]:
     """
-    Crée une grille de labyrinthe à partir d'une chaine de caractères
-    Identifie les caractères qui ne peuvent pas être décodés
-    Enlève les éléments qui ne sont pas hérités de Decrypte
-    Identifie les éléments Gagnable
+    - Crée une grille de labyrinthe à partir d'une chaîne de caractères.
+    - Identifie les caractères qui ne peuvent pas être décodés (qui n'hérite pas de ``Decryptage``).
+    - Enlève les éléments qui ne sont pas hérités de ``Decrypte``.
+    - Identifie les éléments qui hérite de ``Gagnable``.
 
-    :param str chaine: chaine de caractères
-    :return: grille de labyrinthe, liste de coordonnées des éléments gagnable, set des caractères inconnus
-    :rtype: Tuple[Grille, List[Coordonnees], Set[str]]
+    :param chaine: chaîne de caractères.
+    :return: grille de labyrinthe, liste de coordonnées des éléments gagnable, set des caractères inconnus.
     """
 
     grille: Grille = {}
@@ -43,14 +42,13 @@ def construire_grille(chaine: str) -> Tuple[Grille, List[Coordonnees], Set[str]]
 
 def determiner_min_max(mini: Coordonnees, maxi: Coordonnees, point: Coordonnees) -> Tuple[Coordonnees, Coordonnees]:
     """
-    'mini' et 'maxi' sont deux points extrêmes d'un rectangle
-    Calcule les nouveaux 'mini' et 'maxi' en comparant les coordonnées avec 'point'
+    ``mini`` et ``maxi`` sont deux points extrêmes d'un rectangle.
+    Calcule les deux nouveaux extrêmes ``mini`` et ``maxi`` en comparant les coordonnées avec ``point``.
 
-    :param Coordonnees mini: point extrême dont les coordonnées sont les plus petites
-    :param Coordonnees maxi: point extrême dont les coordonnées sont les plus grandes
-    :param Coordonnees point: coordonnées à comparer
-    :return: les coordonnées des nouveaux points extrêmes
-    :rtype: Tuple[Coordonnees, Coordonnees]
+    :param mini: point extrême dont les coordonnées sont les plus petites.
+    :param maxi: point extrême dont les coordonnées sont les plus grandes.
+    :param point: coordonnées à comparer.
+    :return: les coordonnées des nouveaux points extrêmes.
     """
 
     min_abscisse = min(mini[0], point[0])
@@ -62,16 +60,18 @@ def determiner_min_max(mini: Coordonnees, maxi: Coordonnees, point: Coordonnees)
 
 class LabyrintheTest(unittest.TestCase):
     """
-    Test case utilisé pour tester les fonctions de la classe Labyrinthe.
+    Test case utilisé pour tester les fonctions de la classe ``Labyrinthe``.
     """
 
     def setUp(self) -> None:
         """
-        Sauvegarde les éléments initialisés par le module 'element'
-        Efface les listes d'éléments connus et gagnable de la metaclasse Elements
-        Définit les nom, classe d'héritage et attributs des éléments nécessaires aux tests
-        Crée et stocke les classes dans 'elements'
-        Crée la classe 'Debutable' et le dernier élément 'ElementTransformable'
+        Avant chaque test:
+
+        - Sauvegarde les éléments initialisés par le module **element**.
+        - Efface les listes d'éléments ``Decryptable`` et ``Gagnable`` de la métaclasse ``Elements``.
+        - Définit les nom, classe d'héritage et attributs des éléments nécessaires aux tests.
+        - Crée et stocke les classes dans ``elements``.
+        - Crée la classe ``Debutable`` et l'élément ``ElementTransformable``.
         """
 
         self.decryptable = Elements.decryptable.copy()
@@ -108,7 +108,7 @@ class LabyrintheTest(unittest.TestCase):
 
         class Debutable(Transformable):
             """
-            Désigne un élément qui peut être transformé en ElementDebut
+            Désigne un élément qui peut être transformé en ``ElementDebut``.
             """
 
             description = "débuter"
@@ -121,7 +121,7 @@ class LabyrintheTest(unittest.TestCase):
 
     def tearDown(self) -> None:
         """
-        Restaure les listes initiales dans la metaclasse 'Elements'
+        Après chaque test, restaure les listes initiales dans la métaclasse ``Elements``.
         """
 
         Elements.decryptable = self.decryptable.copy()
@@ -130,10 +130,11 @@ class LabyrintheTest(unittest.TestCase):
 
     def test_creer_labyrinthe(self) -> None:
         """
-        Pour chaque chaine de caractères détaillée
-        définit la grille, les coordonnées des sorties et les éléments inconnus
-        Crée un labyrinthe sur cette chaine de caractères
-        Compare 'grille', 'sorties' et 'caracteres_inconnus' avec ceux du labyrinthe
+        Pour chaque chaîne de caractères détaillée:
+
+        - Définit la grille, les coordonnées des sorties et les éléments inconnus.
+        - Crée un labyrinthe sur cette chaîne de caractères.
+        - Compare ``grille``, ``sorties`` et ``caracteres_inconnus`` avec les attributs du labyrinthe.
         """
 
         chaines: List[str] = ["XX\nXX",  # Grille 2x2 d'éléments décryptables
@@ -151,13 +152,12 @@ class LabyrintheTest(unittest.TestCase):
 
     def test_ajouter_effacer_joueur(self):
         """
-        Crée un labyrinthe contenant un nombre d'éléments de départ suffisant pour accueillir de nouveaux joueurs
-        Ajoute les joueurs au labyrinthe
-        Teste si les joueurs ajoutés sont inclus dans 'liste_joueurs' et 'dict_client_joueurs' du labyrinthe
-        Teste que le labyrinthe ne crée pas de nouveau joueur car il n'y a plus d'élément de départ disponible
-
-        Efface les joueurs du labyrinthe
-        Teste si les joueurs sont retirés de 'liste_joueurs' et 'dict_client_joueurs' du labyrinthe
+        - Crée un labyrinthe contenant un nombre de positions de départ suffisant pour accueillir de nouveaux joueurs.
+        - Ajoute les joueurs au labyrinthe.
+        - Teste si les joueurs ajoutés sont inclus dans ``liste_joueurs`` et ``dict_client_joueurs`` du labyrinthe.
+        - Teste si le labyrinthe crée de nouveaux joueurs bien qu'il n'y ait plus de position de départ disponible.
+        - Efface les joueurs du labyrinthe.
+        - Teste si les joueurs sont retirés de ``liste_joueurs`` et ``dict_client_joueurs`` du labyrinthe.
         """
 
         nombre_joueurs: int = 10
@@ -176,15 +176,14 @@ class LabyrintheTest(unittest.TestCase):
 
     def test_ajouter_effacer_joueur_fin_de_partie(self):
         """
-        Crée un labyrinthe contenant un nombre d'éléments de départ suffisant pour accueillir de nouveaux joueurs
-        Ajoute les joueurs au labyrinthe
-        Teste si les joueurs ajoutés sont inclus dans 'liste_joueurs' et 'dict_client_joueurs' du labyrinthe
-        Met le labyrinthe dans le mode 'jeu_en_cours'
-        Teste que le labyrinthe ne crée pas de nouveau joueur
-
-        Efface les joueurs du labyrinthe jusqu'à l'avant dernier
-        Teste que le labyrinthe est dans le mode 'fin_de_partie'
-        Teste que le vainqueur est le dernier joueur resté en lice
+        - Crée un labyrinthe contenant un nombre de positions de départ suffisant pour accueillir de nouveaux joueurs.
+        - Ajoute les joueurs au labyrinthe.
+        - Teste si les joueurs ajoutés sont inclus dans ``liste_joueurs`` et ``dict_client_joueurs`` du labyrinthe.
+        - Change le mode du labyrinthe par ``jeu_en_cours``.
+        - Teste si le labyrinthe crée de nouveaux joueurs.
+        - Efface les joueurs du labyrinthe, sauf le dernier.
+        - Teste si le labyrinthe est dans le mode ``fin_de_partie``.
+        - Teste si le vainqueur est le dernier joueur resté en lice.
         """
 
         nombre_joueurs: int = 10
@@ -212,13 +211,15 @@ class LabyrintheTest(unittest.TestCase):
 
     def test_dimensionner(self):
         """
-        Pour chaque chaine de caractères
-        Construit une grille et détermine les points extrêmes de la grille
-        Crée un labyrinthe basé sur la chaine de caractère et ajoute un joueur
+        Pour chaque chaîne de caractères:
 
-        Pour chaque 'joueur_coordonnees', assigne les coordonnnées au joueur
-        Détermine les points extrêmes du plateau de jeu en tenant compte des coordonnées du joueur
-        Compare les coordonnées au résultat de 'dimensionner()' dans les deux modes 'debut_de_partie' et 'jeu_en_cours'
+        - Construit une grille et détermine les points extrêmes de la grille.
+        - Crée un labyrinthe basé sur la chaîne de caractère et ajoute un joueur.
+
+        Pour chaque ``joueur_coordonnees``, assigne les coordonnnées au joueur:
+
+        - Détermine les points extrêmes du plateau de jeu en tenant compte des coordonnées du joueur.
+        - Compare les coordonnées au retour de ``dimensionner()`` dans les deux modes ``debut_de_partie`` et ``jeu_en_cours``.
         """
 
         chaines: List[str] = ["D\nF",   # Grille 1x2 avec 1 départ et 1 fin
@@ -248,13 +249,15 @@ class LabyrintheTest(unittest.TestCase):
 
     def test_determiner_departs(self):
         """
-        Pour chaque chaine de caractères
-        Construit une grille et crée un labyrinthe
+        Pour chaque chaîne de caractères:
 
-        Pour chaque coordonnéés 'departs' du labyrinthe
-        Détermine l'élément associé aux coordonnées
-        Teste si l'élément associé est Demarrable
-        Teste si les coordonnées du départ sont dans la grille
+        - Construit une grille et crée un labyrinthe.
+
+        Pour chaque coordonnées ``departs`` du labyrinthe:
+
+        - Détermine l'élément associé aux coordonnées.
+        - Teste si l'élément associé est ``Demarrable``.
+        - Teste si les coordonnées du départ sont dans la grille.
         """
 
         chaines: List[str] = ["FD\nDF",         # Grille 2x2 avec 2 départs et 2 fins
@@ -276,14 +279,14 @@ class LabyrintheTest(unittest.TestCase):
 
     def test_afficher_plateau(self):
         """
-        A partir de la chaine de caractère,
-        Construit une 'grille_reference' et crée un labyrinthe
-        Construit une 'grille_obtenue' depuis la chaine générée par 'afficher_plateau()'
-        Compare les deux 'grille_reference' et 'grille_obtenue'
+        A partir de la chaîne de caractère:
 
-        Ajoute deux joueurs et leur assigne des coordonnées
-        Change le mode du labyrinthe en 'jeu_en_cours'
-        Compare la 'chaine_reference' à la chaine générée par 'afficher_plateau()'
+        - Construit une ``grille_reference`` et crée un labyrinthe.
+        - Construit une ``grille_obtenue`` depuis la chaîne générée par ``afficher_plateau()``.
+        - Compare les deux ``grille_reference`` et ``grille_obtenue``.
+        - Ajoute deux joueurs et leur assigne des coordonnées.
+        - Change le mode du labyrinthe en ``jeu_en_cours``.
+        - Compare la ``chaine_reference`` à la chaîne générée par ``afficher_plateau()``.
         """
 
         # Grille 3x2 | Fin    / Départ / Transformable
@@ -306,9 +309,10 @@ class LabyrintheTest(unittest.TestCase):
 
     def test_ajouter_commande(self):
         """
-        Crée un labyrinthe et ajoute un joueur
-        Pour chaque saisie dans la liste 'saisie', ajoute les commandes au joueur
-        Compare les commandes en 'reference' à la liste 'commandes' du joueur
+        Crée un labyrinthe et ajoute un joueur. Pour chaque saisie dans la liste ``saisie``:
+
+        - Ajoute les commandes au joueur.
+        - Compare les commandes en ``reference`` à la liste ``commandes`` du joueur.
         """
 
         chaine: str = "FD"  # Grille 1x2 avec 1 fin et 1 départ
@@ -323,7 +327,7 @@ class LabyrintheTest(unittest.TestCase):
 
 class AffichageTest(unittest.TestCase):
     """
-    Test case utilisé pour tester les fonctions d'affichage de la classe Labyrinthe.
+    Test case utilisé pour tester les fonctions d'affichage de la classe ``Labyrinthe``.
     """
 
     dossier_courant: ClassVar[str] = path.dirname(__file__)
@@ -333,7 +337,7 @@ class AffichageTest(unittest.TestCase):
 
     def setUp(self) -> None:
         """
-        Crée un labyrinthe depuis la 'carte'
+        Avant chaque test, crée un labyrinthe depuis la ``carte``.
         """
         self.chaine: str = str()
         with open(self.chemin, "r") as fichier:
@@ -342,11 +346,11 @@ class AffichageTest(unittest.TestCase):
 
     def test_placement_aleatoire_des_joueurs(self):
         """
-        Ajoute un nombre de joueurs égal aux positions de départ disponibles
-        Stocke les identifiants des joueurs dans 'liste_joueurs'
-        Débute une partie pour affecter une position à chaque joueur
-        Collecte les coordonnées de chaque joueur dans 'liste_coordonnees'
-        Teste si la liste triée des coordonnées est égale à la liste triée des positions possibles de départ
+        - Ajoute un nombre de joueurs égal aux positions de départ disponibles.
+        - Stocke les identifiants des joueurs dans ``liste_joueurs``.
+        - Débute une partie pour affecter une position à chaque joueur.
+        - Collecte les coordonnées de chaque joueur dans ``liste_coordonnees``.
+        - Teste si la liste triée des coordonnées est égale à la liste triée des positions de départ possibles.
         """
 
         liste_identifiants: List[Any] = []
@@ -363,13 +367,13 @@ class AffichageTest(unittest.TestCase):
 
     def test_deroulement_du_jeu(self):
         """
-        Définit trois positions de départs et les suites de mouvements associés pour gagner la partie
-        Ajoute trois joueurs et débute une partie
-        Triche et redéfinit les coordonnées des joueurs, le premier joueur (indice 0) sera vainqueur
-        Ajoute les commandes de chaque joueur et fait 'jouer()' le labyrinthe
-        En sortie de 'jouer()", le premier joueur a atteint la sortie, et le jeu est terminé
-        Teste si le labyrinthe est en mode 'fin_de_partie' et si le vainqueur est le premier joueur
-        Appelle 'terminer()' pour annoncer le vainqueur
+        - Définit trois positions de départ et les suites de mouvements associés pour gagner la partie.
+        - Ajoute trois joueurs et débute une partie.
+        - "Triche" et redéfinit les coordonnées des joueurs, le premier joueur (indice 0) sera vainqueur.
+        - Ajoute les commandes de chaque joueur et fait ``jouer()`` le labyrinthe.
+        - En sortie de ``jouer()``, le premier joueur a atteint la sortie, et le jeu se termine.
+        - Teste si le labyrinthe est en mode ``fin_de_partie`` et si le vainqueur est le premier joueur.
+        - Appelle ``terminer()`` pour annoncer le vainqueur.
         """
 
         vainqueur: Optional[Joueur] = None

@@ -1,11 +1,11 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce module contient la classe CarteTest
+Ce module contient la classe ``CarteTest``.
+Les tests unitaires de la classe ``Carte`` utilisent deux jeux de fichiers:
 
-Les tests unitaires de la classe Carte utilisent deux jeux de fichiers:
-- un jeu de fichiers valides contenant les éléments obligatoires et connus
-- un jeu de fichiers invalides avec des éléments absents ou inconnus
+- un jeu de fichiers valides contenant les éléments obligatoires et connus.
+- un jeu de fichiers invalides avec des éléments absents ou inconnus.
 """
 
 from typing import List, Final
@@ -21,13 +21,13 @@ fichier_introuvable: Final[str] = ""
 
 class CarteTest(unittest.TestCase):
     """
-    Test case utilisé pour tester les fonctions du module 'carte'.
+    Test case utilisé pour tester les fonctions du module **carte**.
     """
 
     def setUp(self) -> None:
         """
-        Charge les jeux de cartes valides et invalides
-        Définit les éléments connus et obligatoires (ces éléments sont repris du module labyrinthe)
+        Avant chaque test, charge les jeux de cartes valides et invalides.
+        Définit les éléments connus et obligatoires (ces éléments sont repris du module **element**).
         """
 
         self.liste_cartes_valides = self.parcourir_dossier(dossier_cartes_valides)
@@ -37,11 +37,10 @@ class CarteTest(unittest.TestCase):
 
     def parcourir_dossier(self, dossier: str) -> List[str]:
         """
-        Liste les fichiers et les sous-dossiers (fonction récursive) d'un dossier
+        Liste les fichiers et sous-dossiers d'un dossier de manière récursive.
 
-        :param str dossier: dossier de recherche des cartes
-        :return: liste des fichiers
-        :rtype: List[str]
+        :param dossier: dossier de recherche des cartes.
+        :return: liste des fichiers.
         """
 
         liste_fichiers = []
@@ -55,8 +54,8 @@ class CarteTest(unittest.TestCase):
 
     def test_cartes_valides(self) -> None:
         """
-        Carte doit renvoyer True pour chaque fichier du jeu valide
-        Carte.contenu doit être le contenu du fichier
+        L'instance de la classe ``Carte`` renvoie True pour chaque fichier du jeu valide.
+        L'attribut ``contenu`` est la chaîne de caractères stockée dans le fichier.
         """
 
         for chemin in self.liste_cartes_valides:
@@ -68,8 +67,8 @@ class CarteTest(unittest.TestCase):
 
     def test_cartes_invalides(self) -> None:
         """
-        Carte doit renvoyer False pour chaque fichier du jeu invalide
-        Carte.contenu doit être le contenu du fichier
+        L'instance de la classe ``Carte`` renvoie False pour chaque fichier du jeu invalide.
+        L'attribut ``contenu`` est la chaîne de caractères stockée dans le fichier.
         """
 
         for chemin in self.liste_cartes_invalides:
@@ -81,7 +80,7 @@ class CarteTest(unittest.TestCase):
 
     def test_fichier_introuvable(self) -> None:
         """
-        Carte doit renvoyer l'exception FileNotFoundError pour un fichier inexistant
+        ``FileNotFoundError`` est levée car aucun fichier n'est trouvé au chemin indiqué.
         """
 
         with self.assertRaises(FileNotFoundError):

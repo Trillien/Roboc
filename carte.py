@@ -1,7 +1,7 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce module contient la classe Carte.
+Ce module contient la classe ``Carte``.
 """
 
 from typing import Set, Optional, ClassVar
@@ -9,11 +9,15 @@ from typing import Set, Optional, ClassVar
 
 class Carte:
     """
-    Objet de transition entre un Dossier et un labyrinthe.
+    Objet de transition entre un ``Dossier`` et un ``labyrinthe``.
 
-    La classe Carte
-    - extrait et le contenu du fichier désigné par chemin
-    - valide le contenu de ce fichier en vérifier la présence des caractères éléments_connus et éléments_obligatoires
+    La classe ``Carte``:
+
+    - extrait le contenu du fichier désigné par ``chemin``
+    - valide le contenu de ce fichier en vérifier la présence des caractères ``elements_connus`` et ``elements_obligatoires``
+
+    :param chemin: chemin d'accès au fichier contenant la carte.
+    :param nom: identifie la carte.
     """
 
     elements_connus: ClassVar[Set[str]] = set()
@@ -21,14 +25,13 @@ class Carte:
 
     def __init__(self, chemin: str, nom: Optional[str] = None) -> None:
         """
-        Instancie une carte
+        Instancie une carte.
 
-        :param str chemin: chemin d'accès au fichier contenant la carte
-        :param nom: identifie la carte
-        :type nom: str ou None
+        ``contenu`` est la chaîne de caractère extraite du fichier. ``est_valide`` est à True si le fichier est valide, False
+        sinon.
 
-        contenu est la chaine de caractère extraite du fichier
-        est_valide est à True si le fichier est valide, False sinon
+        :param chemin: chemin d'accès au fichier contenant la carte.
+        :param nom: identifie la carte.
         """
 
         self.contenu = str()
@@ -40,9 +43,9 @@ class Carte:
 
     def extraire(self, chemin: str) -> None:
         """
-        Extrait le contenu du fichier défini par chemin et le stocke dans contenu
+        Extrait le contenu du fichier défini par ``chemin`` et le stocke dans ``contenu``.
 
-        :param chemin: chemin d'accès au fichier contenant la carte
+        :param chemin: chemin d'accès au fichier contenant la carte.
         """
 
         with open(chemin, "r") as fichier:
@@ -54,8 +57,9 @@ class Carte:
     def verifier_contenu(self) -> None:
         """
         Valide le contenu en vérifiant
-        - la présence des éléments_obligatoires.
-        - l'absence de caractère autres que les éléments_connus.
+
+        - la présence des ``elements_obligatoires``.
+        - l'absence de caractère autres que les ``elements_connus``.
         """
 
         caracteres = str()
@@ -75,10 +79,9 @@ class Carte:
 
     def __bool__(self) -> bool:
         """
-        Lors d'un test 'if Carte', le test porte sur la validation du contenu du fichier
+        Lors d'un test '*if Carte*', le test porte sur la validation du contenu du fichier.
 
-        :return: si la carte est valide
-        :rtype: bool
+        :return: si la carte est valide.
         """
 
         return self.est_valide

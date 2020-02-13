@@ -1,12 +1,12 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce module contient
-    - les classes d'exception ExceptionLabyrinthe, HorsRegles, PartieGagnee
-    - la classe Etat
-    - les fonctions verifier_regles(), lister_regles()
-      traverser_un_obstacle(), rencontrer_un_adversaire(), gagner_une_partie()
-      transformer_un_adversaire(), transformer_un_obstacle()
+Ce module définit les règles du labryinthe.
+
+- les classes d'exception ``ExceptionLabyrinthe``, ``HorsRegles``, ``PartieGagnee``
+- la classe ``Etat``
+- les fonctions ``verifier_regles()``, ``lister_regles()``, ``traverser_un_obstacle()``, ``rencontrer_un_adversaire()``,
+  ``gagner_une_partie()``, ``transformer_un_obstacle()``
 """
 
 from typing import Set, Callable, Tuple, Dict, List, Optional, Type, cast
@@ -23,7 +23,7 @@ Regle = Callable[['Etat'], None]
 
 class ExceptionLabyrinthe(BaseException, metaclass=ABCMeta):
     """
-    Classe d'exceptions liées aux règles du labyrinthe
+    Classe d'exceptions liées aux règles du labyrinthe.
     """
 
     pass
@@ -31,7 +31,7 @@ class ExceptionLabyrinthe(BaseException, metaclass=ABCMeta):
 
 class HorsRegles(ExceptionLabyrinthe):
     """
-    Exception levée quand le joueur enfreint une règle du labyrinthe
+    Exception levée si le joueur enfreint une règle du labyrinthe.
     """
 
     pass
@@ -39,7 +39,7 @@ class HorsRegles(ExceptionLabyrinthe):
 
 class PartieGagnee(ExceptionLabyrinthe):
     """
-    Exception levée quand le joueur gagne la partie
+    Exception levée si le joueur gagne la partie.
     """
 
     pass
@@ -47,26 +47,30 @@ class PartieGagnee(ExceptionLabyrinthe):
 
 class Etat:
     """
-    Représente l'état du labyrinthe à un instant t,
-        basé sur la grille d'éléments, le joueur en cours et les adversaires
-        et incluant le prochain mouvement à vérifier (la direction et la transformation)
+    Représente l'état du labyrinthe à un instant.
+    Basé sur la grille d'éléments, le joueur en cours et les adversaires, et incluant le prochain mouvement à vérifier
+    (la direction et la transformation).
 
     L'objet instancié est transmis aux fonctions de règles pour valider le mouvement.
+
+    :param direction: vecteur déplacement.
+    :param transformation: classe dérivée de ``Transformation``.
+    :param grille: grille d'éléments du labyrinthe.
+    :param joueur: joueur en cours.
+    :param adversaires: liste d'adversaires.
     """
 
-    def __init__(self, direction: Coordonnees, transformation: Optional[Transformer],
-                 grille: Grille, joueur: Joueur, adversaires: List[Joueur]) -> None:
+    def __init__(self, direction: Coordonnees, transformation: Optional[Transformer], grille: Grille, joueur: Joueur,
+                 adversaires: List[Joueur]) -> None:
         """
-        Construit les variables nécessaires aux règles à partir de l'état du labyrinthe
-        ('grille', 'joueur' et 'adversaires') et du mouvement du joueur ('direction', 'transformation')
+        Construit les variables nécessaires aux règles à partir de l'état du labyrinthe (``grille``, ``joueur`` et
+        ``adversaires``) et du mouvement du joueur (``direction``, ``transformation``).
 
-        :param Coordonnees direction: vecteur déplacement
-        :param transformation: classe dérivée de Transformation
-        :type transformation: Transformer ou None
-        :param Grille grille: grille d'éléments du labyrinthe
-        :param Joueur joueur: joueur en cours
-        :param adversaires: liste d'adversaires
-        :type adversaires: List[Joueur]
+        :param direction: vecteur déplacement.
+        :param transformation: classe dérivée de ``Transformation``.
+        :param grille: grille d'éléments du labyrinthe.
+        :param joueur: joueur en cours.
+        :param adversaires: liste d'adversaires.
         """
 
         self.coordonnees_obstacle = (joueur.coordonnees[0] + direction[0], joueur.coordonnees[1] + direction[1])
@@ -85,10 +89,10 @@ regles_transformation: Set[Regle] = set()
 
 def verifier_regles(etat: Etat) -> None:
     """
-    Définit le set de règles à utiliser selon si le controle est un Mouvement ou une Transformation
-    Appelle les règles en leur passant l'état du labyrinthe
+    Définit le set de règles à utiliser selon si le controle est un ``Mouvement`` ou une ``Transformation``.
+    Appelle les règles en leur passant l'état du labyrinthe.
 
-    :param Etat etat: état du labyrinthe
+    :param etat: état du labyrinthe.
     """
 
     if etat.transformation:
@@ -101,21 +105,18 @@ def verifier_regles(etat: Etat) -> None:
 
 def lister_regles(set_de_regles: Set[Regle]) -> Callable[[Regle], Regle]:
     """
-    Construit un décorateur qui stocke une règle dans 'set_de_regles'
+    Construit un décorateur qui stocke une règle dans ``set_de_regles``
 
-    :param set_de_regles: le set de règle à utiliser
-    :type set_de_regles: Set[Regle]
-    :return: décorateur
-    :rtype: Callable[[Regle], Regle]
+    :param set_de_regles: le set de règle à utiliser.
+    :return: décorateur.
     """
 
     def decorateur(regle: Regle) -> Regle:
         """
-        Décorateur qui stocke une règles dans un set de regles
+        Décorateur qui stocke une règles dans un set de regles.
 
-        :param Regle regle: règle à stocker
-        :return: règle sotckée
-        :rtype: Regle
+        :param regle: règle à stocker.
+        :return: règle sotckée.
         """
 
         set_de_regles.add(regle)
@@ -124,57 +125,57 @@ def lister_regles(set_de_regles: Set[Regle]) -> Callable[[Regle], Regle]:
 
 
 @lister_regles(regles_mouvement)
-def traverser_un_obstacle(self: Etat) -> None:
+def traverser_un_obstacle(etat: Etat) -> None:
     """
     Test si l'élément sur lequel le joueur se déplace est traversable.
 
-    :param Etat self: état du labyrinthe
-    :raises HorsRegles: si l'élément n'est pas traversable
+    :param etat: état du labyrinthe.
+    :raises HorsRegles: si l'élément n'est pas ``Traversable``.
     """
 
-    if not issubclass(self.obstacle, Traversable):
-        raise HorsRegles("Vous ne pouvez pas traverser " + self.obstacle.description + " !")
+    if not issubclass(etat.obstacle, Traversable):
+        raise HorsRegles("Vous ne pouvez pas traverser " + etat.obstacle.description + " !")
 
 
 @lister_regles(regles_mouvement)
 @lister_regles(regles_transformation)
-def rencontrer_un_adversaire(self: Etat) -> None:
+def rencontrer_un_adversaire(etat: Etat) -> None:
     """
-    Test si un autre joueur occupe la position sur laquelle le joueur se déplace
-    Test si un autre joueur se trouve sur l'élément à transformer
+    Test si un autre joueur occupe la position sur laquelle le joueur se déplace.
+    Test si un autre joueur se trouve sur l'élément à transformer.
 
-    :param Etat self: état du labyrinthe
-    :raises HorsRegles: si un autre joueur occupe la position
+    :param etat: état du labyrinthe.
+    :raises HorsRegles: si un autre joueur occupe la position.
     """
 
-    for coordonnees in self.coordonnees_adversaires:
-        if self.coordonnees_obstacle == coordonnees:
-            raise HorsRegles("Un joueur occupe déjà " + self.obstacle.description + " !")
+    for coordonnees in etat.coordonnees_adversaires:
+        if etat.coordonnees_obstacle == coordonnees:
+            raise HorsRegles("Un joueur occupe déjà " + etat.obstacle.description + " !")
 
 
 @lister_regles(regles_mouvement)
-def gagner_une_partie(self: Etat) -> None:
+def gagner_une_partie(etat: Etat) -> None:
     """
-    Test si l'élément sur lequel le joueur se déplace est 'gagnable'.
+    Test si l'élément sur lequel le joueur se déplace est ``Gagnable``.
 
-    :param Etat self: état du labyrinthe
-    :raises PartieGagnee: si l'élément est 'gagnable'
+    :param etat: état du labyrinthe.
+    :raises PartieGagnee: si l'élément est ``Gagnable``.
     """
 
-    if issubclass(self.obstacle, Gagnable):
+    if issubclass(etat.obstacle, Gagnable):
         raise PartieGagnee()
 
 
 @lister_regles(regles_transformation)
-def transformer_un_obstacle(self: Etat) -> None:
+def transformer_un_obstacle(etat: Etat) -> None:
     """
     Test si l'élément à transformer dérive de la transformation.
 
-    :param Etat self: état du labyrinthe
-    :raises HorsRegles: si l'élément ne dérive pas de la transformation
+    :param etat: état du labyrinthe.
+    :raises HorsRegles: si l'élément ne dérive pas de la transformation.
     """
 
-    if self.transformation:
-        if not issubclass(self.obstacle, self.transformation):
-            raise HorsRegles("Vous ne pouvez pas " + self.transformation.description
-                             + " " + self.obstacle.description + " !")
+    if etat.transformation:
+        if not issubclass(etat.obstacle, etat.transformation):
+            raise HorsRegles("Vous ne pouvez pas " + etat.transformation.description
+                             + " " + etat.obstacle.description + " !")

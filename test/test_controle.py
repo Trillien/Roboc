@@ -1,7 +1,7 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce module contient les classes ControleTest, ExtraireTest et ObtenirControleTest
+Ce module contient les classes ``ControleTest``, ``ExtraireTest`` et ``ObtenirControleTest``.
 """
 
 from typing import List, Tuple, Dict, Any
@@ -12,14 +12,16 @@ import unittest
 
 class ControleTest(unittest.TestCase):
     """
-    Test case utilisé pour tester les fonctions des classes Controle, Mouvement et Transformation.
+    Test case utilisé pour tester les fonctions des classes ``Controle``, ``Mouvement`` et ``Transformation``.
     """
 
     def setUp(self) -> None:
         """
-        Sauvegarde les controles initialisés par le module 'controle'
-        Efface les variables de classe pour supprimer les mouvements et transformations pré-existantes
-        Définit le nom, la classe d'héritage et les méthodes de 'SimpleControle' nécessaire aux tests
+        Avant chaque test:
+
+        - Sauvegarde les contrôles initialisés par le module **controle**.
+        - Efface les variables de classe pour supprimer les mouvements et transformations pré-existantes.
+        - Définit le nom, la classe d'héritage et les méthodes de ``SimpleControle`` nécessaire aux tests.
         """
 
         # Sauve la liste des mouvements et transformations pré-existants (nécessaire pour ObtenirControleTest)
@@ -38,11 +40,11 @@ class ControleTest(unittest.TestCase):
 
         def __init__(classe, touche: Touche, description: str = "", aide: str = "") -> None:
             """
-            Transmet l'objet à la classe mère Controle pour stocker ses informations
+            Transmet l'objet à la classe mère ``Controle`` pour stocker ses informations.
 
-            :param Touche touche: caractère du contrôle
-            :param str description: courte description du contrôle
-            :param str aide: détail sur l'usage du contrôle
+            :param touche: caractère du contrôle.
+            :param description: courte description du contrôle.
+            :param aide: détail sur l'usage du contrôle.
             """
 
             Controle.__init__(classe, touche, description, aide)
@@ -57,7 +59,7 @@ class ControleTest(unittest.TestCase):
 
     def tearDown(self) -> None:
         """
-        Restaure les listes initiales dans les classes 'Controle', 'Mouvement' et 'Transformation'
+        Après chaque test, restaure les listes initiales dans les classes ``Controle``, ``Mouvement`` et ``Transformation``.
         """
 
         Controle.touches = self.controle_touches.copy()
@@ -69,10 +71,11 @@ class ControleTest(unittest.TestCase):
 
     def test_lister_les_controles(self) -> None:
         """
-        Instancie un nombre de controles et les stocke dans 'liste_controles'
-        Pour chacun de ces controles,
-        - teste si les attributs 'touche' et 'desciption' sont collectés par Controle
-        - teste si le dictionnaire 'touche_controle' associe la 'touche' au controle
+        Instancie un nombre de contrôles et les stocke dans ``liste_controles``.
+        Pour chacun de ces contrôles:
+
+        - Teste si les attributs ``touche`` et ``desciption`` sont collectés par la classe ``Controle``.
+        - Teste si le dictionnaire ``touche_controle`` associe la ``touche`` au contrôle.
         """
 
         nombre_de_controles: int = 10
@@ -88,11 +91,12 @@ class ControleTest(unittest.TestCase):
 
     def test_lister_les_mouvements(self) -> None:
         """
-        Instancie un nombre de mouvements et les stocke dans 'liste_mouvements'
-        Pour chacun de ces mouvements,
-        - teste si les attributs 'touche' et 'direction' sont collectés par Mouvement
-        - teste si l'attribut 'description' est collecté par Controle
-        - teste si le dictionnaire 'touche_controle' associe la 'touche' au mouvement
+        Instancie un nombre de mouvements et les stocke dans ``liste_mouvements``.
+        Pour chacun de ces mouvements:
+
+        - Teste si les attributs ``touche`` et ``direction`` sont collectés par la classe ``Mouvement``.
+        - Teste si l'attribut ``description`` est collecté par la classe ``Controle``.
+        - Teste si le dictionnaire ``touche_controle`` associe la ``touche`` au mouvement.
         """
 
         nombre_de_mouvements: int = 10
@@ -109,11 +113,12 @@ class ControleTest(unittest.TestCase):
 
     def test_lister_les_transformations(self) -> None:
         """
-        Instancie un nombre de transformations et les stocke dans 'liste_transformations'
-        Pour chacune de ces transformations,
-        - teste si l'attribut 'touche' est collecté par Transformation
-        - teste si l'attribut 'description' est collecté par Controle
-        - teste si le dictionnaire 'touche_controle' associe la 'touche' à la transformation
+        Instancie un nombre de transformations et les stocke dans ``liste_transformations``.
+        Pour chacune de ces transformations:
+
+        - Teste si l'attribut ``touche`` est collecté par la classe ``Transformation``.
+        - Teste si l'attribut ``description`` est collecté par la classe ``Controle``.
+        - Teste si le dictionnaire ``touche_controle`` associe la ``touche`` à la transformation.
         """
 
         nombre_de_transformations: int = 10
@@ -130,14 +135,14 @@ class ControleTest(unittest.TestCase):
 
 class ExtraireTest(unittest.TestCase):
     """
-    Test case utilisé pour tester la fonction extraire().
+    Test case utilisé pour tester la fonction ``extraire()``.
     """
 
     def test_extraire_mouvement(self) -> None:
         """
-        Construit la chaine de caractères 'saisie' sur le modèle NSEO
-        Appelle la fonction 'extraire()' avec 'saisie' en argument
-        Compare la 'liste_commandes_ajoutees' depuis saisie avec la 'liste_commande_obtenue'
+        - Construit la chaîne de caractères ``saisie`` sur le modèle *NSEO*.
+        - Appelle la fonction ``extraire()`` avec ``saisie`` en argument.
+        - Compare la ``liste_commandes_ajoutees`` depuis saisie avec la ``liste_commande_obtenue``.
         """
 
         saisie: str = ''.join(Mouvement.touches)
@@ -147,10 +152,10 @@ class ExtraireTest(unittest.TestCase):
 
     def test_extraire_mouvement_repetition(self) -> None:
         """
-        Construit la chaine de caractères 'saisie' sur le modèle N0S1E2O3...
-        Ajoute les commandes liées à 'saisie' à la 'liste_commandes_ajoutees'
-        Appelle la fonction 'extraire()' avec 'saisie' en argument
-        Compare la 'liste_commandes_ajoutees' depuis saisie avec la 'liste_commande_obtenue'
+        - Construit la chaîne de caractères ``saisie`` sur le modèle *NOS1E2O3...*
+        - Ajoute les commandes liées à ``saisie`` à la ``liste_commandes_ajoutees``.
+        - Appelle la fonction ``extraire()`` avec ``saisie`` en argument.
+        - Compare la ``liste_commandes_ajoutees`` depuis saisie avec la ``liste_commande_obtenue``.
         """
 
         saisie: str = str()
@@ -166,10 +171,10 @@ class ExtraireTest(unittest.TestCase):
 
     def test_extraire_transformation(self) -> None:
         """
-        Construit la chaine de caractères 'saisie' sur le modèle MNMSMEMO...
-        Ajoute les commandes liées à 'saisie' à la 'liste_commandes_ajoutees'
-        Appelle la fonction 'extraire()' avec 'saisie' en argument
-        Compare la 'liste_commandes_ajoutees' depuis saisie avec la 'liste_commande_obtenue'
+        - Construit la chaîne de caractères ``saisie`` sur le modèle *MNMSMEMO...*
+        - Ajoute les commandes liées à ``saisie`` à la ``liste_commandes_ajoutees``.
+        - Appelle la fonction ``extraire()`` avec ``saisie`` en argument.
+        - Compare la ``liste_commandes_ajoutees`` depuis saisie avec la ``liste_commande_obtenue``.
         """
 
         saisie: str = str()
@@ -184,14 +189,14 @@ class ExtraireTest(unittest.TestCase):
 
 class ObtenirControleTest(unittest.TestCase):
     """
-    Test case utilisé pour tester la fonction obtenir_controle().
+    Test case utilisé pour tester la fonction ``obtenir_controle()``.
     """
 
     def test_obtenir_controle_mouvement(self):
         """
-        Instancie un mouvement dont la 'touche' est collectée par la classe Mouvement
-        Appelle la fonction 'obtenir_controle()' avec la 'touche' du mouvement en argument
-        Teste si la fonction renvoie la 'direction'
+        - Instancie un mouvement dont la ``touche`` est collectée par la classe ``Mouvement``.
+        - Appelle la fonction ``obtenir_controle()`` avec la ``touche`` du mouvement en argument.
+        - Teste si la fonction renvoie la ``direction``.
         """
 
         mouvement_touche = 'A'
@@ -202,10 +207,10 @@ class ObtenirControleTest(unittest.TestCase):
 
     def test_obtenir_controle_transformation(self):
         """
-        Instancie une transformation dont la 'touche' est collectée par la classe Transformation
-        Instancie un mouvement dont la 'touche' est collectée par la classe Mouvement
-        Appelle la fonction 'obtenir_controle()' avec les touches 'transformation + mouvement' en argument
-        Teste si la fonction renvoie la 'direction' et la 'transformation'
+        - Instancie une transformation dont la ``touche`` est collectée par la classe ``Transformation``.
+        - Instancie un mouvement dont la ``touche`` est collectée par la classe ``Mouvement``.
+        - Appelle la fonction ``obtenir_controle()`` avec les touches ``transformation + mouvement`` en argument.
+        - Teste si la fonction renvoie la ``direction`` et la ``transformation``.
         """
 
         transformation_touche = 'T'

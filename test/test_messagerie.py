@@ -1,7 +1,7 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce module contient les classes TransmissionTest et MessagerieTest
+Ce module contient les classes ``TransmissionTest`` et ``MessagerieTest``.
 """
 
 from typing import Optional, ClassVar
@@ -13,7 +13,7 @@ import unittest
 
 class ClientServeur:
     """
-    Contient les informations de connexion entre le client et le serveur
+    Contient les informations de connexion entre le client et le serveur.
     """
 
     hote: ClassVar[str] = 'localhost'
@@ -21,7 +21,7 @@ class ClientServeur:
 
     def __init__(self) -> None:
         """
-        Définit une socket (client ou serveur)
+        Définit une socket (client ou serveur).
         """
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -29,12 +29,12 @@ class ClientServeur:
 
 class Serveur(ClientServeur):
     """
-    Crée un serveur
+    Crée un serveur.
     """
 
     def __init__(self) -> None:
         """
-        Stocke la socket du client
+        Stocke la socket du client.
         """
 
         super().__init__()
@@ -42,7 +42,7 @@ class Serveur(ClientServeur):
 
     def demarrer_serveur(self) -> None:
         """
-        Démarre le serveur sur l'adresse de connexion
+        Démarre le serveur sur l'adresse de connexion.
         """
 
         self.socket.bind((self.hote, self.port))
@@ -50,10 +50,9 @@ class Serveur(ClientServeur):
 
     def accepter_connexion(self) -> socket.socket:
         """
-        Accepte une connexion et stocke les informations du client
+        Accepte une connexion et stocke les informations du client.
 
-        :return: socket du client
-        :rtype: socket
+        :return: socket du client.
         """
 
         self.client, _ = self.socket.accept()
@@ -61,8 +60,7 @@ class Serveur(ClientServeur):
 
     def arreter_serveur(self) -> None:
         """
-        Si une connexion client existe, ferme cette connexion
-        Puis ferme la socket du serveur
+        Si une connexion client existe, ferme cette connexion puis ferme la socket du serveur.
         """
 
         try:
@@ -75,19 +73,19 @@ class Serveur(ClientServeur):
 
 class Client(ClientServeur):
     """
-    Crée un client
+    Crée un client.
     """
 
     def connecter(self) -> None:
         """
-        Etablit une connexion sur l'adresse de connexion
+        Etablit une connexion sur l'adresse de connexion.
         """
 
         self.socket.connect((self.hote, self.port))
 
     def fermer_connexion(self) -> None:
         """
-        Ferme la socket du client
+        Ferme la socket du client.
         """
 
         self.socket.close()
@@ -95,20 +93,20 @@ class Client(ClientServeur):
 
 class TransmissionTest(unittest.TestCase):
     """
-    Test case utilisé pour tester les fonctions de la classe 'Transmission'.
+    Test case utilisé pour tester les fonctions de la classe ``Transmission``.
     """
 
     def setUp(self) -> None:
         """
-        Crée un serveur et un client
-        Charge une liste d'objet qui pourra être transmis du client au serveur
+        Avant chaque test, crée un serveur et un client.
+        Charge une liste d'objets variés qui pourront être transmis du client au serveur.
         """
 
         self.serveur = Serveur()
         self.client = Client()
         self.liste_objets = [
             None,           # None
-            'test',         # Chaine de caractères
+            'test',         # Chaîne de caractères
             1,              # entier
             True,           # booléen
             {'test': 1},    # dictionnaire
@@ -118,7 +116,7 @@ class TransmissionTest(unittest.TestCase):
 
     def tearDown(self) -> None:
         """
-        Ferme les connexions client et serveur
+        Après chaque test, ferme les connexions client et serveur.
         """
 
         self.client.fermer_connexion()
@@ -126,8 +124,8 @@ class TransmissionTest(unittest.TestCase):
 
     def test_emission_trop_gros_objet(self) -> None:
         """
-        Crée un objet dont l'entête ne peut pas stocker la taille
-        Tente de transmettre l'objet (mais échoue à créer l'entête)
+        Crée un objet dont l'entête ne peut pas stocker la taille. Tente de transmettre l'objet mais échoue à créer
+        l'entête. L'exception ``OverflowError`` est levée.
         """
 
         transmission_client = Transmission(self.client.socket)
@@ -138,9 +136,9 @@ class TransmissionTest(unittest.TestCase):
 
     def test_emission_reception(self) -> None:
         """
-        Démarre le serveur puis le client
-        Accepte la connexion
-        Transmet chaque objet de la liste, puis compare l'objet à transmettre avec l'objet transmis
+        Démarre le serveur et le client. Le serveur accepte la connexion du client.
+        Le client transmet chaque objet de la liste au serveur. Teste si l'objet à transmis par le client est identique
+        à l'objet reçu par le serveur.
         """
 
         self.serveur.demarrer_serveur()
@@ -154,10 +152,8 @@ class TransmissionTest(unittest.TestCase):
 
     def test_reception_serveur_clos(self) -> None:
         """
-        Démarre le serveur puis le client
-        Accepte la connexion
-        Ferme le serveur
-        Tente de recevoir un message
+        Démarre le serveur et le client. Le serveur accepte la connexion du client.
+        Ferme le serveur. Le serveur tente de recevoir un message et lève l'exception ``OSError``.
         """
 
         self.serveur.demarrer_serveur()
@@ -170,10 +166,9 @@ class TransmissionTest(unittest.TestCase):
 
     def test_reception_client_clos(self) -> None:
         """
-        Démarre le serveur puis le client
-        Accepte la connexion
-        Ferme le client
-        Tente de recevoir un message (reçoit une entête vide)
+        Démarre le serveur et le client. Le serveur accepte la connexion du client.
+        Ferme le client. Le serveur tente de recevoir un message et lève l'exception ``ConnectionFermee`` (l'entête
+        reçue est vide).
         """
 
         self.serveur.demarrer_serveur()
@@ -186,9 +181,8 @@ class TransmissionTest(unittest.TestCase):
 
     def test_reception_mauvais_format(self) -> None:
         """
-        Démarre le serveur puis le client
-        Accepte la connexion
-        Tente de recevoir un message "test" qui n'a pas d'entête
+        Démarre le serveur et le client. Le serveur accepte la connexion du client.
+        Le serveur reçoit un message sans entête et lève l'exception ``TypeError``.
         """
 
         self.serveur.demarrer_serveur()
@@ -202,21 +196,21 @@ class TransmissionTest(unittest.TestCase):
 
 class MessagerieTest(unittest.TestCase):
     """
-    Test case utilisé pour tester les fonctions de la classe 'Messagerie'.
+    Test case utilisé pour tester les fonctions de la classe ``Messagerie``.
     """
 
     def tearDown(self) -> None:
         """
-        Réinitialise les variables de Messagerie
+        Après chaque test, réinitialise les variables de la classe ``Messagerie``.
         """
 
         Messagerie.effacer()
 
     def test_ajouter_obtenir(self) -> None:
         """
-        Génère une liste d'objet à ajouter à la Messagerie
-        Lance un thread pour ajouter les objets, et un thread pour les obtenir
-        Compare les deux listes d'objets ajoutés et obtenus
+        Génère une liste d'objet à ajouter à la liste de la classe ``Messagerie``.
+        Lance un Thread pour *ajouter* les objets, et un Thread pour les *obtenir*.
+        Compare la liste d'objets ajoutés à celle d'objets obtenus.
         """
 
         nombre_objets = 100
@@ -225,7 +219,7 @@ class MessagerieTest(unittest.TestCase):
 
         def ajouter_message() -> None:
             """
-            Ajoute les objets de liste_objets_references à la Messagerie
+            Ajoute les objets de ``liste_objets_references`` à la liste de la classe ``Messagerie``.
             """
 
             for objet in liste_objets_references:
@@ -234,7 +228,7 @@ class MessagerieTest(unittest.TestCase):
 
         def obtenir_message() -> None:
             """
-            Stocke les objets récupérés de Messagerie dans liste_objets_obtenus
+            Stocke les objets récupérés de la liste de la classe ``Messagerie`` dans ``liste_objets_obtenus``.
             """
 
             for _ in range(nombre_objets):

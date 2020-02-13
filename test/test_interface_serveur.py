@@ -1,7 +1,7 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce module contient les classes RequestHandlerTest et ThreadedTCPServerTest
+Ce module contient les classes ``RequestHandlerTest`` et ``ThreadedTCPServerTest``.
 """
 
 from typing import Dict, Tuple, List, ClassVar, Final
@@ -19,13 +19,13 @@ adresse: Final[Adresse] = ('localhost', 12800)
 
 class Serveur:
     """
-    Crée un serveur
+    Crée un serveur.
     """
 
     def __init__(self) -> None:
         """
-        Définit une socket
-        Stocke la socket des clients dans un dictionnaire {socket: adresse}
+        Définit une socket.
+        Stocke la socket des clients dans un dictionnaire ``{socket: adresse}``.
         """
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -33,7 +33,7 @@ class Serveur:
 
     def demarrer_serveur(self) -> None:
         """
-        Démarre le serveur sur l'adresse de connexion
+        Démarre le serveur sur l'adresse de connexion.
         """
 
         self.socket.bind(adresse)
@@ -41,10 +41,9 @@ class Serveur:
 
     def accepter_connexion(self) -> Tuple[socket.socket, Adresse]:
         """
-        Accepte une connexion et stocke les informations du client
+        Accepte une connexion et stocke les informations du client.
 
-        :return: adresse du client
-        :rtype: Tuple[socket, Adresse]
+        :return: adresse du client.
         """
 
         client, adresse_client = self.socket.accept()
@@ -53,10 +52,9 @@ class Serveur:
 
     def fermer_connexion(self, client: socket.socket) -> None:
         """
-        Ferme la connexion du client
-        et efface le client du dictionnaire
+        Ferme la connexion du client et efface le client du dictionnaire.
 
-        :param socket client: socket client à fermer
+        :param client: socket client à fermer.
         """
 
         client.close()
@@ -64,8 +62,8 @@ class Serveur:
 
     def arreter_serveur(self) -> None:
         """
-        Pour toutes les connexions clientes actives, ferme la connexion
-        Puis ferme la socket du serveur
+        Pour toutes les connexions clientes actives, ferme la connexion.
+        Puis ferme la socket du serveur.
         """
 
         for client in self.clients.copy():
@@ -75,26 +73,26 @@ class Serveur:
 
 class Client:
     """
-    Crée un client
+    Crée un client.
     """
 
     def __init__(self) -> None:
         """
-        Définit une socket client
+        Définit une socket client.
         """
 
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
     def connecter(self) -> None:
         """
-        Etablit une connexion sur l'adresse du serveur
+        Etablit une connexion sur l'adresse du serveur.
         """
 
         self.socket.connect(adresse)
 
     def fermer_connexion(self) -> None:
         """
-        Ferme la socket du client
+        Ferme la socket du client.
         """
 
         self.socket.close()
@@ -102,27 +100,27 @@ class Client:
 
 class SimpleHandler(socketserver.BaseRequestHandler):
     """
-    Classe "gestionnaire" instanciée par le serveur après chaque connexion client acceptée
-    Stocke les sockets des clients dans la liste 'clients'
-    Initie un évènement 'signal' qui bloque le Thread dans 'handle()'
-    Initie une barriere qui se lève quand tous les Threads l'ont atteinte
+    Classe *gestionnaire* instanciée par le serveur après chaque connexion client acceptée.
+    Stocke les sockets des clients dans la liste ``clients``.
+    Initialise une ``barriere`` qui se lève lorsque tous les Threads l'ont atteinte.
+    Initialise un ``signal`` qui bloque le Thread dans ``handle()``.
     """
 
     clients: ClassVar[List[socket.socket]] = []
-    signal: ClassVar[threading.Event] = threading.Event()
     barriere: ClassVar[threading.Barrier]
+    signal: ClassVar[threading.Event] = threading.Event()
 
     def setup(self) -> None:
         """
-        Ajoute la socket du client à la liste 'clients'
+        Ajoute la socket du client à la liste ``clients``.
         """
 
         self.clients.append(self.request)
 
     def handle(self) -> None:
         """
-        Bloque le Thread tant que 'barriere' n'est pas levée
-        Bloque ensuite le Thread tant que 'signal' n'est pas reçu
+        Bloque le Thread tant que ``barriere`` n'est pas levée.
+        Bloque ensuite le Thread tant que ``signal`` n'est pas reçu.
         """
 
         self.barriere.wait()
@@ -131,7 +129,7 @@ class SimpleHandler(socketserver.BaseRequestHandler):
     @classmethod
     def effacer(cls) -> None:
         """
-        Réinitialise les variables de la classe
+        Réinitialise les variables de la classe ``SimpleHandler``.
         """
 
         cls.clients = []
@@ -140,12 +138,12 @@ class SimpleHandler(socketserver.BaseRequestHandler):
 
 class RequestHandlerTest(unittest.TestCase):
     """
-    Test case utilisé pour tester les fonctions de la classe 'RequestHandler'.
+    Test case utilisé pour tester les fonctions de la classe ``RequestHandler``.
     """
 
     def setUp(self) -> None:
         """
-        Crée et démarre un serveur
+        Avant chaque test, crée et démarre un serveur.
         """
 
         self.serveur: Serveur = Serveur()
@@ -154,19 +152,20 @@ class RequestHandlerTest(unittest.TestCase):
 
     def tearDown(self) -> None:
         """
-        Arrête le serveur
+        Après chaque test, arrête le serveur.
         """
 
         self.serveur.arreter_serveur()
 
     def initier_connexion(self, nombre_de_connexions: int) -> None:
         """
-        Pour le nombre de clients passé en paramètre,
-        Crée un client, le connecte et stocke la socket dans la liste 'clients'
-        Le Serveur accepte la connexion du client
-        Crée et démarre un daemon Thread qui instancie la classe RequestHandler
+        Pour le nombre de clients passé en paramètre:
 
-        :param int nombre_de_connexions: nombre de clients à créer et connecter au serveur
+        - Crée un client, le connecte et stocke la socket dans la liste ``clients``.
+        - Le serveur accepte la connexion du client.
+        - Crée et démarre un daemon Thread qui instancie la classe ``RequestHandler``.
+
+        :param nombre_de_connexions: nombre de clients à créer et connecter au serveur.
         """
 
         for _ in range(nombre_de_connexions):
@@ -182,15 +181,15 @@ class RequestHandlerTest(unittest.TestCase):
 
     def test_connexion(self) -> None:
         """
-        Crée les clients, les Thread et instancie la classe RequestHandler
+        Crée les clients, les Threads et instancie la classe ``RequestHandler``.
 
-        Pour chaque client, la classe instanciée doit ajouter dans la messagerie
-        le message (self, 'nouveau_joueur', None) avec 'self' une instance de RequestHandler
+        Pour chaque client, l'instance ajoute dans la liste de la classe ``Messagerie`` le message
+        ``(self, "nouveau_joueur", None)``.
 
-        Ferme les connexions côté clients
+        Ferme les connexions côté clients.
 
-        Pour chaque client déconnecté, la classe instanciée doit ajouter dans la messagerie
-        le message (self, 'quitte', None) avec 'self' une instance de RequestHandler
+        Pour chaque client déconnecté, l'instance ajoute dans la liste de la classe ``Messagerie`` le message
+        ``(self, "quitte", None)``.
         """
 
         nombre_de_connexions = 10
@@ -209,13 +208,14 @@ class RequestHandlerTest(unittest.TestCase):
 
 class ThreadedTCPServerTest(unittest.TestCase):
     """
-    Test case utilisé pour tester les fonctions de la classe 'ThreadedTCPServer'.
+    Test case utilisé pour tester les fonctions de la classe ``ThreadedTCPServer``.
     """
 
     def setUp(self) -> None:
         """
-        Instancie ThreadedTCPServer avec SimpleHandler en paramètre pour créer un serveur
-        Démarre le Thread Serveur
+        Avant chaque test, instancie ``ThreadedTCPServer`` avec la classe ``SimpleHandler`` en paramètre pour créer un
+        serveur.
+        Démarre le Thread *Serveur*.
         """
 
         self.clients: List[Client] = []
@@ -224,8 +224,8 @@ class ThreadedTCPServerTest(unittest.TestCase):
 
     def tearDown(self) -> None:
         """
-        Ferme les connexions clients et arrête le serveur
-        Réinitialise les variables de la classe SimpleHandler
+        Après chaque test, ferme les connexions clients et arrête le Thread *Serveur*.
+        Réinitialise les variables de la classe ``SimpleHandler``.
         """
 
         for client in self.clients:
@@ -238,10 +238,11 @@ class ThreadedTCPServerTest(unittest.TestCase):
     def initier_connexion(self, nombre_de_connexions: int) -> None:
         """
         Pour le nombre de clients passé en paramètre,
-        Crée un client, le connecte et stocke la socket dans la liste 'clients'
-        Le Thread Serveur crée un nouveau Thread et instancie SimpleHandler pour chaque client
 
-        :param int nombre_de_connexions: nombre de clients à créer et connecter au serveur
+        - Crée un client, le connecte et stocke la socket dans la liste ``clients``.
+        - Le Thread *Serveur* crée un nouveau Thread et instancie ``SimpleHandler`` pour chaque client.
+
+        :param nombre_de_connexions: nombre de clients à créer et à connecter au Thread *Serveur*.
         """
 
         for _ in range(nombre_de_connexions):
@@ -251,12 +252,14 @@ class ThreadedTCPServerTest(unittest.TestCase):
 
     def test_connexions(self) -> None:
         """
-        Avec 'connexion_autorisee' à True
-        Crée des clients, le Serveur doit instancier la classe SimpleHandler
-        Synchronise les Thread avec 'barriere': attendre la création de toutes les instances
-        Le nombre de clients doit être égal à 'nombre_de_connexions'
+        Met l'attribut ``connexion_autorisee`` à True.
 
-        Libérer les Threads avec l'évènement 'signal'
+        Crée des clients. Le *Serveur* instancie la classe ``SimpleHandler``.
+        Synchronise les Thread avec ``barriere``: la barrière est levée après la création de toutes les instances.
+
+        Le nombre de clients est égal à ``nombre_de_connexions``.
+
+        Libère les Threads avec l'évènement ``signal``.
         """
 
         nombre_de_connexions = 10

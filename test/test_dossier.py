@@ -1,9 +1,9 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce module contient la classe DossierTest
+Ce module contient la classe ``DossierTest``.
 
-Les tests unitaires de la classe Dossier utilisent les fichiers du dossier 'test dossier'
+Les tests unitaires de la classe ``Dossier`` utilisent les fichiers du dossier *test dossier*.
 """
 
 from typing import Final, List, Set
@@ -21,8 +21,8 @@ extension_introuvable: Final[str] = "."
 
 class EstTrue:
     """
-    Classe qui est transmise à la classe Dossier pour créer une instance dossier
-    Lors d'un test 'if EstTrue', le test est toujours vrai
+    Classe transmise à la classe ``Dossier`` pour créer une instance ``dossier``.
+    '*if EstTrue*' renvoie True.
     """
 
     def __init__(self, *args, **kwargs) -> None:
@@ -31,7 +31,6 @@ class EstTrue:
     def __bool__(self) -> bool:
         """
         :return: True
-        :rtype: bool
         """
 
         return True
@@ -39,8 +38,8 @@ class EstTrue:
 
 class EstFalse:
     """
-    Classe qui est transmise à la classe Dossier pour créer une instance dossier
-    Lors d'un test 'if EstFalse', le test est toujours faux
+    Classe transmise à la classe ``Dossier`` pour créer une instance ``dossier``.
+    '*if EstFalse*' renvoie False.
     """
 
     def __init__(self, *args, **kwargs) -> None:
@@ -49,7 +48,6 @@ class EstFalse:
     def __bool__(self) -> bool:
         """
         :return: False
-        :rtype: bool
         """
 
         return False
@@ -57,13 +55,13 @@ class EstFalse:
 
 class DossierTest(unittest.TestCase):
     """
-    Test case utilisé pour tester les fonctions du module 'dossier'.
+    Test case utilisé pour tester les fonctions du module **dossier**.
     """
 
     def setUp(self) -> None:
         """
-        Charge le jeu de fichiers du dossier 'test dossier'
-        Charge les extensions des fichiers du dossier 'test dossier'
+        Avant chaque test, charge le jeu de fichiers du dossier *test dossier*.
+        Charge les extensions des fichiers du dossier *test dossier*.
         """
 
         self.liste_fichiers = self.__parcourir_dossier(dossier_de_test)
@@ -71,11 +69,10 @@ class DossierTest(unittest.TestCase):
 
     def __parcourir_dossier(self, dossier: str) -> List[str]:
         """
-        Liste les fichiers et les sous-dossiers (fonction récursive) d'un dossier
+        Liste les fichiers et sous-dossiers d'un dossier de manière récursive.
 
-        :param str dossier: dossier de recherche des cartes
-        :return: liste des fichiers
-        :rtype: List[str]
+        :param dossier: dossier de recherche des cartes.
+        :return: liste des fichiers.
         """
 
         liste_fichiers = []
@@ -89,10 +86,9 @@ class DossierTest(unittest.TestCase):
 
     def __parcourir_extensions(self) -> Set[str]:
         """
-        Extrait les extensions de liste_fichiers
+        Extrait les extensions de ``liste_fichiers``.
 
-        :return: liste des extensions des fichiers
-        :rtype: Set[str]
+        :return: liste des extensions des fichiers.
         """
 
         extensions = set()
@@ -103,9 +99,8 @@ class DossierTest(unittest.TestCase):
 
     def test_lister_les_fichiers_par_dossier(self) -> None:
         """
-        En passant un chemin de dossier en paramètre,
-        Teste si la classe Dossier liste tous les fichiers d'un dossier
-        Teste si dossier renvoit le nombre de fichiers
+        En passant un chemin de dossier en paramètre, teste si l'instance de la classe ``Dossier`` liste tous les fichiers
+        d'un dossier, et si elle renvoie le nombre juste de fichiers.
         """
 
         for extension in self.extensions:
@@ -122,8 +117,7 @@ class DossierTest(unittest.TestCase):
 
     def test_lister_les_fichiers_par_fichier(self) -> None:
         """
-        En passant un chemin de fichier en paramètre,
-        Teste si la classe Dossier liste le fichier indiqué
+        En passant un chemin de fichier en paramètre, teste si l'instance de la classe ``Dossier`` liste le fichier indiqué.
         """
 
         for fichier in self.liste_fichiers:
@@ -133,7 +127,7 @@ class DossierTest(unittest.TestCase):
 
     def test_fichier_introuvable(self) -> None:
         """
-        Dossier doit renvoyer l'exception FileNotFoundError pour un fichier inexistant
+        A l'instanciation de la classe ``Dossier``, une exception ``FileNotFoundError`` est levée si un fichier est inexistant.
         """
 
         with self.assertRaises(FileNotFoundError):
@@ -141,8 +135,8 @@ class DossierTest(unittest.TestCase):
 
     def test_extension_introuvable(self) -> None:
         """
-        Dossier doit renvoyer l'exception FileNotFoundError
-        si aucun fichier ne présente l'extension passée en paramètre
+        A l'instanciation de la classe ``Dossier``, une exception ``FileNotFoundError`` est levée si aucun fichier ne comporte
+        l'extension passée en paramètre.
         """
 
         with self.assertRaises(FileNotFoundError):
@@ -150,8 +144,7 @@ class DossierTest(unittest.TestCase):
 
     def test_fichier_vide(self) -> None:
         """
-        Dossier doit renvoyer l'exception EOFError
-        si le fichier indiqué est vide
+        A l'instanciation de la classe ``Dossier``, une exception ``EOFError`` est levée si le fichier indiqué est vide.
         """
 
         with self.assertRaises(EOFError):
@@ -159,8 +152,8 @@ class DossierTest(unittest.TestCase):
 
     def test_dossier_vide(self) -> None:
         """
-        Dossier doit renvoyer l'exception FileNotFoundError
-        si le dossier indiqué est vide
+        A l'instanciation de la classe ``Dossier``, une exception ``FileNotFoundError`` est levée si le dossier indiqué est
+        vide.
         """
 
         with self.assertRaises(FileNotFoundError):
@@ -168,11 +161,9 @@ class DossierTest(unittest.TestCase):
 
     def test_lire_les_fichiers(self) -> None:
         """
-        En passant la classe EstTrue en paramètre,
-        Dossier doit instancier la classe pour chaque fichier du dossier_de_test
-
-        En passant la classe EstFalse en paramètre,
-        Dossier doit renvoyer une exception FileNotFoundError car aucun fichier n'a passé le test: 'if EstFalse'
+        La classe ``EstTrue`` passée en paramètre est instanciée pour chaque fichier du ``dossier_de_test``.
+        La classe ``EstFalse`` passée en paramètre est instanciée pour chaque fichier du ``dossier_de_test``. Une exception
+        ``FileNotFoundError`` est levée car aucun fichier ne passe le test '*if EstFalse*'.
         """
 
         for extension in self.extensions:

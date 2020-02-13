@@ -1,7 +1,7 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce fichier contient le client du jeu.
+Ce fichier contient le Client du jeu.
 Exécutez-le avec Python pour lancer le jeu.
 """
 
@@ -16,10 +16,11 @@ Adresse = Tuple[str, int]
 adresse: Final[Adresse] = ('localhost', 12800)
 
 """
-Ouvre une socket et se connecte à 'adresse'
-Si la connexion n'aboutit pas, demande si l'utilisateur souhaite se reconnecter
-    - s'il accepte, tente une nouvelle connexion
-    - s'il refuse, quitte le programme
+Ouvre une socket et se connecte à ``adresse``
+Si la connexion n'aboutit pas, demande si l'utilisateur souhaite se reconnecter:
+
+- s'il accepte, tente une nouvelle connexion.
+- s'il refuse, quitte le programme.
 """
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as requete:
@@ -41,12 +42,13 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as requete:
 
     """
     Instanciation et démarrage des Threads:
-    - Main Thread reçoit les informations des deux autres Threads.
-      C'est le seul à envoyer des messages au serveur, c'est le seul à afficher des informations
-    - Interface Client écoute les saisies utilisateur et les transmet à Main Thread
-    - Interface Serveur reçoit les messages du serveur et les transmet à Main Thread
+    
+    - *Main Thread* reçoit les informations des deux autres Threads.
+      C'est le seul à envoyer des messages au serveur, c'est le seul à afficher des informations.
+    - *Interface Client* écoute les saisies utilisateur et les transmet à *Main Thread*.
+    - *Interface Serveur* reçoit les messages du serveur et les transmet à *Main Thread*.
 
-    Tranmission permet d'envoyer des messages au serveur
+    ``Tranmission`` permet d'envoyer des messages au serveur.
     """
 
     transmission = Transmission(requete)
@@ -58,18 +60,22 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as requete:
 
     """
     Boucle principale:
-    Main Thread récupère un message de la liste Messagerie qui contient un tuple (categorie, message)
+    
+    *Main Thread* récupère un message de la liste de la classe ``Messagerie`` qui contient un tuple ``(categorie, message)``.
 
-    Categories reçues du Serveur (transmis par Interface Serveur):
-    - 'affichage', affiche le message
-    - 'validation_schema' ou 'validation_erreur', envoie les paramètres à la classe ValidateurTexte
-    - 'fin', change le mode de ValidateurTexte
+    Catégories reçues du Serveur (transmis par *Interface Serveur*):
+    
+    - ``"affichage"``, affiche le message.
+    - ``"validation_schema"`` ou ``"validation_erreur"``, envoie les paramètres à la classe ``ValidateurTexte``.
+    - ``"fin"``, change le mode de ``ValidateurTexte``.
 
-    Categorie reçue de Interface Client:
-    - 'saisie', instancie ValidateurTexte pour tester la saisie, et l'envoie au serveur
+    Catégorie reçue de *Interface Client*:
+    
+    - ``"saisie"``, instancie ``ValidateurTexte`` pour tester la saisie, et l'envoie au Serveur.
 
-    Categorie reçue de Interface Client ou Interface Serveur:
-    - 'erreur', affiche le message et quitte la boucle
+    Catégorie reçue de *Interface Client* ou *Interface Serveur*:
+    
+    - ``"erreur"``, affiche le message et quitte la boucle.
     """
 
     while True:
@@ -91,28 +97,34 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as requete:
                 pass
         elif categorie == 'saisie':
             try:
-                try:
-                    if ValidateurTexte(message) and not ValidateurTexte.fin_de_partie:
-                        transmission.envoyer(('commande', message))
-                except ValidationErreur as e:
+                valide = ValidateurTexte(message)
+            except ValidationErreur as e:
+                if ValidateurTexte.mode == ValidateurTexte.jeu_en_cours:
                     print(e)
-                finally:
-                    interface_client.saisie_suivante.set()
             except Quitter:
                 break
+            finally:
+                interface_client.saisie_suivante.set()
+
+            if ValidateurTexte.mode == ValidateurTexte.jeu_en_cours:
+                if valide:
+                    transmission.envoyer(('commande', message))
+                else:
+                    print(ValidateurTexte.validation_erreur)
+
         elif categorie == 'fin':
-            ValidateurTexte.fin_de_partie = True
+            ValidateurTexte.mode = ValidateurTexte.fin_de_partie
             print("Tapez " + Quitter.touche + " pour quitter")
 
     """
-    L'utilisateur a saisie la touche 'Quitter.touche'
-    ou une erreur s'est produite dans le Thread Interface Client ou le Thread Interface Serveur,
+    L'utilisateur a saisie la touche ``Quitter.touche`` ou une erreur s'est produite dans le Thread *Interface Client* ou le
+    Thread *Interface Serveur*.
 
-    Le programme quitte la boucle principale et sort le Thread Interface Client de sa boucle infinie
-    La connexion au serveur est fermée et le Thread Interface Serveur s'arrête.
+    Le programme quitte la boucle principale et sort le Thread *Interface Client* de sa boucle infinie.
+    La connexion au serveur est fermée et le Thread *Interface Serveur* s'arrête.
     """
 
-    interface_client.fin_de_partie = True
+    interface_client.mode = InterfaceClient.fin_de_partie
     interface_client.saisie_suivante.set()
     interface_client.join()
 

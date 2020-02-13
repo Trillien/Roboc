@@ -1,7 +1,7 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce module contient la classe RegleTest
+Ce module contient la classe ``RegleTest``.
 """
 
 from typing import Tuple, Dict, cast, Type, List, Any
@@ -18,11 +18,10 @@ Grille = Dict[Coordonnees, Obstacle]
 
 def construire_grille(chaine: str) -> Grille:
     """
-    Crée une grille de labyrinthe à partir d'une chaine de caractères
+    Crée une grille de labyrinthe à partir d'une chaîne de caractères.
 
-    :param str chaine: chaine de caractères
-    :return: grille de labyrinthe
-    :rtype: Grille
+    :param chaine: chaîne de caractères.
+    :return: grille de labyrinthe.
     """
 
     grille: Grille = {}
@@ -34,22 +33,21 @@ def construire_grille(chaine: str) -> Grille:
 
 class RegleTest(unittest.TestCase):
     """
-    Test case utilisé pour tester les règles:
-    - traverser_un_obstacle
-    - rencontrer_un_adversaire
-    - transformer_un_obstacle
-    - gagner_une_partie
+    Test case utilisé pour tester les règles ``traverser_un_obstacle()``, ``rencontrer_un_adversaire()``,
+    ``transformer_un_obstacle()`` et ``gagner_une_partie()``.
     """
 
     def setUp(self) -> None:
         """
-        Sauvegarde les éléments initialisés par le module 'element'
-        Efface les listes d'éléments connus et gagnable de la metaclasse Elements
-        Définit les nom, classe d'héritage et attributs des éléments nécessaires aux tests
-        Crée et stocke les classes dans 'elements'
-        Crée la classe 'Debutable' et le dernier élément 'ElementTransformable'
-        Crée un Joueur aux coordonées 0, 0
-        Crée un Adversaire aux coordonnées 1, 0
+        Avant chaque test:
+
+        - Sauvegarde les éléments initialisés par le module **element**.
+        - Efface les listes d'éléments ``Decryptable`` et ``Gagnable`` de la métaclasse ``Elements``.
+        - Définit les nom, classe d'héritage et attributs des éléments nécessaires aux tests.
+        - Crée et stocke les classes dans ``elements``.
+        - Crée l'élément ``ElementTransformable``.
+        - Instancie la classe ``Joueur`` pour créer un joueur aux coordonées (0, 0).
+        - Instancie la classe ``Joueur`` pour créer un adversaire aux coordonnées (1, 0).
         """
 
         self.decryptable = Elements.decryptable.copy()
@@ -81,8 +79,8 @@ class RegleTest(unittest.TestCase):
         for indice in range(len(noms)):
             elements[noms[indice]] = type(noms[indice], bases[indice], dictionnaires[indice])
 
-        # Pour éviter les références circulaires, le membre 'transformee'
-        # de MixInTransformation est défini après les classes d'éléments
+        # Pour éviter les références circulaires, le membre ``transformee`` de MixInTransformation est défini après les classes
+        # d'éléments
         self.MixInTransformation.transformee = elements['ElementTransformable']
 
         self.joueur = Joueur('identifiant_client', 'Joueur')
@@ -92,7 +90,7 @@ class RegleTest(unittest.TestCase):
 
     def tearDown(self) -> None:
         """
-        Restaure les listes initiales dans la metaclasse 'Elements'
+        Après chaque test, restaure les listes initiales dans la métaclasse ``Elements``.
         """
 
         Elements.decryptable = self.decryptable.copy()
@@ -101,12 +99,11 @@ class RegleTest(unittest.TestCase):
 
     def test_traverser_un_obstacle(self) -> None:
         """
-        Crée une grille avec un obstacle aux coordonnées 0, 1
-        Crée un état de labyrinthe avec un déplacement du Joueur en 1, 0
-        Teste si la règle retourne une exception
-
-        Crée un état de labyrinthe avec un déplacement du Joueur en 0, 1
-        Teste si la règle retourne une exception
+        - Crée une grille avec un obstacle aux coordonnées (0, 1).
+        - Crée un état de labyrinthe avec un déplacement du Joueur en (1, 0).
+        - Teste si la règle retourne une exception.
+        - Crée un état de labyrinthe avec un déplacement du Joueur en (0, 1).
+        - Teste si la règle retourne une exception.
         """
 
         grille = construire_grille("  \n"
@@ -122,12 +119,11 @@ class RegleTest(unittest.TestCase):
 
     def test_rencontrer_un_adversaire(self) -> None:
         """
-        Crée une grille sans obstacle
-        Crée un état de labyrinthe avec un déplacement du Joueur en 1, 0
-        Teste si la règle retourne une exception
-
-        Crée un état de labyrinthe avec un déplacement du Joueur en 0, 1
-        Teste si la règle retourne une exception
+        - Crée une grille sans obstacle.
+        - Crée un état de labyrinthe avec un déplacement du Joueur en (1, 0).
+        - Teste si la règle retourne une exception.
+        - Crée un état de labyrinthe avec un déplacement du Joueur en (0, 1).
+        - Teste si la règle retourne une exception.
         """
 
         grille = construire_grille("  \n"
@@ -143,12 +139,11 @@ class RegleTest(unittest.TestCase):
 
     def test_transformer_un_adversaire(self) -> None:
         """
-        Crée une grille sans obstacle
-        Crée un état de labyrinthe avec une transformation de l'élément en 1, 0
-        Teste si la règle retourne une exception
-
-        Crée un état de labyrinthe avec une transformation de l'élément en 0, 1
-        Teste si la règle retourne une exception
+        - Crée une grille sans obstacle.
+        - Crée un état de labyrinthe avec une transformation de l'élément en (1, 0).
+        - Teste si la règle retourne une exception.
+        - Crée un état de labyrinthe avec une transformation de l'élément en (0, 1).
+        - Teste si la règle retourne une exception.
         """
 
         grille = construire_grille("  \n"
@@ -165,12 +160,11 @@ class RegleTest(unittest.TestCase):
 
     def test_transformer_un_obstacle(self) -> None:
         """
-        Crée une grille avec un obstacle transformable en 1, 0 et un obstacle en 0, 1
-        Crée un état de labyrinthe avec une transformation de l'élément en 1, 0
-        Teste si la règle retourne une exception
-
-        Crée un état de labyrinthe avec une transformation de l'élément en 0, 1
-        Teste si la règle retourne une exception
+        - Crée une grille avec un obstacle transformable en (1, 0) et un obstacle en (0, 1).
+        - Crée un état de labyrinthe avec une transformation de l'élément en (1, 0).
+        - Teste si la règle retourne une exception.
+        - Crée un état de labyrinthe avec une transformation de l'élément en (0, 1).
+        - Teste si la règle retourne une exception.
         """
 
         grille = construire_grille(" T\n"
@@ -187,12 +181,11 @@ class RegleTest(unittest.TestCase):
 
     def test_gagner_une_partie(self) -> None:
         """
-        Crée une grille avec une sortie en 0, 1
-        Crée un état de labyrinthe avec un déplacement du Joueur en 1, 0
-        Teste si la règle retourne une exception
-
-        Crée un état de labyrinthe avec un déplacement du Joueur en 0, 1
-        Teste si la règle retourne une exception
+        - Crée une grille avec une sortie en (0, 1).
+        - Crée un état de labyrinthe avec un déplacement du Joueur en (1, 0).
+        - Teste si la règle retourne une exception.
+        - Crée un état de labyrinthe avec un déplacement du Joueur en (0, 1).
+        - Teste si la règle retourne une exception.
         """
 
         grille = construire_grille("  \n"

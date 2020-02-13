@@ -1,7 +1,7 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce module contient les classes Transmission et Messagerie.
+Ce module contient les classes ``Transmission`` et ``Messagerie``.
 """
 
 from typing import Any, List, ClassVar
@@ -12,7 +12,7 @@ import threading
 
 class ConnectionFermee(BaseException):
     """
-    Exception levée quand le client distant a fermé la connexion
+    Exception levée quand le client distant a fermé la connexion.
     """
 
     pass
@@ -22,42 +22,36 @@ class Transmission:
     """
     Utilisé pour envoyer et recevoir des messages entre le Client et le Serveur.
     Le message comporte:
-    - une entête de longueur fixe LONGUEUR_ENTETE qui indique la taille de l'objet transmis
-    - l'objet sérialisé avec 'pickle'
 
-    Lève l'exception TypeError quand l'objet ne peut pas être sérialisé
-    Lève l'exception OverflowError quand la taille du message ne peut être contenu dans LONGUEUR_ENTETE
-    Lève l'exception ConnectionFermee quand le client distant a fermé la connexion
-    Lève l'exception ConnectionResetError quand le client distant a réinitialisé la connexion
-    Lève l'exception ConnectionAbortedError quand la socket depuis laquelle le message est reçue est close
-    Lève l'exception OSError quand la socket utilisée par la fonction est close
+    - une entête de longueur fixe ``longueur_entete`` qui indique la taille de l'objet transmis
+    - l'objet sérialisé avec *pickle*
 
     Idée originale détaillée sur:
     https://pythonprogramming.net/pickle-objects-sockets-tutorial-python-3/
 
+    :param request: connexion client.
     """
 
     longueur_entete: ClassVar[int] = 3     # 3 octets = 24 bits
 
     def __init__(self, request: socket) -> None:
         """
-        Stocke la socket,
-        nécessaire pour envoyer et recevoir des messages entre Client et Serveur
+        Stocke la socket nécessaire pour envoyer et recevoir des messages entre Client et Serveur.
 
-        :param socket request: connexion client
+        :param request: connexion client.
         """
 
         self.request = request
 
     def envoyer(self, objet: Any) -> None:
         """
-        Sérialise l'objet avec 'pickle'
-        Détermine la taille du message à transmettre et l'indique dans l'entête
-        Envoie le message en utilisant la socket
+        Sérialise l'objet avec *pickle*.
+        Détermine la taille du message à transmettre et l'indique dans l'entête.
+        Envoie le message en utilisant la socket.
 
-        :param Any objet: objet à transmettre
-        :raises TypeError: si l'objet ne peut pas être sérialisé
-        :raises OverflowError: si la taille du message ne peut être contenu dans LONGUEUR_ENTETE
+        :param objet: objet à transmettre.
+        :raises TypeError: si l'objet ne peut pas être sérialisé.
+        :raises OverflowError: si la taille du message ne peut être contenu dans ``longueur_entete``.
         """
 
         # Lève TypeError si l'objet ne peut pas être sérialisé
@@ -73,17 +67,16 @@ class Transmission:
 
     def recevoir(self) -> Any:
         """
-        Reçoit l'entête de taille LONGUEUR_ENTETE
-        Puis reçoit la quantité d'octets indiquée dans l'entête
-        Dé-sérialise le message avec 'pickle' et retourne l'objet
+        Reçoit l'entête de taille ``longueur_entete``.
+        Puis reçoit la quantité d'octets indiquée dans l'entête.
+        Dé-sérialise le message avec *pickle* et retourne l'objet.
 
-        :return: objet reçu
-        :rtype: Any
-        :raises TypeError: si l'objet ne peut pas être sérialisé
-        :raises ConnectionFermee: si le client distant a fermé la connexion
-        :raises ConnectionResetError: si le client distant a réinitialisé la connexion
-        :raises ConnectionAbortedError: si la socket depuis laquelle le message est reçue est close
-        :raises OSError: si la socket utilisée par la fonction est close
+        :return: objet reçu.
+        :raises TypeError: si l'objet ne peut pas être sérialisé.
+        :raises ConnectionFermee: si le client distant a fermé la connexion.
+        :raises ConnectionResetError: si le client distant a réinitialisé la connexion.
+        :raises ConnectionAbortedError: si la socket depuis laquelle le message est reçue est close.
+        :raises OSError: si la socket utilisée par la fonction est close.
         """
 
         entete = self.request.recv(self.longueur_entete)
@@ -100,9 +93,9 @@ class Transmission:
 
 class Messagerie:
     """
-    Permet aux différents Threads d'ajouter et de récuperer des messages
-    Averti les Threads de l'arrivée d'un message grâce à l'Event 'nouveau_message'
-    Les messages sont stockés sur une unique liste 'messages'
+    Permet aux différents Threads d'ajouter et de récuperer des messages.
+    Averti les Threads de l'arrivée d'un message grâce à l'Event ``nouveau_message``.
+    Les messages sont stockés sur une unique liste ``messages``.
     """
 
     nouveau_message: ClassVar[threading.Condition] = threading.Condition()
@@ -111,11 +104,11 @@ class Messagerie:
     @classmethod
     def ajouter(cls, message: Any) -> None:
         """
-        Utilise un verrou pour accéder à la liste des messages
-        Ajoute le message à la liste
-        Indique l'arriver d'un message avec 'nouveau_message'
+        Utilise le verrou ``nouveau_message`` pour accéder à la liste des messages.
+        Ajoute le message à la liste.
+        Indique l'arriver d'un message avec ``nouveau_message``.
 
-        :param Any message: message à ajouter à la Messagerie
+        :param message: message à ajouter à la classe ``Messagerie``.
         """
 
         with cls.nouveau_message:
@@ -125,12 +118,11 @@ class Messagerie:
     @classmethod
     def obtenir(cls) -> Any:
         """
-        Utilise un verrou pour accéder à la liste des messages
-        Attend l'arriver d'un nouveau message
-        Retire le message le plus ancien de la liste
+        Utilise le verrou ``nouveau_message`` pour accéder à la liste des messages.
+        Attend l'arriver d'un nouveau message.
+        Retire le message le plus ancien de la liste.
 
-        :return: premier message de la Messagerie
-        :rtype: Any
+        :return: premier message de la classe ``Messagerie``.
         """
 
         with cls.nouveau_message:
@@ -141,7 +133,7 @@ class Messagerie:
     @classmethod
     def effacer(cls) -> None:
         """
-        Réinitialise les variables de la classe
+        Réinitialise les variables de la classe ``Messagerie``.
         """
 
         cls.messages.clear()

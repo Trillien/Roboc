@@ -1,9 +1,10 @@
 # -*-coding:Utf-8 -*
 
 """
-Ce module contient les classes Controle, Mouvement, Transformation
-et les fonctions decompresser(), obtenir_controle()
+Ce module définit les contrôles de jeu du labyrinthe.
 
+- les classes ``Controle``, ``Mouvement``, ``Transformation``.
+- les fonctions ``extraire()``, ``obtenir_controle()``.
 """
 
 from typing import ClassVar, Dict, Type, Set, Tuple, List, Any, Final, Pattern, final, Optional
@@ -20,13 +21,18 @@ Regex = str
 
 class Controle(metaclass=ABCMeta):
     """
-    Classe abstraite qui se dérive en Mouvement et Transformation
-    Elle énumère les méthodes action() et regex() nécessaires à un Controle
+    Classe abstraite qui se dérive en ``Mouvement`` et ``Transformation``.
+    Elle énumère les méthodes ``action()`` et ``regex()`` nécessaires à un contrôle.
 
     Pour chaque controle instancié, elle stocke ses informations dans:
-     - 'touches', caractères reconnus pour jouer au labyrinthe
-     - 'descriptions', courtes explications des Mouvements et Transformations
-     - 'touche_controle', dictionnaire associant un Controle à un caractère
+
+    - ``touches``, caractères reconnus pour jouer au labyrinthe.
+    - ``descriptions``, courtes explications des mouvements et transformations.
+    - ``touche_controle``, dictionnaire associant un contrôle à un caractère.
+
+    :param touche: caractère du contrôle.
+    :param description: courte description du contrôle.
+    :param aide: détail sur l'usage du contrôle.
     """
 
     touches: ClassVar[List[Touche]] = []
@@ -35,12 +41,13 @@ class Controle(metaclass=ABCMeta):
 
     def __init__(self, touche: Touche, description: str = "", aide: str = "") -> None:
         """
-        Initialise les variables d'objet d'un contrôle et ajoute les informations aux variables de classe
+        Initialise les variables d'objet d'un contrôle et ajoute les informations aux variables de classe.
 
-        :param Touche touche: caractère du contrôle
-        :param str description: courte description du contrôle
-        :param str aide: détail sur l'usage du contrôle
+        :param touche: caractère du contrôle.
+        :param description: courte description du contrôle.
+        :param aide: détail sur l'usage du contrôle.
         """
+
         self.touche = touche
         self.description = touche + " - " + description + " - " + aide
         self.aide = aide
@@ -58,7 +65,7 @@ class Controle(metaclass=ABCMeta):
     @classmethod
     def effacer(cls) -> None:
         """
-        Réinitialise les variables de la classe
+        Réinitialise les variables de la classe.
         """
 
         cls.touches = []
@@ -68,10 +75,16 @@ class Controle(metaclass=ABCMeta):
 
 class Mouvement(Controle):
     """
-    Classe dérivée de Controle qui représente un Mouvement
-    Indépendamment de Controle, elle stocke les information de ses objets instanciés dans:
-     - 'touches', caractères reconnus pour jouer au labyrinthe
-     - 'directions', vecteur déplacement associé au mouvement
+    Classe dérivée de ``Controle`` qui représente un ``Mouvement``.
+    Indépendamment de ``Controle``, elle stocke les information de ses objets instanciés dans:
+
+    - ``touches``, caractères reconnus pour jouer au labyrinthe.
+    - ``directions``, vecteur déplacement associé au mouvement.
+
+    :param touche: caractère du contrôle.
+    :param direction: vecteur déplacement.
+    :param description: courte description du mouvement.
+    :param aide: détail sur l'usage du contrôle.
     """
 
     touches: ClassVar[List[Touche]] = []
@@ -79,13 +92,13 @@ class Mouvement(Controle):
 
     def __init__(self, touche: Touche, direction: Coordonnees, description: str = "", aide: str = "") -> None:
         """
-        Créer un objet Mouvement, initialise le vecteur direction et le stocke dans une variable de classe.
-        Transmet l'objet à la classe mère Controle pour stocker ses informations
+        Créer un objet ``Mouvement``, initialise le vecteur direction et le stocke dans une variable de classe.
+        Transmet l'objet à la classe mère ``Controle`` pour stocker ses informations.
 
-        :param Touche touche: caractère du contrôle
-        :param Coordonnees direction: vecteur déplacement
-        :param str description: courte description du mouvement
-        :param str aide: détail sur l'usage du contrôle
+        :param touche: caractère du contrôle.
+        :param direction: vecteur déplacement.
+        :param description: courte description du mouvement.
+        :param aide: détail sur l'usage du contrôle.
         """
 
         self.direction = direction
@@ -94,10 +107,9 @@ class Mouvement(Controle):
 
     def action(self) -> Coordonnees:
         """
-        Retourne le vecteur déplacement du mouvement
+        Retourne le vecteur déplacement du mouvement.
 
-        :return: vecteur déplacement
-        :rtype: Coordonnees
+        :return: vecteur déplacement.
         """
 
         return self.direction
@@ -106,10 +118,9 @@ class Mouvement(Controle):
     @final
     def regex(cls) -> Regex:
         """
-        Retourne un schéma de validation depuis les mouvements instanciés
+        Retourne un schéma de validation depuis les mouvements instanciés.
 
-        :return: expression régulière
-        :rtype: Regex
+        :return: expression régulière.
         """
 
         return "([" + ''.join(cls.touches) + "])([0-9]*)"
@@ -117,7 +128,7 @@ class Mouvement(Controle):
     @classmethod
     def effacer(cls) -> None:
         """
-        Réinitialise les variables de la classe
+        Réinitialise les variables de la classe.
         """
 
         cls.touches = []
@@ -126,22 +137,28 @@ class Mouvement(Controle):
 
 class Transformation(Controle):
     """
-    Classe dérivée de Controle qui représente la transformation d'un obstacle
-    Indépendamment de Controle, elle stocke les information de ses objets instanciés dans:
-     - 'touches', caractères reconnus pour jouer au labyrinthe
+    Classe dérivée de ``Controle`` qui représente la transformation d'un obstacle.
+    Indépendamment de ``Controle``, elle stocke les information de ses objets instanciés dans:
+
+    - ``touches``, caractères reconnus pour jouer au labyrinthe.
+
+    :param touche: caractère du contrôle.
+    :param transformer: transformation.
+    :param description: courte description de la transformation.
+    :param aide: détail sur l'usage du contrôle.
     """
 
     touches: ClassVar[List[Touche]] = []
 
     def __init__(self, touche: Touche, transformer: Transformer, description: str = "", aide: str = "") -> None:
         """
-        Créer un objet Transformation et initialise la transformation.
-        Transmet l'objet à la classe mère Controle pour stocker ses informations
+        Créer un objet ``Transformation`` et initialise la transformation.
+        Transmet l'objet à la classe mère ``Controle`` pour stocker ses informations.
 
-        :param Touche touche: caractère du contrôle
-        :param Transformer transformer: transformation
-        :param str description: courte description de la transformation
-        :param str aide: détail sur l'usage du contrôle
+        :param touche: caractère du contrôle.
+        :param transformer: transformation.
+        :param description: courte description de la transformation.
+        :param aide: détail sur l'usage du contrôle.
         """
 
         self.transformer = transformer
@@ -149,10 +166,9 @@ class Transformation(Controle):
 
     def action(self) -> Transformer:
         """
-        Retourne la transformation
+        Retourne la transformation.
 
-        :return: transformation
-        :rtype: Transformer
+        :return: transformation.
         """
 
         return self.transformer
@@ -161,10 +177,9 @@ class Transformation(Controle):
     @final
     def regex(cls) -> Regex:
         """
-        Retourne un schéma de validation depuis les transformations instanciées
+        Retourne un schéma de validation depuis les transformations instanciées.
 
-        :return: expression régulière
-        :rtype: Regex
+        :return: expression régulière.
         """
 
         return "([" + ''.join(cls.touches) + "])([" + ''.join(Mouvement.touches) + "])"
@@ -172,17 +187,18 @@ class Transformation(Controle):
     @classmethod
     def effacer(cls) -> None:
         """
-        Réinitialise les variables de la classe
+        Réinitialise les variables de la classe.
         """
 
         cls.touches = []
 
 
 """
-Instanciation des mouvements Nord, Sud, Est, Ouest et des transformations Percer et Murer
+Instanciation des mouvements ``Nord``, ``Sud``, ``Est``, ``Ouest`` et des transformations ``Percer`` et ``Murer``.
 Création des expressions régulières pour:
-    - valider la saisie du client réseau
-    - extraire les commandes de la saisie du client réseau
+
+- valider la saisie du client réseau.
+- extraire les commandes de la saisie du client réseau.
 """
 
 Mouvement("N", (0, -1), "Se déplacer vers le Nord", "Usage: N[0-99]")
@@ -200,14 +216,13 @@ extraction_controle_compile: Final[Pattern] = re.compile(extraction_controle)
 
 def extraire(saisie: str) -> List[str]:
     """
-    Extrait les commandes avec l'expression regulière extraction_controle_compile tel que:
-        [mouvement repetition]|[transformation direction]
-    Si 'mouvement' est suivi d'un nombre (répétition), répète la commande et la stocke
-    Retourne la liste des commandes de mouvements et de transformations
+    Extrait les commandes avec l'expression regulière ``extraction_controle_compile`` selon le schéma [``mouvement``
+    ``repetition``]|[``transformation`` ``direction``].
+    Si ``mouvement`` est suivi d'un nombre (``repetition``), répète la commande et la stocke.
+    Retourne la liste des commandes de mouvements et de transformations.
 
-    :param str saisie: saisie du client réseau
-    :return: commandes
-    :rtype: List[str]
+    :param saisie: saisie du client réseau.
+    :return: commandes.
     """
 
     extrait = extraction_controle_compile.findall(saisie)
@@ -225,12 +240,11 @@ def extraire(saisie: str) -> List[str]:
 
 def obtenir_controle(commande: str) -> Tuple[Coordonnees, Optional[Transformer]]:
     """
-    Execute action() de l'objet Mouvement ou Transformation lié à la commande
-    Si c'est une commande de transformation, elle inclut également une direction
+    Execute ``action()`` de l'objet ``Mouvement`` ou ``Transformation`` lié à la commande.
+    Si c'est une commande de transformation, elle inclut également une direction.
 
-    :param str commande: commande à décoder
-    :return: vecteur déplacement ou transformation et sa direction
-    :rtype: Tuple[Coordonnees, None] ou Tuple[Coordonnees, Transformer]
+    :param commande: commande à décoder.
+    :return: vecteur déplacement ou transformation et sa direction.
     """
 
     coordonnees = Controle.touche_controle[commande[-1]].action()
