@@ -6,10 +6,10 @@ Ce module contient la classe ``LabyrintheTest``.
 
 from typing import Tuple, Set, List, Dict, cast, ClassVar, Any, Optional
 from os import path
-from element import Obstacle, Element, Elements, Decryptable, Decrypte, Gagnable, Defaut, Demarrable, Transformable,\
+from lib.element import Obstacle, Element, Elements, Decryptable, Decrypte, Gagnable, Defaut, Demarrable, Transformable,\
     Traversable
-from labyrinthe import Labyrinthe, Coordonnees, Grille
-from joueur import Joueur
+from lib.labyrinthe import Labyrinthe, Coordonnees, Grille
+from lib.joueur import Joueur
 import unittest
 
 

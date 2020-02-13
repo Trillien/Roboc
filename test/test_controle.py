@@ -5,8 +5,8 @@ Ce module contient les classes ``ControleTest``, ``ExtraireTest`` et ``ObtenirCo
 """
 
 from typing import List, Tuple, Dict, Any
-from controle import Controle, Mouvement, Transformation, extraire, obtenir_controle, Touche
-from element import Transformable
+from lib.controle import Controle, Mouvement, Transformation, extraire, obtenir_controle, Touche
+from lib.element import Transformable
 import unittest
 
 

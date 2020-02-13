@@ -9,7 +9,7 @@ from typing import Pattern, ClassVar, Final
 from socket import socket
 import threading
 import re
-from messagerie import Messagerie, Transmission, ConnectionFermee
+from lib.messagerie import Messagerie, Transmission, ConnectionFermee
 
 
 class ValidationErreur(BaseException):

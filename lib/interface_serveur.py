@@ -8,7 +8,7 @@ from typing import Tuple, Generator, Type, Final
 from socket import socket
 import socketserver
 import threading
-from messagerie import Messagerie, Transmission, ConnectionFermee
+from lib.messagerie import Messagerie, Transmission, ConnectionFermee
 
 # Alias de type pour les adresses des clients
 Adresse = Tuple[str, int]

@@ -7,8 +7,8 @@ Exécutez-le avec Python pour lancer le jeu.
 
 from typing import Union, Final, Tuple
 import socket
-from interface_client import InterfaceClient, InterfaceServeur, ValidateurTexte, ValidationErreur, Quitter
-from messagerie import Messagerie, Transmission
+from lib.interface_client import InterfaceClient, InterfaceServeur, ValidateurTexte, ValidationErreur, Quitter
+from lib.messagerie import Messagerie, Transmission
 
 # Alias de type pour les adresses des clients
 Adresse = Tuple[str, int]

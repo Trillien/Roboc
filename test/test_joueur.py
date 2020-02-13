@@ -5,7 +5,7 @@ Ce module contient la classe ``JoueurTest``.
 """
 
 from typing import List
-from joueur import Joueur, Commande
+from lib.joueur import Joueur, Commande
 import unittest
 
 

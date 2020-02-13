@@ -5,8 +5,8 @@ Ce module contient les classes ``RequestHandlerTest`` et ``ThreadedTCPServerTest
 """
 
 from typing import Dict, Tuple, List, ClassVar, Final
-from interface_serveur import RequestHandler, ThreadedTCPServer
-from messagerie import Messagerie
+from lib.interface_serveur import RequestHandler, ThreadedTCPServer
+from lib.messagerie import Messagerie
 import socketserver
 import socket
 import threading

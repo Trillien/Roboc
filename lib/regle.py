@@ -11,9 +11,9 @@ Ce module définit les règles du labryinthe.
 
 from typing import Set, Callable, Tuple, Dict, List, Optional, Type, cast
 from abc import ABCMeta
-from element import Obstacle, Elements, Element, Traversable, Gagnable
-from controle import Transformer
-from joueur import Joueur
+from lib.element import Obstacle, Elements, Element, Traversable, Gagnable
+from lib.controle import Transformer
+from lib.joueur import Joueur
 
 # Alias de types
 Coordonnees = Tuple[int, int]

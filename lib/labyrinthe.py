@@ -7,10 +7,8 @@ Ce module contient la classe ``Labyrinthe``.
 from typing import Tuple, Dict, List, Set, Any, Iterator, Optional, cast, Type, Final
 from operator import itemgetter
 from random import randint, sample, shuffle
-import element
-import controle
-import regle
-from joueur import Joueur
+from lib import regle, element, controle
+from lib.joueur import Joueur
 
 # Alias de types
 Coordonnees = Tuple[int, int]

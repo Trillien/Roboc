@@ -5,7 +5,7 @@ Ce module contient les classes ``TransmissionTest`` et ``MessagerieTest``.
 """
 
 from typing import Optional, ClassVar
-from messagerie import Transmission, Messagerie, ConnectionFermee
+from lib.messagerie import Transmission, Messagerie, ConnectionFermee
 import socket
 import threading
 import unittest

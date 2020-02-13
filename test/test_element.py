@@ -5,7 +5,7 @@ Ce module contient la classe ``ElementTest``.
 """
 
 from typing import List, Any, Dict, Tuple
-from element import Decryptable, Decrypte, Defaut, Traversable, Gagnable, Demarrable, Transformable, Murable, Percable,\
+from lib.element import Decryptable, Decrypte, Defaut, Traversable, Gagnable, Demarrable, Transformable, Murable, Percable,\
     Elements, Element
 import unittest
 

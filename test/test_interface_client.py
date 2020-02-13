@@ -4,7 +4,7 @@
 Ce module contient la classe ``ValidateurTexteTest``.
 """
 
-from interface_client import ValidateurTexte, ValidationErreur, Quitter
+from lib.interface_client import ValidateurTexte, ValidationErreur, Quitter
 import unittest
 
 

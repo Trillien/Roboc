@@ -9,7 +9,7 @@ Les tests unitaires de la classe ``Carte`` utilisent deux jeux de fichiers:
 """
 
 from typing import List, Final
-from carte import Carte
+from lib.carte import Carte
 import os
 import unittest
 

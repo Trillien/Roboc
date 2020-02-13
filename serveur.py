@@ -6,11 +6,11 @@ Exécutez-le avec Python pour lancer le jeu.
 """
 
 from typing import Final
-from interface_serveur import ThreadedTCPServer, Adresse
-from messagerie import Messagerie
-from dossier import Dossier
-from carte import Carte
-from labyrinthe import Labyrinthe
+from lib.interface_serveur import ThreadedTCPServer, Adresse
+from lib.messagerie import Messagerie
+from lib.dossier import Dossier
+from lib.carte import Carte
+from lib.labyrinthe import Labyrinthe
 
 # Adresse et port de connexion du serveur
 adresse: Final[Adresse] = ('localhost', 12800)

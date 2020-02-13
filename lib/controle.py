@@ -10,7 +10,7 @@ Ce module définit les contrôles de jeu du labyrinthe.
 from typing import ClassVar, Dict, Type, Set, Tuple, List, Any, Final, Pattern, final, Optional
 from abc import ABCMeta, abstractmethod
 import re
-from element import Transformable, Murable, Percable
+from lib.element import Transformable, Murable, Percable
 
 # Alias de types
 Touche = str

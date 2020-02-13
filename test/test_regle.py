@@ -5,9 +5,9 @@ Ce module contient la classe ``RegleTest``.
 """
 
 from typing import Tuple, Dict, cast, Type, List, Any
-from joueur import Joueur
-from element import Obstacle, Element, Elements, Decryptable, Traversable, Transformable, Gagnable
-from regle import Etat, HorsRegles, PartieGagnee, traverser_un_obstacle, rencontrer_un_adversaire,\
+from lib.joueur import Joueur
+from lib.element import Obstacle, Element, Elements, Decryptable, Traversable, Transformable, Gagnable
+from lib.regle import Etat, HorsRegles, PartieGagnee, traverser_un_obstacle, rencontrer_un_adversaire,\
     transformer_un_obstacle, gagner_une_partie
 import unittest
 

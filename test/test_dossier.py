@@ -7,7 +7,7 @@ Les tests unitaires de la classe ``Dossier`` utilisent les fichiers du dossier *
 """
 
 from typing import Final, List, Set
-from dossier import Dossier
+from lib.dossier import Dossier
 import os
 import unittest
 
