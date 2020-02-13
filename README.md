@@ -1,10 +1,7 @@
 # Roboc
-Code d'un jeu de labyrinthe pour le cours "Apprenez à programmer en Python" d'OpenClassrooms
-
 ![Jeu du labyrinthe](./docs/screenshots/01%20-%20Labyrinth%20game.png "Jeu du labyrinthe")
 
-Roboc est un jeu en réseau écrit en Python.
-Les joueurs utilisent une application cliente pour se connecter à un serveur.
+Code d'un jeu de labyrinthe pour le cours "Apprenez à programmer en Python" d'OpenClassrooms.
 
 ## Prérequis
 Python 3.8
@@ -76,6 +73,8 @@ Commandes :N N N N N ME O O O O O O O O O O O O O PO
 ```
 
 ## Début d'une partie
+Les joueurs utilisent une application Client pour se connecter à un Serveur.
+
 ### 1. Démarrer le serveur
 Démarrer le serveur en tapant *serveur.py* dans une console.
 ```
@@ -140,4 +139,38 @@ Tapez Q pour quitter
 
 ## Fonctionalités
 
-## Tests du code
+
+## Test du code
+### 1. flake8
+Pour vérifier le style du code avec **flake8**, dans le dossier racine ``./`` taper les commandes :
+```
+pip install flake8
+flake8 . --max-line-length=127
+```
+
+### 2. mypy
+Pour vérifier les types (type checking) avec **mypy**, dans le dossier racine ``./`` taper les commandes :
+```
+pip install mypy
+mypy . --strict
+```
+
+### 3. pytest ou unittest
+Pour jouer les tests unitaires avec **unittest**, dans le dossier racine ``./`` taper la commande :
+```
+python -m unittest
+```
+Pour jouer les tests unitaires avec **pytest**, dans le dossier racine ``./`` taper les commandes :
+```
+pip install pytest
+pytest
+```
+
+## Documentation
+Pour générer la documentation, dans le dossier ``./docs`` taper les commandes suivantes :
+```
+pip install Sphinx
+pip install sphinx-rtd-theme
+make clean
+make html
+```
