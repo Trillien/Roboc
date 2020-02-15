@@ -6,14 +6,47 @@ Exécutez-le avec Python pour lancer le jeu.
 """
 
 from typing import Union, Final, Tuple
+import argparse
 import socket
 from lib.interface_client import InterfaceClient, InterfaceServeur, ValidateurTexte, ValidationErreur, Quitter
 from lib.messagerie import Messagerie, Transmission
 
+
+def validateur_port(saisie: str) -> int:
+    """
+    Valide le port de connexion passer en paramètre à l'appel du programme:
+
+    - Convertis la saisie en nombre
+    - Vérifie qu'il est compris entre ``port_mini`` et ``port_maxi``.
+
+    :param saisie: saisie passer en paramètre à l'appel du programme.
+    :return: le port de connexion au Serveur validé.
+    :raises ArgumentTypeError: si la saisie n'est pas un nombre compris entre ``port_mini`` et ``port_maxi``.
+    """
+
+    port_mini, port_maxi = 0, 65535
+    message_erreur = "Le port est un nombre compris entre " + str(port_mini) + " et " + str(port_maxi) + "."
+    try:
+        port = int(saisie)
+    except ValueError:
+        raise argparse.ArgumentTypeError(message_erreur)
+    else:
+        if port < port_mini or port > port_maxi:
+            raise argparse.ArgumentTypeError(message_erreur)
+        return port
+
+
+parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser.add_argument("-a", "--adresse", type=str, default='localhost',
+                    help="L'adresse de connexion au Serveur.")
+parser.add_argument("-p", "--port", type=validateur_port, default=12800,
+                    help="Le port de connexion au Serveur.")
+args = parser.parse_args()
+
 # Alias de type pour les adresses des clients
 Adresse = Tuple[str, int]
 # Adresse et port de connexion au serveur
-adresse: Final[Adresse] = ('localhost', 12800)
+adresse: Final[Adresse] = (args.adresse, args.port)
 
 """
 Ouvre une socket et se connecte à ``adresse``
@@ -26,19 +59,25 @@ Si la connexion n'aboutit pas, demande si l'utilisateur souhaite se reconnecter:
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as requete:
     est_connecte: bool = False
     while not est_connecte:
-        print("On tente de se connecter au serveur...")
+        print("On tente de se connecter au Serveur...")
         try:
             requete.connect(adresse)
-        except ConnectionRefusedError:
+        except (ConnectionRefusedError, TimeoutError):
             print("La connexion n'a pas pu être établie avec {}".format(adresse))
             essai: Union[str, None] = None
             while essai not in ['O', 'N', Quitter.touche]:
                 essai = input("Voulez-vous réessayer (O/N) ? ").upper()
             if essai in ['N', Quitter.touche]:
                 exit()
+        except socket.gaierror:
+            print("L'adresse de connexion {} est erronée.".format(adresse))
+            exit()
+        except OSError as e:
+            print(e)
+            exit()
         else:
             est_connecte = True
-            print("Connexion établie avec le serveur.")
+            print("Connexion établie avec le Serveur.")
 
     """
     Instanciation et démarrage des Threads:
