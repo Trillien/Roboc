@@ -295,7 +295,7 @@ class Labyrinthe:
 
         return len(self.liste_joueurs) < len(self.departs)
 
-    def a_qui_de_jouer(self):
+    def a_qui_de_jouer(self) -> None:
         """
         Ajoute l'information du joueur en cours selon le format (identifiant_client, categorie, message) à la liste
         ``datagrammes``.
