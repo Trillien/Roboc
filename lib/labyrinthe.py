@@ -14,7 +14,7 @@ from lib.joueur import Joueur
 Coordonnees = Tuple[int, int]
 Grille = Dict[Coordonnees, element.Obstacle]
 Categorie = str
-Message = str
+Message = Optional[str]
 Datagramme = Tuple[Any, Categorie, Message]
 
 
@@ -67,9 +67,10 @@ class Labyrinthe:
         self.joueur_courant: Optional[Joueur] = None
         self.mode: int = self.debut_de_partie
         self.vainqueur: Optional[Joueur] = None
+        self.datagrammes: List[Datagramme] = []
 
-        self.creer_labyrinthe(chaine)
-        self.determiner_departs()
+        self._creer_labyrinthe(chaine)
+        self._determiner_departs()
 
     @classmethod
     def get_symboles_connus(cls) -> Set[element.SymboleCarte]:
@@ -101,7 +102,16 @@ class Labyrinthe:
 
         return controle.validation_controle
 
-    def creer_labyrinthe(self, chaine: str) -> None:
+    def get_datagrammes(self) -> Iterator[Datagramme]:
+        """
+        Génère un itérateur et transmet les datagrammes stockées dans la liste ``datagrammes``.
+
+        :return: un iterateur sur les datagrammes selon le format (identifiant_client, categorie, message)
+        """
+        while len(self.datagrammes):
+            yield self.datagrammes.pop(0)
+
+    def _creer_labyrinthe(self, chaine: str) -> None:
         """
         Crée une grille de labyrinthe à partir d'une chaîne de caractère.
 
@@ -125,7 +135,7 @@ class Labyrinthe:
                 if issubclass(obstacle, element.Decrypte):
                     self.grille[(abscisse, ordonnee)] = obstacle
 
-    def determiner_departs(self) -> None:
+    def _determiner_departs(self) -> None:
         """
         Identifie toutes les positions de départ dans la grille par ordre d'éloignement depuis les sorties.
 
@@ -142,7 +152,7 @@ class Labyrinthe:
 
         Mélange aléatoirement les départs possibles iso-distants des sorties et les ajoute dans ``departs``.
         """
-        coordonnees_min, coordonnees_max = self.dimensionner()
+        coordonnees_min, coordonnees_max = self._dimensionner()
         liste_positions = {sortie: 0 for sortie in self.sorties}
         distance = 0
         while [position for position, indice in liste_positions.items() if indice >= distance]:
@@ -171,7 +181,7 @@ class Labyrinthe:
                 self.departs.extend(departs)
             distance += 1
 
-    def dimensionner(self) -> Tuple[Coordonnees, Coordonnees]:
+    def _dimensionner(self) -> Tuple[Coordonnees, Coordonnees]:
         """
         Détermine la taille du plateau du labyrinthe en considérant la grille d'éléments et les coordonnées des joueurs.
         La taille du plateau est variable car le joueur peut se déplacer au-delà de la grille d'éléments.
@@ -198,7 +208,7 @@ class Labyrinthe:
             max_abscisse, max_ordonnee = 0, 0
         return (min_abscisse, min_ordonnee), (max_abscisse, max_ordonnee)
 
-    def afficher_plateau(self, joueur: Optional[Joueur] = None) -> str:
+    def _afficher_plateau(self, joueur: Optional[Joueur] = None) -> str:
         """
         Représente le plateau du labyrinthe et la position des joueurs avec une chaîne de caractères.
 
@@ -211,7 +221,7 @@ class Labyrinthe:
         :return: chaîne de caractères représentant le plateau.
         """
 
-        coordonnees_min, coordonnees_max = self.dimensionner()
+        coordonnees_min, coordonnees_max = self._dimensionner()
         coordonnees_adversaires: List[Coordonnees] = []
         coordonnees_joueur: Optional[Coordonnees] = None
         if self.mode >= self.jeu_en_cours and joueur:
@@ -237,7 +247,7 @@ class Labyrinthe:
             plateau += "\n"
         return plateau
 
-    def ajouter_joueur(self, identifiant_client: Any, nom: str) -> Optional[Joueur]:
+    def _ajouter_joueur(self, identifiant_client: Any, nom: str) -> Optional[Joueur]:
         """
         Si la partie n'a pas débuté, et s'il y a suffisamment de positions de départ, instancie un joueur et l'ajoute à la
         liste des joueurs du labyrinthe.
@@ -246,6 +256,7 @@ class Labyrinthe:
         :param  nom: nom du joueur.
         :return: le joueur ajouté à la liste.
         """
+
         if self.mode == self.debut_de_partie and self.est_ouvert():
             joueur = Joueur(identifiant_client, nom)
             self.dict_client_joueur[identifiant_client] = joueur
@@ -254,7 +265,7 @@ class Labyrinthe:
         else:
             return None
 
-    def effacer_joueur(self, identifiant_client: Any) -> None:
+    def _effacer_joueur(self, identifiant_client: Any) -> None:
         """
         Supprime le joueur identifié par ``identifiant_client`` de la liste des joueurs du labyrinthe.
         Si la partie a débuté, teste s'il reste plus d'un joueur en lice. Dans le cas contraire, termine la partie et désigne
@@ -284,33 +295,74 @@ class Labyrinthe:
 
         return len(self.liste_joueurs) < len(self.departs)
 
-    def accueillir(self, identifiant_client: Any, nom: str) -> Iterator[Datagramme]:
+    def a_qui_de_jouer(self):
+        """
+        Ajoute l'information du joueur en cours selon le format (identifiant_client, categorie, message) à la liste
+        ``datagrammes``.
+        """
+
+        if self.mode < self.fin_de_partie:
+            for identifiant_client, joueur in self.dict_client_joueur.items():
+                if self.liste_joueurs[0] == joueur:
+                    self.datagrammes.append((identifiant_client, 'affichage', "C'est à Vous de jouer"))
+                else:
+                    self.datagrammes.append((identifiant_client, 'affichage',
+                                             "C'est à " + self.liste_joueurs[0].nom + " de jouer"))
+
+    def afficher_plateau(self) -> None:
+        """
+        Pour chaque joueur ajoute le plateau du labyrinthe selon le format (identifiant_client, categorie, message) à la liste
+        ``datagrammes``.
+        """
+
+        for identifiant_client, joueur in self.dict_client_joueur.items():
+            self.datagrammes.append((identifiant_client, 'affichage', self._afficher_plateau(joueur)))
+            self.datagrammes.append((identifiant_client, 'affichage', ""))
+
+    def ajouter_joueur(self, identifiant_client: Any, nom: str) -> None:
         """
         Ajoute un nouveau joueur à la partie.
-        Si le joueur est ajouté, retourne les messages d'accueil et le plateau pour le nouveau joueur.
+        Si le joueur est ajouté, ajoute les messages d'accueil et le plateau pour le nouveau joueur selon le format
+        (identifiant_client, categorie, message) à la liste ``datagrammes``.
 
         :param identifiant_client: variable qui associe le joueur au client réseau.
         :param nom: nom du joueur.
-        :return: messages pour le nouveau client réseau selon le format ``(client, categorie, message)``.
         """
 
-        if self.ajouter_joueur(identifiant_client, nom):
-            yield identifiant_client, 'affichage', ""
-            yield identifiant_client, 'affichage', "Bienvenue, " + nom + "."
-            yield identifiant_client, 'affichage', "Vous jouez sur le labyrinthe '" + self.nom_labyrinthe + "'"
-            yield identifiant_client, 'affichage', self.afficher_plateau()
+        if self._ajouter_joueur(identifiant_client, nom):
+            self.datagrammes.append((identifiant_client, 'affichage', ""))
+            self.datagrammes.append((identifiant_client, 'affichage', "Bienvenue, " + nom + "."))
+            self.datagrammes.append((identifiant_client, 'affichage',
+                                     "Vous jouez sur le labyrinthe '" + self.nom_labyrinthe + "'"))
+            self.datagrammes.append((identifiant_client, 'affichage', self._afficher_plateau()))
 
-    def demarrer(self) -> Iterator[Datagramme]:
+    def effacer_joueur(self, identifiant_client: Any) -> None:
+        """
+        Supprime le joueur identifié par ``identifiant_client`` de la partie.
+        Pour chaque joueur, ajoute un message d'information, le plateau, et le tour de jeur selon le format
+        (identifiant_client, categorie, message) à la liste ``datagrammes``.
+
+        :param identifiant_client: variable qui associe le joueur au client réseau.
+        """
+
+        joueur = self.dict_client_joueur[identifiant_client]
+        self._effacer_joueur(identifiant_client)
+        if self.mode >= self.jeu_en_cours:
+            for identifiant_client in self.dict_client_joueur:
+                self.datagrammes.append((identifiant_client, 'affichage', joueur.nom + " a quitté la partie."))
+            self.afficher_plateau()
+            self.a_qui_de_jouer()
+
+    def demarrer(self) -> None:
         """
         Définit les positions de départs des joueurs.
-        Retourne pour chaque joueur les descriptions des contrôles autorisés et le plateau du labyrinthe.
+        Pour chaque joueur, ajoute les descriptions des contrôles autorisés et le plateau du labyrinthe selon le format
+        (identifiant_client, categorie, message) à la liste ``datagrammes``.
 
         Choisit aléatoirement un entier compris entre 0 et *nombre de départs possibles* - *nombre de joueurs*.
         Mélange les joueurs, puis attribue les positions de départ à partir de l'indice.
         Les positions sont classées par distance croissante à une sortie du labyrinthe (voir ``creer_labyrinthe()``).
         L'attribution de positions consécutives répartit équitablement les joueurs sur le plateau.
-
-        :return: messages pour les clients réseau.
         """
 
         self.mode = self.jeu_en_cours
@@ -321,42 +373,32 @@ class Labyrinthe:
             joueur.coordonnees = self.departs[indice]
             indice += 1
 
-        for identifiant_client, joueur in self.dict_client_joueur.items():
-            yield identifiant_client, 'affichage', "La partie commence! Vous êtes " \
-                + str(len(self.liste_joueurs)) + " joueurs"
+        for identifiant_client in self.dict_client_joueur:
+            self.datagrammes.append((identifiant_client, 'validation_schema', self.get_validation_controle()))
+            self.datagrammes.append((identifiant_client, 'validation_erreur', "Cette saisie n'est pas valide !"))
+            self.datagrammes.append((identifiant_client, 'affichage',
+                                     "La partie commence! Vous êtes " + str(len(self.liste_joueurs)) + " joueurs"))
             for description in controle.Controle.descriptions:
-                yield identifiant_client, 'affichage', description
-            yield identifiant_client, 'affichage', self.afficher_plateau(joueur)
-            yield identifiant_client, 'affichage', ""
-            yield identifiant_client, 'affichage', "C'est à " + self.liste_joueurs[0].nom + " de jouer"
+                self.datagrammes.append((identifiant_client, 'affichage', description))
+        self.afficher_plateau()
+        self.a_qui_de_jouer()
 
-    def afficher_jeu(self) -> Iterator[Datagramme]:
-        """
-        Retourne pour chaque joueur le plateau du labyrinthe.
-
-        :return: messages pour les clients réseau.
-        """
-
-        for identifiant_client, joueur in self.dict_client_joueur.items():
-            yield identifiant_client, 'affichage', self.afficher_plateau(joueur)
-            yield identifiant_client, 'affichage', ""
-
-    def ajouter_commande(self, identifiant_client: Any, saisie: str) -> List[str]:
+    def ajouter_commande(self, identifiant_client: Any, saisie: str) -> None:
         """
         Extrait les commandes depuis la chaîne de caractères saisie par le joueur, et les ajoute à la liste de commandes
         pré-existantes.
 
         :param identifiant_client: variable qui associe le joueur au client réseau.
         :param saisie: saisie du client réseau.
-        :return: commandes.
         """
 
         commandes = controle.extraire(saisie)
         joueur = self.dict_client_joueur[identifiant_client]
         joueur.ajouter_commande(commandes)
-        return joueur.commandes
+        if joueur.commandes:
+            self.datagrammes.append((identifiant_client, 'affichage', "Commandes :" + ' '.join(commandes)))
 
-    def jouer(self) -> Iterator[Datagramme]:
+    def jouer(self) -> None:
         """
         Tant que les joueurs ont des commandes en attente et tant que la partie n'est pas terminée, pour chaque joueur à tour
         de rôle:
@@ -370,10 +412,10 @@ class Labyrinthe:
         Pour vérifier que la commande suit les règles du labyrinthe, un ``instantane`` est créé et représente l'état du
         labyrinthe *(la commande, la grille d'éléments, le joueur et la liste des joueurs)*.
 
-        Si une règle est violée, la raison est retournée au joueur et la prochaine commande du même joueur est testée.
-        Si une partie est gagnée, le joueur est déclaré vainqueur.
+        Si une règle est violée, la raison est ajoutée selon le format (identifiant_client, categorie, message) à la liste
+        ``datagrammes`` et la prochaine commande du même joueur est testée.
 
-        :return: messages pour les clients réseau.
+        Si une partie est gagnée, le joueur est déclaré vainqueur.
         """
 
         while self.mode < self.fin_de_partie:
@@ -390,7 +432,7 @@ class Labyrinthe:
                 try:
                     regle.verifier_regles(instantane)
                 except regle.HorsRegles as e:
-                    yield self.joueur_courant.identifiant_client, 'affichage', str(e)
+                    self.datagrammes.append((self.joueur_courant.identifiant_client, 'affichage', str(e)))
                     self.liste_joueurs.insert(0, self.joueur_courant)
                     self.joueur_courant = None
                     continue
@@ -412,20 +454,18 @@ class Labyrinthe:
 
                 self.liste_joueurs.append(self.joueur_courant)
                 self.joueur_courant = None
-                for identifiant_client, joueur in self.dict_client_joueur.items():
-                    yield identifiant_client, 'affichage', self.afficher_plateau(joueur)
-                    yield identifiant_client, 'affichage', ""
-                    if self.mode < self.fin_de_partie:
-                        yield identifiant_client, 'affichage', "C'est à " + self.liste_joueurs[0].nom + " de jouer"
+                self.afficher_plateau()
+                self.a_qui_de_jouer()
 
-    def terminer(self) -> Iterator[Datagramme]:
+    def terminer(self) -> None:
         """
-        Retourne à chaque joueur le vainqueur de la partie.
+        Pour chaque joueur, ajoute le vainqueur de la partie et transmet 'fin' selon le format
+        (identifiant_client, categorie, message) à la liste ``datagrammes``.
+        """
 
-        :return: messages pour les clients réseau.
-        """
         for identifiant_client, joueur in self.dict_client_joueur.items():
             if self.vainqueur == joueur:
-                yield identifiant_client, 'affichage', "Vous avez gagné la partie !"
+                self.datagrammes.append((identifiant_client, 'affichage', "Vous avez gagné la partie !"))
             elif self.vainqueur:
-                yield identifiant_client, 'affichage', self.vainqueur.nom + " a gagné la partie !"
+                self.datagrammes.append((identifiant_client, 'affichage', self.vainqueur.nom + " a gagné la partie !"))
+            self.datagrammes.append((identifiant_client, 'fin', None))

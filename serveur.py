@@ -6,14 +6,45 @@ Exécutez-le avec Python pour lancer le jeu.
 """
 
 from typing import Final
+import argparse
 from lib.interface_serveur import ThreadedTCPServer, Adresse
 from lib.messagerie import Messagerie
 from lib.dossier import Dossier
 from lib.carte import Carte
 from lib.labyrinthe import Labyrinthe
 
+
+def validateur_port(saisie: str) -> int:
+    """
+    Valide le port de connexion passer en paramètre à l'appel du programme:
+
+    - Convertis la saisie en nombre
+    - Vérifie qu'il est compris entre ``port_mini`` et ``port_maxi``.
+
+    :param saisie: saisie passer en paramètre à l'appel du programme.
+    :return: le port de connexion du Serveur validé.
+    :raises ArgumentTypeError: si la saisie n'est pas un nombre compris entre ``port_mini`` et ``port_maxi``.
+    """
+
+    port_mini, port_maxi = 0, 65535
+    message_erreur = "Le port est un nombre compris entre " + str(port_mini) + " et " + str(port_maxi) + "."
+    try:
+        port = int(saisie)
+    except ValueError:
+        raise argparse.ArgumentTypeError(message_erreur)
+    else:
+        if port < port_mini or port > port_maxi:
+            raise argparse.ArgumentTypeError(message_erreur)
+        return port
+
+
+parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
+parser.add_argument("-p", "--port", type=validateur_port, default=12800,
+                    help="Le port d'écoute du Serveur.")
+args = parser.parse_args()
+
 # Adresse et port de connexion du serveur
-adresse: Final[Adresse] = ('localhost', 12800)
+adresse: Final[Adresse] = ('localhost', args.port)
 
 # Dossier de recherche des cartes
 dossier_des_cartes: Final[str] = "cartes"
@@ -82,7 +113,7 @@ else:
     with ThreadedTCPServer(adresse) as serveur:
         serveur.connexion_autorisee = labyrinthe.est_ouvert()
         serveur.thread.start()
-        print("On attend les clients.")
+        print("On attend les Clients sur l'adresse {}.".format(adresse))
 
         """
         Première boucle avant le début de partie qui autorise de nouveaux joueurs.
@@ -105,7 +136,8 @@ else:
             except (ValueError, TypeError):
                 continue
             if categorie == 'nouveau_joueur':
-                for _emetteur, categorie, message in labyrinthe.accueillir(emetteur, emetteur.nom_joueur):
+                labyrinthe.ajouter_joueur(emetteur, emetteur.nom_joueur)
+                for _emetteur, categorie, message in labyrinthe.get_datagrammes():
                     _emetteur.envoyer((categorie, message))
                 emetteur.envoyer(('validation_schema', r"[" + touche_commencer + "]"))
                 emetteur.envoyer(('validation_erreur', "Erreur dans la saisie."))
@@ -128,10 +160,8 @@ else:
 
         serveur.connexion_autorisee = False
         print("Début de la partie.")
-        for _emetteur in labyrinthe.dict_client_joueur:
-            _emetteur.envoyer(('validation_schema', Labyrinthe.get_validation_controle()))
-            _emetteur.envoyer(('validation_erreur', "Cette saisie n'est pas valide !"))
-        for _emetteur, categorie, message in labyrinthe.demarrer():
+        labyrinthe.demarrer()
+        for _emetteur, categorie, message in labyrinthe.get_datagrammes():
             _emetteur.envoyer((categorie, message))
 
         """
@@ -155,18 +185,16 @@ else:
                 continue
             if categorie == 'quitte':
                 labyrinthe.effacer_joueur(emetteur)
-                for _emetteur, categorie, message in labyrinthe.afficher_jeu():
-                    _emetteur.envoyer(('affichage', emetteur.nom_joueur + " a quitté la partie."))
+                for _emetteur, categorie, message in labyrinthe.get_datagrammes():
                     _emetteur.envoyer((categorie, message))
                 print(emetteur.nom_joueur + " a quitté la partie.")
 
             elif categorie == 'commande':
                 commandes = labyrinthe.ajouter_commande(emetteur, message)
-                if commandes:
-                    emetteur.envoyer(('affichage', "Commandes :" + ' '.join(commandes)))
-                    print(emetteur.nom_joueur + " a transmis une saisie. Liste des commandes :" + ' '.join(commandes))
-                    for _emetteur, categorie, message in labyrinthe.jouer():
-                        _emetteur.envoyer((categorie, message))
+                print(emetteur.nom_joueur + " a saisie '" + message + "'.")
+                labyrinthe.jouer()
+                for _emetteur, categorie, message in labyrinthe.get_datagrammes():
+                    _emetteur.envoyer((categorie, message))
 
         """
         Le programme quitte la boucle principale:
@@ -181,10 +209,9 @@ else:
         """
 
         print("Fin de la partie.")
-        for _emetteur, categorie, message in labyrinthe.terminer():
+        labyrinthe.terminer()
+        for _emetteur, categorie, message in labyrinthe.get_datagrammes():
             _emetteur.envoyer((categorie, message))
-            _emetteur.envoyer(("fin", None))
-
         print("Fermeture de la connexion")
         serveur.shutdown()
         serveur.thread.join()

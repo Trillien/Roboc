@@ -164,13 +164,13 @@ class LabyrintheTest(unittest.TestCase):
         liste_joueurs: Dict[int, Optional[Joueur]] = {}
         labyrinthe = Labyrinthe("D" * nombre_joueurs + "F")
         for identifiant in range(nombre_joueurs):
-            liste_joueurs[identifiant] = labyrinthe.ajouter_joueur(identifiant, "Joueur" + str(identifiant))
+            liste_joueurs[identifiant] = labyrinthe._ajouter_joueur(identifiant, "Joueur" + str(identifiant))
             self.assertIs(liste_joueurs[identifiant], labyrinthe.dict_client_joueur[identifiant])
             self.assertIn(liste_joueurs[identifiant], labyrinthe.liste_joueurs)
-        self.assertIs(None, labyrinthe.ajouter_joueur("ultime", "Dernier Joueur"))
+        self.assertIs(None, labyrinthe._ajouter_joueur("ultime", "Dernier Joueur"))
 
         for identifiant, joueur in liste_joueurs.items():
-            labyrinthe.effacer_joueur(identifiant)
+            labyrinthe._effacer_joueur(identifiant)
             self.assertNotIn(identifiant, labyrinthe.dict_client_joueur)
             self.assertNotIn(joueur, labyrinthe.liste_joueurs)
 
@@ -190,14 +190,14 @@ class LabyrintheTest(unittest.TestCase):
         liste_joueurs: Dict[int, Optional[Joueur]] = {}
         labyrinthe = Labyrinthe("D" * nombre_joueurs * 2 + "F")
         for identifiant in range(nombre_joueurs):
-            liste_joueurs[identifiant] = labyrinthe.ajouter_joueur(identifiant, "Joueur" + str(identifiant))
+            liste_joueurs[identifiant] = labyrinthe._ajouter_joueur(identifiant, "Joueur" + str(identifiant))
             self.assertIs(liste_joueurs[identifiant], labyrinthe.dict_client_joueur[identifiant])
             self.assertIn(liste_joueurs[identifiant], labyrinthe.liste_joueurs)
         labyrinthe.mode = Labyrinthe.jeu_en_cours
-        self.assertIs(None, labyrinthe.ajouter_joueur("ultime", "Dernier Joueur"))
+        self.assertIs(None, labyrinthe._ajouter_joueur("ultime", "Dernier Joueur"))
 
         for identifiant, joueur in liste_joueurs.copy().items():
-            labyrinthe.effacer_joueur(identifiant)
+            labyrinthe._effacer_joueur(identifiant)
             liste_joueurs.pop(identifiant)
             self.assertNotIn(identifiant, labyrinthe.dict_client_joueur)
             self.assertNotIn(joueur, labyrinthe.liste_joueurs)
@@ -238,7 +238,7 @@ class LabyrintheTest(unittest.TestCase):
                 mini_debut_de_partie, maxi_debut_de_partie = \
                     determiner_min_max(mini_debut_de_partie, maxi_debut_de_partie, coordonnees)
             labyrinthe = Labyrinthe(chaine)
-            joueur = labyrinthe.ajouter_joueur("Joueur", "Joueur")
+            joueur = labyrinthe._ajouter_joueur("Joueur", "Joueur")
 
             for joueur_coordonnee in joueur_coordonnees:
                 if joueur:
@@ -248,9 +248,9 @@ class LabyrintheTest(unittest.TestCase):
                 mini_jeu_en_cours, maxi_jeu_en_cours = \
                     determiner_min_max(mini_debut_de_partie, maxi_debut_de_partie, joueur.coordonnees)
                 labyrinthe.mode = Labyrinthe.debut_de_partie
-                self.assertEqual((mini_debut_de_partie, maxi_debut_de_partie), labyrinthe.dimensionner())
+                self.assertEqual((mini_debut_de_partie, maxi_debut_de_partie), labyrinthe._dimensionner())
                 labyrinthe.mode = Labyrinthe.jeu_en_cours
-                self.assertEqual((mini_jeu_en_cours, maxi_jeu_en_cours), labyrinthe.dimensionner())
+                self.assertEqual((mini_jeu_en_cours, maxi_jeu_en_cours), labyrinthe._dimensionner())
 
     def test_determiner_departs(self) -> None:
         """
@@ -301,21 +301,21 @@ class LabyrintheTest(unittest.TestCase):
         chaine: str = "FDT\nD"
         grille_reference, _, _ = construire_grille(chaine)
         labyrinthe = Labyrinthe(chaine)
-        grille_obtenue, _, _ = construire_grille(labyrinthe.afficher_plateau())
+        grille_obtenue, _, _ = construire_grille(labyrinthe._afficher_plateau())
         self.assertEqual(grille_reference, grille_obtenue)
 
         # Grille 3x2 | Fin    / Départ / Transformable
         #            | Joueur / Défaut / Adversaire
         chaine_reference = "FDT\nXOx"
-        joueur = labyrinthe.ajouter_joueur("Joueur", "Joueur")
-        adversaire = labyrinthe.ajouter_joueur("Adversaire", "Adversaire")
+        joueur = labyrinthe._ajouter_joueur("Joueur", "Joueur")
+        adversaire = labyrinthe._ajouter_joueur("Adversaire", "Adversaire")
         if joueur and adversaire:
             joueur.coordonnees = (0, 1)
             adversaire.coordonnees = (2, 1)
         else:
             raise AttributeError
         labyrinthe.mode = Labyrinthe.jeu_en_cours
-        self.assertEqual(chaine_reference + "\n", labyrinthe.afficher_plateau(joueur))
+        self.assertEqual(chaine_reference + "\n", labyrinthe._afficher_plateau(joueur))
 
     def test_ajouter_commande(self) -> None:
         """
@@ -329,7 +329,7 @@ class LabyrintheTest(unittest.TestCase):
 
         chaine: str = "FD"  # Grille 1x2 avec 1 fin et 1 départ
         labyrinthe = Labyrinthe(chaine)
-        joueur = labyrinthe.ajouter_joueur("Joueur", "Joueur")
+        joueur = labyrinthe._ajouter_joueur("Joueur", "Joueur")
         if not joueur:
             raise AttributeError
         saisies: List[str] = ["N2", "ES"]
@@ -369,11 +369,9 @@ class AffichageTest(unittest.TestCase):
 
         liste_identifiants: List[Any] = []
         for indice in range(len(self.labyrinthe.departs)):
-            for _, _, _ in self.labyrinthe.accueillir("identifiant" + str(indice), "Joueur" + str(indice)):
-                pass
+            self.labyrinthe.ajouter_joueur("identifiant" + str(indice), "Joueur" + str(indice))
             liste_identifiants.append("identifiant" + str(indice))
-        for _, _, _ in self.labyrinthe.demarrer():
-            pass
+        self.labyrinthe.demarrer()
         liste_coordonnees = []
         for identifiant in liste_identifiants:
             liste_coordonnees.append(self.labyrinthe.dict_client_joueur[identifiant].coordonnees)
@@ -397,10 +395,8 @@ class AffichageTest(unittest.TestCase):
                                       ['N2', 'E6', 'N2']]               # 10 mouvements
 
         for indice in range(len(departs)):
-            for _, _, _ in self.labyrinthe.accueillir("identifiant" + str(indice), "Joueur" + str(indice)):
-                pass
-        for _, _, _ in self.labyrinthe.demarrer():
-            pass
+            self.labyrinthe.ajouter_joueur("identifiant" + str(indice), "Joueur" + str(indice))
+        self.labyrinthe.demarrer()
 
         for indice, joueur in enumerate(self.labyrinthe.liste_joueurs):
             joueur.coordonnees = departs[indice]
@@ -411,11 +407,9 @@ class AffichageTest(unittest.TestCase):
             for commande in commandes[indice]:
                 self.labyrinthe.ajouter_commande(joueur.identifiant_client, commande)
 
-        for _, _, _ in self.labyrinthe.jouer():
-            pass
+        self.labyrinthe.jouer()
 
         self.assertEqual(Labyrinthe.fin_de_partie, self.labyrinthe.mode)
         self.assertIs(vainqueur, self.labyrinthe.vainqueur)
 
-        for _, _, _ in self.labyrinthe.terminer():
-            pass
+        self.labyrinthe.terminer()
