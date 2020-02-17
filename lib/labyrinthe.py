@@ -25,12 +25,12 @@ class Labyrinthe:
 
     Pour ajouter ou retirer un joueur:
 
-    - ``ajouter_joueur(identifiant, nom)``
-    - ``effacer_joueur(identifiant)``
+    - ``_ajouter_joueur(identifiant, nom)``
+    - ``_effacer_joueur(identifiant)``
 
     Déroulement d'une partie:
 
-    - ``accueillir(identifiant, nom)``, avant le début d'une partie, ajoute un joueur et retourne le message d'accueil.
+    - ``ajouter_joueur(identifiant, nom)``, avant le début d'une partie, ajoute un joueur et retourne le message d'accueil.
     - ``demarrer()``, définit les positions des joueurs, transmet le plateau de jeu et débute la partie.
     - ``ajouter_commande(identifiant, saisie)``, traduit la chaîne de caractères en commandes.
     - ``jouer()``, extrait les commandes et les valide, puis actualise les nouvelles positions des joueurs.
