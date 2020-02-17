@@ -41,15 +41,14 @@ def validateur_port(saisie: str) -> int:
 parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
 parser.add_argument("-p", "--port", type=validateur_port, default=12800,
                     help="Le port d'écoute du Serveur.")
+parser.add_argument("-d", "--dossier", type=str, default="cartes",
+                    help="Le dossier des cartes de labyrinthe.")
+parser.add_argument("-e", "--extension", type=str, default="txt",
+                    help="L'extension des cartes de labyrinthe.")
 args = parser.parse_args()
 
 # Adresse et port de connexion du serveur
 adresse: Final[Adresse] = ('localhost', args.port)
-
-# Dossier de recherche des cartes
-dossier_des_cartes: Final[str] = "cartes"
-# Extension des cartes
-extension_des_cartes: Final[str] = ".txt"
 
 # Touche saisie par un client réseau pour commencer la partie de labyrinthe
 touche_commencer: Final[str] = 'C'
@@ -71,7 +70,7 @@ Carte.elements_obligatoires = Labyrinthe.get_symboles_obligatoire()
 
 fichiers = None
 try:
-    fichiers = Dossier(chemin=dossier_des_cartes, extension=extension_des_cartes, classe=Carte)
+    fichiers = Dossier(chemin=args.dossier, extension='.' + args.extension, classe=Carte)
 except (FileNotFoundError, EOFError, OSError) as e:
     print(e)
     exit()
@@ -190,7 +189,7 @@ else:
                 print(emetteur.nom_joueur + " a quitté la partie.")
 
             elif categorie == 'commande':
-                commandes = labyrinthe.ajouter_commande(emetteur, message)
+                labyrinthe.ajouter_commande(emetteur, message)
                 print(emetteur.nom_joueur + " a saisie '" + message + "'.")
                 labyrinthe.jouer()
                 for _emetteur, categorie, message in labyrinthe.get_datagrammes():
