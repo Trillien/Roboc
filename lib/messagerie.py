@@ -6,6 +6,7 @@ Ce module contient les classes ``Transmission`` et ``Messagerie``.
 
 from typing import Any, List, ClassVar
 from socket import socket
+from abc import ABCMeta
 import pickle
 import threading
 
@@ -91,7 +92,7 @@ class Transmission:
         return message
 
 
-class Messagerie:
+class Messagerie(metaclass=ABCMeta):
     """
     Permet aux différents Threads d'ajouter et de récuperer des messages.
     Averti les Threads de l'arrivée d'un message grâce à l'Event ``nouveau_message``.
