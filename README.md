@@ -251,7 +251,7 @@ pytest
 ```
 
 ## Documentation
-La documentation est créée avec Spinx et ses extensions:
+La documentation est créée avec Sphinx et ses extensions:
 - ``sphinx.ext.autodoc`` - Génère la documentation depuis les docstrings contenues dans le code.
   modules.
 - ``sphinx.ext.autodoc.typehints`` - Déduit les types des fonctions depuis leur signature.
