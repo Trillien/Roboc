@@ -76,7 +76,7 @@ class Transmission:
         :raises TypeError: si l'objet ne peut pas être sérialisé.
         :raises ConnectionFermee: si le client distant a fermé la connexion.
         :raises ConnectionResetError: si le client distant a réinitialisé la connexion.
-        :raises ConnectionAbortedError: si la socket depuis laquelle le message est reçue est close.
+        :raises ConnectionAbortedError: si la socket depuis laquelle le message est reçu est close.
         :raises OSError: si la socket utilisée par la fonction est close.
         """
 
