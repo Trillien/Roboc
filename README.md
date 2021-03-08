@@ -1,3 +1,5 @@
+[![Check Python code](https://github.com/Trillien/Roboc/actions/workflows/pythonapp.yml/badge.svg?event=push)](https://github.com/Trillien/Roboc/actions/workflows/pythonapp.yml)
+
 # Roboc
 ![Jeu du labyrinthe](./docs/screenshots/01%20-%20Labyrinth%20game.png "Jeu du labyrinthe")
 
