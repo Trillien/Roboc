@@ -209,7 +209,7 @@ Le Client importe les librairies depuis ``./lib``:
  - ``joueur``, pour stocker les coordonnées et attributs des joueurs
  - ``controle``, pour définir les contrôles possibles et les actions associées
  - ``element``, pour définir les propriétés des éléments de la grille du labyrinthe
- - ``regle``, pour valider les mouvements des joueuers et les transformations d'éléments
+ - ``regle``, pour valider les mouvements des joueurs et les transformations d'éléments
 
 ### 3. Dépendance de modules Python
  - ``abc`` (abstract base class) - Définit des classes abstraites (qui ne peuvent pas instancier d'objet) 
